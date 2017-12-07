@@ -1,0 +1,152 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Design</title>
+<!--	<link href="portfolio.css" rel="stylesheet" type="text/css">-->
+<!--	<link href="portfolio-mobile.css" rel="stylesheet" type="text/css">-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script>
+		if($(window).width() > $(window).height()) { //desktop
+			document.write('<link href="portfolio.css" rel="stylesheet" type="text/css">');
+		} else {  //mobile
+			document.write('<link href="portfolio-mobile.css" rel="stylesheet" type="text/css">');
+		}
+	</script>
+	<script>
+		$(document).ready(function(){
+			if($(window).width() > $(window).height()) { //desktop
+				$('.sidebar-hitbox').on('mouseover', function(event){
+					$('.sidebar-overlay').fadeIn(200);
+				});
+
+				$('.sidebar-hitbox').on('mouseout', function(event){
+					$('.sidebar-overlay').fadeOut(200);
+				});
+
+				$('.sidebar-hitbox').click(function(){
+					console.log("si senior");
+					if($('.sidebar-overlay').is(':visible')) {
+						window.location = "index.html#portfolio"
+					}
+				})
+
+			} else {  //mobile
+				
+			}
+			$('.content').each(function(){
+				$(this).css('height', $('.content').find('.content-text').css('height'));
+			});
+		})
+	</script>
+</head>
+
+<body>
+	<div class="sidebar-hitbox"></div>
+	<script>
+		if($(window).width() > $(window).height()) {	//desktop
+			$(".sidebar").hide();
+		} else {	//mobile
+			$(".sidebar").hide();
+		}
+	</script>
+	<div class="sidebar">
+		<script>
+		if($(window).width() > $(window).height()) {	//desktop
+			$(".sidebar").append('<img src="design.png" alt="Design" id="design">');
+			console.log("this should be showign up");
+		}
+		</script>
+		
+		<a href="index.html#portfolio"><div class="sidebar-overlay">
+			<p>Design</p>
+			<img src="back-arrow.png" alt="back arrow" class="back-arrow">
+		</div></a>
+	</div>
+	
+	<div class="content">
+		<div class="title-mobile"></div>
+		<script>
+			if($(window).width() < $(window).height()) {
+				$(".title-mobile").append("Photography");
+			}
+		</script>
+		<div class="content-title">Sweet Emotions</div>
+		<div class="imageplace-1"></div>
+		<div class="content-text">
+			<p>I created visual advertisements for use in an andvertising campaign prepared for the 2016-17 DECA competition. These were used during my group's presentation to judges at both the state and international level. Included were mockups of both physical and social media advertisements.</p>
+			<p>The company, Sweet Emotions, is a local, single location candy shop in Storrs, Connecticut. Their brand image had been centered around mystery, with bright colors reminiscent of Willy Wonka, and their signage and assets had included a characture of their former owner, a retired professor at the nearby University of Connecticut. The campaign that my partner and I created focused on market penetration and brand recognition among college students through the use of pop-up giveaway events known as "candy parties". The intention of both the pop-ups and the physical ads is to bolster social media followship, which would allow the company to run promotions through twitter and instagram.</p>
+			<div class="imageplace-2"></div>
+			<p>As a whole, the campaign was designed to run on an extremely low budget, as the company had only done minimal radio advertisements in the past and were unlikely to agree to a larger campaign. We tried to maintain the mysterious elements of the brand, both with the minimal and eye-catching posters and the etherial nature of the pop-ups.</p>
+			<p>This campaign won first place at the State of Connecticut Conference and recieved an Award of Excellence at the International Career Development Conference. </p>
+			<p>My role: Art direction</p>
+			<p>Partner: Bailey Dogget</p>
+		</div>
+		<div class="behanceplace-1"></div>
+		
+		<script>
+			if($(window).width() > $(window).height()) {
+				$(".imageplace-1").append('<img class="content-image" src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/0a09d158072777.59eec707590bf.png">');
+				$(".imageplace-1").append('<a href="https://www.behance.net/gallery/58072777/Sweet-Emotions"><div class="behance-link"><img src="behance logo.png" class="behance-logo"><div class="behance-text-container"><div class="behance-text">View on</div><div class="behance-text-pink">Behance</div></div></div></a>');
+			} else {
+				$(".imageplace-2").append('<img class="content-image" src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/0a09d158072777.59eec707590bf.png">');
+				$(".behanceplace-1").append('<a href="https://www.behance.net/gallery/58072777/Sweet-Emotions"><div class="behance-link"><img src="behance logo.png" class="behance-logo"><div class="behance-text-container"><div class="behance-text">View on</div><div class="behance-text-pink">Behance</div></div></div></a>');
+			}
+			
+			
+			
+		</script>
+		
+<!--
+		<a href="https://www.behance.net/gallery/58072777/Sweet-Emotions" class="behance"><div class="behance-link"> 
+			<img src="behance logo.png" class="behance-logo">
+			<div class="behance-text-container">
+				<div class="behance-text">View on</div>
+				<div class="behance-text-pink">Behance</div>
+			</div>
+			</div></a>
+-->
+	</div>
+	
+	<div class="content">
+		<div class="content-title">Twizzlers</div>
+		<div class="imageplace-3"></div>
+		<div class="content-text">
+			<p>This was a campaign created by a group for a marketing class. I had full control of the art direction and copywriting of the campaign. </p>
+			<div class="imageplace-5"></div>
+			<p>Twizzler's despite having a long history and a high amount of brand awareness (as a result of being a Hershey's brand) has a very low market share in the Southwestern United States. Therefore, we created a campaign to target this region, centered around the idea of a road trip. Since it's fairly common for families in this region to take long car rides on the interstates that run through them during the summer months, we found that it would be a good segment to target with our limited budget of $500k. Through social media, magazine, and phsyical advertisements, we hoped to bolster both market share and revenue throughout the Southwestern US.</p>
+			<div class="imageplace-6"></div>
+			<p>We focused on the shared platform of Facebook and Instagram for our social media ads, as cross-platform posting would allow parents to both share pictures with their Facebook friends while entering our contest on Instagram, while the magazine ads, placed in Coastal Living Magazine (which we choose based off of segmentation data from MRI+) would advertise the contest exclusively. Our physical ads, on the other hand, broke from convention in a fairly large way: we would make the rest stops that families would stop at along the way into giant Twizzlers. This was accomplished by wrapping the hoses of gas pumps in a vinyl print that would give them the appearnence of a classic Twizzler, and ads above the pumps would offer a deal on Twizzlers Bites for families to share durning the ride. This point-of-sale visual would catch the eyes of kids and parents alike, increasing the changes that parents would buy the snack.</p>
+			<p>My role: Art direction & copywriting</p>
+			<p>Team members: Lindsay Saiia, Erin Weiland, Avery Sheruda, & Tyler Texeria</p>
+		</div>
+		<div class="behanceplace-2"></div>
+<!--		<img class="content-image" src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/4320f958678147.5a04daad518ae.png">-->
+<!--		<img class="content-image" src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/6f2ec458678147.5a04daac71438.png">-->
+		 
+			
+		<script>
+			if($(window).width() > $(window).height()) {
+				$(".imageplace-3").append('<img class="content-image" src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/4320f958678147.5a04daad518ae.png">');
+				$(".imageplace-3").append('<img class="content-image" src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/6f2ec458678147.5a04daac71438.png">');
+				$(".imageplace-3").append('<a href="https://www.behance.net/gallery/58678147/Twizzlers"><div class="behance-link"><img src="behance logo.png" class="behance-logo"><div class="behance-text-container"><div class="behance-text">View on</div><div class="behance-text-pink">Behance</div></div></div></a>');
+			} else {
+				$(".imageplace-5").append('<img class="content-image" src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/4320f958678147.5a04daad518ae.png">');
+				$(".imageplace-6").append('<img class="content-image" src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/6f2ec458678147.5a04daac71438.png">');
+				$(".behanceplace-2").append('<a href="https://www.behance.net/gallery/58678147/Twizzlers"><div class="behance-link"><img src="behance logo.png" class="behance-logo"><div class="behance-text-container"><div class="behance-text">View on</div><div class="behance-text-pink">Behance</div></div></div></a>');
+			}
+			
+			
+			
+		</script>
+			
+	</div>
+	
+<script>
+		if($(window).width() < $(window).height()) {
+			document.write('<a href="index.html#portfolio"><div class="bottom-bar"><img src="back-arrow.png" alt="back-arrow" class="mobile-back-arrow"><p>Portfolio</p></div></a>');
+//			console.log("stuff was put");
+		}
+	</script>
+</body>
+</html>
