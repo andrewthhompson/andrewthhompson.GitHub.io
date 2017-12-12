@@ -20,6 +20,7 @@
 		$(document).ready(function () {
 			console.log("it's go time pussy");
 			isDesktop = $(window).width() > $(window).height();
+			console.log(isDesktop);
 			if (isDesktop) { //desktop
 				$('.sidebar-hitbox').on('mouseover', function (event) {
 					$('.sidebar-overlay').fadeIn(200);
