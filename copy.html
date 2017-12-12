@@ -6,6 +6,9 @@
 	<title>Copywriting</title>
 	<link href="portfolio-mobile.css" rel="stylesheet" type="text/css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script>
+		var isDesktop = true;
+	</script>
 	<!--<script>
 		if($(window).width() > $(window).height()) { //desktop
 			document.write('<link href="portfolio.css" rel="stylesheet" type="text/css">');
@@ -14,8 +17,6 @@
 		}
 	</script>-->
 	<script>
-		var isDesktop;
-
 		$(document).ready(function () {
 			isDesktop = $(window).width() > $(window).height();
 			if (isDesktop) { //desktop
