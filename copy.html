@@ -1,5 +1,6 @@
 <!doctype html>
 <html>
+
 <head>
 	<meta charset="UTF-8">
 	<title>Copywriting</title>
@@ -13,27 +14,30 @@
 		}
 	</script>-->
 	<script>
-		$(document).ready(function(){
-			if($(window).width() > $(window).height()) { //desktop
-				$('.sidebar-hitbox').on('mouseover', function(event){
+		$(document).ready(function () {
+
+			var isDesktop = $(window).width() > $(window).height();
+
+			if (isMobile) { //desktop
+				$('.sidebar-hitbox').on('mouseover', function (event) {
 					$('.sidebar-overlay').fadeIn(200);
 				});
 
-				$('.sidebar-hitbox').on('mouseout', function(event){
+				$('.sidebar-hitbox').on('mouseout', function (event) {
 					$('.sidebar-overlay').fadeOut(200);
 				});
 
-				$('.sidebar-hitbox').click(function(){
+				$('.sidebar-hitbox').click(function () {
 					console.log("si senior");
-					if($('.sidebar-overlay').is(':visible')) {
+					if ($('.sidebar-overlay').is(':visible')) {
 						window.location = "index.html#portfolio"
 					}
 				})
 
-			} else {  //mobile
-				
+			} else { //mobile
+
 			}
-			$('.content').each(function(){
+			$('.content').each(function () {
 				$(this).css('height', $('.content').find('.content-text').css('height'));
 			});
 		})
@@ -44,20 +48,23 @@
 	<div class="sidebar-hitbox"></div>
 	<div class="sidebar">
 		<div id="copy"></div>
-		<a href="index.html#portfolio"><div class="sidebar-overlay">
-			<p>Copywriting</p>
-			<img src="back-arrow.png" alt="back arrow" class="back-arrow">
-		</div></a>
+		<a href="index.html#portfolio">
+			<div class="sidebar-overlay">
+				<p>Copywriting</p>
+				<img src="back-arrow.png" alt="back arrow" class="back-arrow">
+			</div>
+		</a>
 	</div>
 	<div class="content">
 		<div class="content-title">Error 404: writing not found</div>
-		
+
 	</div>
-	
+
 	<script>
-		if($(window).width() < $(window).height()) {
+		if (!isMobile) {
 			document.write('<a href="index.html#portfolio"><div class="bottom-bar"><img src="back-arrow.png" alt="back-arrow" class="mobile-back-arrow"><p>Portfolio</p></div></a>');
 		}
 	</script>
 </body>
+
 </html>
