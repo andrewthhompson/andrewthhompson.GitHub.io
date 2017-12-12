@@ -8,7 +8,9 @@
 	<!--	<link href="main.css" rel="stylesheet" type="text/css">-->
 	<!--	<link href="mobile.css" rel="stylesheet" type="text/css">-->
 	<script>
-		if ($(window).width() > $(window).height()) {
+		var isMobile = $(window).width() > $(window).height();
+
+		if (isMobile) {
 			document.write('<link href="main.css" rel="stylesheet" type="text/css">');
 		} else {
 			document.write('<link href="mobile.css" rel="stylesheet" type="text/css">');
@@ -19,8 +21,8 @@
 <body>
 	<div class="fullscreen" id="splash">
 		<div class="splash-title">
-			<p>This is bullshit</p>
-			<p style="font-size=75px">Thumpsun</p>
+			<p>Andrew</p>
+			<p>Thompson</p>
 		</div>
 
 		<div class="center-block">
