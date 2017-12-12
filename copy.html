@@ -14,10 +14,10 @@
 		}
 	</script>-->
 	<script>
+		var isDesktop;
+
 		$(document).ready(function () {
-
-			var isDesktop = $(window).width() > $(window).height();
-
+			isDesktop = $(window).width() > $(window).height();
 			if (isMobile) { //desktop
 				$('.sidebar-hitbox').on('mouseover', function (event) {
 					$('.sidebar-overlay').fadeIn(200);
