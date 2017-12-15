@@ -22,12 +22,15 @@ body {
 	margin: 0 auto;
 	width: 100%;
 	/*	overflow: hidden;*/
+	/*
 	-webkit-text-size-adjust: none;
 	-moz-text-size-adjust: none;
 	-ms-text-size-adjust: none;
+*/
 	-webkit-text-size-adjust: 100%;
 	-moz-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%;
+	font-size: 32px;
 }
 
 .fullscreen {
@@ -54,7 +57,7 @@ body {
 	width: 100%;
 	/*	left: 5%;*/
 	font-family: "CooperHewitt-Semibold";
-	font-size: 30em;
+	font-size: 3em;
 	position: absolute;
 	color: white;
 	/*	text-align: center;*/
