@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Copywriting</title>
-	<link href="portfolio-mobile.css" rel="stylesheet" type="text/css">
+	<!--	<link href="portfolio-mobile.css" rel="stylesheet" type="text/css">-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script>
 		var isDesktop = true;
@@ -17,9 +17,21 @@
 		}
 	</script>-->
 	<script>
+		//		console.log("it's go time pussy");
+		isDesktop = $(window).width() > $(window).height();
+
+		if (isDesktop) { //desktop
+			document.write('<link href="portfolio.css" rel="stylesheet" type="text/css">');
+			console.log("desktop");
+		} else { //mobile
+			document.write('<link href="portfolio-mobile.css" rel="stylesheet" type="text/css">');
+			console.log("mobile");
+		}
+
+
 		$(document).ready(function () {
-			console.log("it's go time pussy");
-			isDesktop = $(window).width() > $(window).height();
+
+
 			console.log(isDesktop);
 			if (isDesktop) { //desktop
 				$('.sidebar-hitbox').on('mouseover', function (event) {
@@ -66,7 +78,7 @@
 	<script>
 		console.log(isDesktop);
 		if (!isDesktop) {
-			document.write('<a href="index.html#portfolio"><div class="bottom-bar"><img src="back-arrow.png" alt="back-arrow" class="mobile-back-arrow"><p>Portfolio</p></div></a>');
+			document.write('<a href="index.html#portfolio"><div class="bottom-bar"><img src="back-arrow.png" alt="back-arrow" class="mobile-back-arrow"><p class="bottom-bar-text">Portfolio</p></div></a>');
 		}
 	</script>
 </body>

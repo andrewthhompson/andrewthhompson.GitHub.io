@@ -30,8 +30,8 @@ body {
 }
 
 .sidebar {
-	width: 17%;
-	height: 100%;
+	width: 0;
+	height: 0%;
 	position: fixed;
 	left: 0;
 	z-index: 10;
@@ -39,8 +39,8 @@ body {
 }
 
 .sidebar-hitbox {
-	width: 17%;
-	height: 100%;
+	width: 0%;
+	height: 0%;
 	position: fixed;
 	left: 0;
 	z-index: 100;
@@ -75,14 +75,14 @@ body {
 .content {
 	width: 80%;
 	height: auto;
-	left: 10%;
+	left: 5%;
 	position: relative;
 	/*	overflow: hidden;*/
-	/*	padding-left: 5%;*/
+	padding-left: 5%;
 	padding-top: 5%;
 	display: inline-block;
 	padding-bottom: 10%;
-	length: auto;
+	/*	length: auto;*/
 	float: top;
 }
 
@@ -164,22 +164,20 @@ body {
 
 .picture-container {
 	position: relative;
-	width: 30vw;
-	height: 30vw;
+	width: 60vw;
+	/*	height: 60vw;*/
 	display: inline-block;
 	padding: 5%;
+	left: 5%;
+	right: 0;
+	margin: 0 auto;
 }
 
 .picture {
 	margin: 0 auto;
-	/*
-	left: 0;
-	right: 0;
-*/
 	top: 0;
 	bottom: 0;
 	width: 100%;
-	/*	position: absolute;*/
 }
 
 .behanceplace-2 {
@@ -210,11 +208,12 @@ body {
 	left: 5%;
 }
 
-.bottom-bar p {
+.bottom-bar-text {
 	font-family: "Source Code Pro";
 	font-size: 1.5em;
 	color: white;
 	left: 20%;
+	top: 10%;
 	position: absolute;
 }
 
