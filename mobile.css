@@ -30,7 +30,7 @@ body {
 	-webkit-text-size-adjust: 100%;
 	-moz-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%;
-	font-size: 32px;
+	font-size: 16px;
 }
 
 .fullscreen {
@@ -53,11 +53,11 @@ body {
 }
 
 .splash-title {
-	top: 5%;
+	top: 7.5%;
 	width: 100%;
 	/*	left: 5%;*/
 	font-family: "CooperHewitt-Semibold";
-	font-size: 3em;
+	font-size: 5em;
 	position: absolute;
 	color: white;
 	/*	text-align: center;*/
@@ -87,16 +87,16 @@ body {
 .center-block p {
 	color: #ffaeae;
 	font-family: "CooperHewitt-Semibold";
-	font-size: 2.5em;
-	font-size: 6vmin;
-	padding-left: 20%;
+	/*	font-size: 5em;*/
+	font-size: 7vmin;
+	padding-left: 12.5%;
 	padding-bottom: 1%;
 	margin: 0 auto;
 	padding-top: 10%;
 }
 
 .center-block p:first-child {
-	padding-top: 15%;
+	padding-top: 20%;
 }
 
 .subheader {
@@ -135,12 +135,12 @@ body {
 
 .bio-body {
 	font-family: "Source Code Pro";
-	top: 20%;
+	top: 15%;
 	left: 15%;
 	width: 70%;
 	right: 15%;
 	position: absolute;
-	font-size: 1.25em;
+	font-size: 1.05em;
 	color: #7f7f7f;
 	/*	word-break: break-all;*/
 	/*	word-wrap: break-word;*/
