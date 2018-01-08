@@ -95,7 +95,7 @@ body {
 
 .downarrow {
 	left: 35%;
-	margins: 0 auto;
+	margin: 0 auto;
 	bottom: 10%;
 	width: 30%;
 	height: auto;
@@ -151,7 +151,7 @@ body {
 
 .bio-downarrow {
 	left: 20%;
-	margins: 0 auto;
+	margin: 0 auto;
 	bottom: 20%;
 	width: 60%;
 	height: auto;

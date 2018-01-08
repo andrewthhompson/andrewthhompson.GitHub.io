@@ -112,7 +112,7 @@ body {
 
 .downarrow {
 	left: 25%;
-	margins: 0 auto;
+	margin: 0 auto;
 	bottom: 5%;
 	width: 50%;
 	height: auto;
@@ -121,7 +121,7 @@ body {
 }
 
 #bio {
-	top: 100%;
+	top: 100vh;
 }
 
 .bio-header {
@@ -196,7 +196,7 @@ body {
 }
 
 #portfolio {
-	top: 200%;
+	top: 200vh;
 	background-color: #ffaeae;
 }
 
@@ -304,7 +304,7 @@ body {
 }
 
 #contact {
-	top: 300%;
+	top: 300vh;
 }
 
 .contact-header {
