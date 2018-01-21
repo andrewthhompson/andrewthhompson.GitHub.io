@@ -206,7 +206,13 @@ body {
 /*	position: absolute;*/
 }
 
-
+.picture-highlighted {
+	width: 30vw;
+	height: 30vw;
+	position: absolute;
+	top: 0;
+	z-index: 1000;
+}
 
 a { 
 	padding: 0;

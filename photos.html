@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Photography</title>
-	<!--	<link href="portfolio.css" rel="stylesheet" type="text/css">-->
+		<link href="portfolio.css" rel="stylesheet" type="text/css">
 	<!--	<link href="portfolio-mobile.css" rel="stylesheet" type="text/css">-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script>
@@ -59,13 +59,43 @@
 		</a>
 	</div>
 	<div class="content">
-		<div class="picture-container"><img class="picture" src="https://imgur.com/PjZ5cX9.png"></div>
-		<div class="picture-container"><img class="picture" src="https://imgur.com/HunQKjz.png"></div>
-		<div class="picture-container"><img class="picture" src="https://imgur.com/XxacbPx.png"></div>
-		<div class="picture-container"><img class="picture" src="https://imgur.com/QmUAF8n.png"></div>
-		<div class="picture-container"><img class="picture" src="https://imgur.com/nRAgTAl.png"></div>
-		<div class="picture-container"><img class="picture" src="https://imgur.com/VzJVSYE.png"></div>
+		<div class="picture-container" id="pic1"><img class="picture" src="https://imgur.com/PjZ5cX9.png"></div>
+		<div class="picture-container" id="pic2"><img class="picture" src="https://imgur.com/HunQKjz.png"></div>
+		<div class="picture-container" id="pic3"><img class="picture" src="https://imgur.com/XxacbPx.png"></div>
+		<div class="picture-container" id="pic4"><img class="picture" src="https://imgur.com/QmUAF8n.png"></div>
+		<div class="picture-container" id="pic5"><img class="picture" src="https://imgur.com/nRAgTAl.png"></div>
+		<div class="picture-container" id="pic6"><img class="picture" src="https://imgur.com/VzJVSYE.png"></div>
 	</div>
+	
+	<script>
+		$("#pic1").onClick(function(){
+			alert(("#pic1").hasClass("picture-highlighted"));
+			if(!("#pic1").hasClass("picture-highlighted")) {
+				$("#pic1").addClass("picture-highlighted");
+			} else {
+				$("#pic1").removeClass("picture-highlighted");
+			}
+		});
+		$("#pic1").on("click", function(){
+			
+		});
+		$("#pic2").on("click", function(){
+			$("#pic1").css("width", "60vw");
+		});
+		$("#pic3").on("click", function(){
+			$("#pic1").css("width", "60vw");
+		});
+		$("#pic4").on("click", function(){
+			$("#pic1").css("width", "60vw");
+		});
+		$("#pic5").on("click", function(){
+			$("#pic1").css("width", "60vw");
+		});
+		$("#pic6").on("click", function(){
+			$("#pic1").css("width", "60vw");
+		});
+	</script>
+	
 	<!--	<div class="putstuffhere"></div>-->
 	<script>
 		if ($(window).width() < $(window).height()) {
