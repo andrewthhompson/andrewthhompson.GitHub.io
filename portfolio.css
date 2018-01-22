@@ -1,8 +1,8 @@
 @charset "UTF-8";
+
 /* CSS Document */
 
 @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:300');
-
 @font-face {
 	font-family: "CooperHewitt-Bold";
 	src: url(fonts/CooperHewitt-Bold.woff);
@@ -18,12 +18,11 @@
 	src: url(fonts/CooperHewitt-LightItalic.woff);
 }
 
-body { 
+body {
 	width: 100%;
 	height: auto;
-/*	overflow: hidden;*/
-/*	height: 100%;*/
-	
+	/*	overflow: hidden;*/
+	/*	height: 100%;*/
 	background-color: white;
 	margin: 0 auto;
 }
@@ -46,7 +45,7 @@ body {
 	opacity: 0;
 }
 
-.sidebar-overlay { 
+.sidebar-overlay {
 	display: none;
 	width: 100%;
 	height: 100%;
@@ -71,13 +70,12 @@ body {
 	top: 35%;
 }
 
-
 .content {
 	width: 60%;
 	height: auto;
 	left: 27.5%;
 	position: relative;
-/*	overflow: hidden;*/
+	/*	overflow: hidden;*/
 	padding-left: 5%;
 	padding-top: 5%;
 	display: inline-block;
@@ -90,7 +88,6 @@ body {
 	font-family: "CooperHewitt-Semibold";
 	font-size: 3em;
 	color: #ffaeae;
-	
 }
 
 .imageplace-1 {
@@ -113,9 +110,9 @@ body {
 
 .content-image {
 	width: 100%;
-/*	height: 40%;*/
+	/*	height: 40%;*/
 	height: auto;
-/*	background-color: #ffaeae;*/
+	/*	background-color: #ffaeae;*/
 	margin-top: 5%;
 	display: block;
 }
@@ -125,11 +122,9 @@ body {
 	position: absolute;
 	left: 35%;
 	width: 50%;
-	
 	font-family: "Source Code Pro";
 	font-size: 1.25em;
 	color: #7f7f7f;
-		
 }
 
 .content-text p:first-child {
@@ -167,11 +162,9 @@ body {
 	position: relative;
 	padding-top: 12%;
 	left: 60%;
-	
 	font-family: "Source Code Pro";
 	font-size: 1em;
 	color: #7f7f7f;
-	
 }
 
 .behance-text-pink {
@@ -196,37 +189,47 @@ body {
 
 .picture {
 	margin: 0 auto;
-/*
+	/*
 	left: 0;
 	right: 0;
 */
 	top: 0;
 	bottom: 0;
 	width: 100%;
-/*	position: absolute;*/
+	/*	position: absolute;*/
 }
 
 .picture-highlighted {
-	width: 30vw;
-	height: 30vw;
+	width: 40vw;
+	height: 40vw;
 	position: absolute;
 	top: 0;
 	z-index: 1000;
 }
 
-a { 
+.picture-caption {
+	position: relative;
+	padding-top: 5%;
+	text-align: center;
+	font-family: "Source Code Pro";
+	font-size: 1em;
+	color: #7f7f7f;
+	display: none;
+	width: 100%;
+}
+
+a {
 	padding: 0;
 	margin: 0 auto;
 	text-decoration: none;
 }
 
-#copy { 
+#copy {
 	width: 15%;
 	height: 70%;
 	position: absolute;
 	left: 42.5%;
 	top: 15%;
-	
 	animation: blink 1.5s infinite;
 	z-index: 25;
 }
@@ -248,20 +251,26 @@ a {
 }
 
 #photo p:first-child {
-/*	padding-top: 5%;*/
+	/*	padding-top: 5%;*/
 }
 
 #design {
 	position: absolute;
 	height: 100%;
 	width: 100%;
-	
 }
 
-
 @keyframes blink {
-	0% {background-color: #ffaeae;}
-	50% { background-color: #ffaeae;}
-	51% {background-color: white;}
-	100% {background-color: white;}
+	0% {
+		background-color: #ffaeae;
+	}
+	50% {
+		background-color: #ffaeae;
+	}
+	51% {
+		background-color: white;
+	}
+	100% {
+		background-color: white;
+	}
 }
