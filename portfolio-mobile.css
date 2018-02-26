@@ -238,10 +238,10 @@ body {
 
 .bottom-bar-text {
 	font-family: "Source Code Pro";
-	font-size: 1em;
+	font-size: 2em;
 	color: white;
 	left: 20%;
-	top: -30%;
+/*	top: -30%;*/
 	position: absolute;
 }
 
