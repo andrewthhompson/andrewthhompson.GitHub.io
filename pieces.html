@@ -9,13 +9,10 @@
 	<script>
 		var isDesktop = true;
 	</script>
-	<!--<script>
-		if($(window).width() > $(window).height()) { //desktop
-			document.write('<link href="portfolio.css" rel="stylesheet" type="text/css">');
-		} else {  //mobile
-			document.write('<link href="portfolio-mobile.css" rel="stylesheet" type="text/css">');
-		}
-	</script>-->
+	
+<!--	<link href="portfolio.css" rel="stylesheet" type="text/css">-->
+	<link href="portfolio-mobile.css" rel="stylesheet" type="text/css">
+	
 	<script>
 		//		console.log("it's go time pussy");
 		isDesktop = $(window).width() > $(window).height();
@@ -70,10 +67,49 @@
 			</div>
 		</a>
 	</div>
+	
+	<div class="title-mobile"></div>
+		<script>
+			if ($(window).width() < $(window).height()) {
+				$(".title-mobile").append("Pieces");
+			}
+		</script>
+	
+<!--	Ski Club	-->
 	<div class="content">
-		<div class="content-title">Pieces: small bits of branding and spec</div>
-
+		<div class="content-title">E.O. Smith Ski Club</div>
+		<div class="img">
+			<img class="content-image" src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/d5438858072637.59eec5cb2277e.png">
+		</div>
+		<div class="txt">
+			<p>I created a set of logos to be used for the school's ski club's end-of-year shirts. This included custom vector artwork along with a mockup.</p>
+			<a href="https://www.behance.net/gallery/58072637/Ski-Club"><div class="behance-link"><img src="behance logo.png" class="behance-logo"><div class="behance-text-container"><div class="behance-text">View on</div><div class="behance-text-pink">Behance</div></div></div></a>
+		</div>
 	</div>
+<!--	Waves	-->
+	<div class="content">
+		<div class="content-title">Waves</div>
+		<div class="img">
+			<img class="content-image" src="https://mir-s3-cdn-cf.behance.net/projects/202/b81aef58072217.Y3JvcCw0MDUsMzE3LDUwMSw2NQ.png">
+		</div>
+		<div class="txt">
+			<p>I headed up a team to create an advertising campaign for a product of our own design. Deliverables included a website, graphics, branding, and videos.</p>
+			<a href="https://www.behance.net/gallery/58072217/Waves"><div class="behance-link"><img src="behance logo.png" class="behance-logo"><div class="behance-text-container"><div class="behance-text">View on</div><div class="behance-text-pink">Behance</div></div></div></a>
+		</div>
+	</div>
+<!--	Smith Center	-->
+	<div class="content">
+		<div class="content-title">Smith Center Rebrand</div>
+		<div class="img">
+			<img class="content-image" src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/0dc88958098375.59ef831f1b34f.gif">
+		</div>
+		<div class="txt">
+			<p>I was tasked with redesigning the on-air graphics for my school's weekly sports news program. This included an intro animation and green-screen graphics, along with a logo.</p>
+			<a href="https://www.behance.net/gallery/58098375/Smith-Center"><div class="behance-link"><img src="behance logo.png" class="behance-logo"><div class="behance-text-container"><div class="behance-text">View on</div><div class="behance-text-pink">Behance</div></div></div></a>
+		</div>
+	</div>
+
+	
 
 	<script>
 		console.log(isDesktop);

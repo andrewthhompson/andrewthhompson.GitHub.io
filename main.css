@@ -292,7 +292,7 @@ body {
 
 .contact-body {
 	font-family: "Source Code Pro";
-	top: 35%;
+	top: 32.5%;
 	width: 60%;
 	position: absolute;
 	left: 20%;
@@ -307,4 +307,8 @@ body {
 	font-size: inherit;
 	/*	font-style: italic;*/
 	text-decoration: inherit;
+}
+
+.contact-body p {
+	padding-bottom: 2.5%;
 }

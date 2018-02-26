@@ -29,6 +29,7 @@ body {
 	-moz-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%;
 	font-size: 32px;
+	padding-bottom: 20%;
 }
 
 .sidebar {
@@ -83,18 +84,43 @@ body {
 	padding-left: 5%;
 	padding-top: 5%;
 	display: inline-block;
-	padding-bottom: 10%;
+	padding-bottom: 20%;
 	/*	length: auto;*/
 	float: top;
 }
 
 .content-title {
 	font-family: "CooperHewitt-Semibold";
-	font-size: 2em;
+	font-size: 1.25em;
 	color: #ffaeae;
-	padding-top: 10%;
+	width: 95%;
 }
 
+.img {
+	width: 100%;
+	height: auto;
+/*	background-color: green;*/
+	position: relative;
+	display: inline-block;
+}
+
+.txt {
+	width: 100%;
+	height: auto;
+	
+/*	left: 35%;*/
+/*	background-color: yellow;*/
+	display: inline-block;
+	position: relative;
+}
+
+.txt p {
+	font-family: "Source Code Pro";
+	font-size: .75em;
+	color: #7f7f7f;
+	margin-top: 1%;
+	margin-bottom: 5%;
+}
 .content-image {
 	width: 100%;
 	/*	left: 20%;*/
@@ -196,7 +222,7 @@ body {
 
 .bottom-bar {
 	background-color: #ffaeae;
-	height: 15%;
+	height: 10%;
 	width: 100%;
 	bottom: 0%;
 	position: fixed;
@@ -212,10 +238,10 @@ body {
 
 .bottom-bar-text {
 	font-family: "Source Code Pro";
-	font-size: 1.5em;
+	font-size: 1em;
 	color: white;
 	left: 20%;
-	top: 10%;
+	top: -30%;
 	position: absolute;
 }
 
