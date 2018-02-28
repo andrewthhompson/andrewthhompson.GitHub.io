@@ -10,7 +10,7 @@
 		var isDesktop = true;
 	</script>
 	
-<!--	<link href="portfolio.css" rel="stylesheet" type="text/css">-->
+	<link href="portfolio.css" rel="stylesheet" type="text/css">
 <!--	<link href="portfolio-mobile.css" rel="stylesheet" type="text/css">-->
 	
 	<script>
@@ -59,7 +59,11 @@
 <body>
 	<div class="sidebar-hitbox"></div>
 	<div class="sidebar">
-		<div id="copy"></div>
+		<script>
+			if ($(window).width() > $(window).height()) { //desktop
+				$(".sidebar").append('<div id="pieces">');
+			}
+		</script>
 		<a href="index.html#portfolio">
 			<div class="sidebar-overlay">
 				<p>Pieces</p>
@@ -75,47 +79,92 @@
 			}
 		</script>
 	
+	
+	
+	
+	
+	
+<!--	VS	-->
+	<div class="content">
+		<div class="content-title">PINK</div>
+		<div class="txt">
+			<p>I created a minature spec campaign for PINK and VS. The intention is for the sale of pink-colored products to give some kick-back to breast cancer patients. Deliverables included posters, banners, and a website takeover.</p>
+			<a href="https://www.behance.net/gallery/59856837/PINK-VS-vs-Breast-Cancer"><div class="behance-link"><img src="behance logo.png" class="behance-logo"><div class="behance-text-container"><div class="behance-text">View on</div><div class="behance-text-pink">Behance</div></div></div></a>
+		</div>
+		<div class="img">
+			<img class="content-image" src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/0a2b8859856837.5a319ef0c6546.png">
+		</div>
+	</div>
 <!--	Ski Club	-->
 	<div class="content">
 		<div class="content-title">E.O. Smith Ski Club</div>
-		<div class="img">
-			<img class="content-image" src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/d5438858072637.59eec5cb2277e.png">
-		</div>
 		<div class="txt">
 			<p>I created a set of logos to be used for the school's ski club's end-of-year shirts. This included custom vector artwork along with a mockup.</p>
 			<a href="https://www.behance.net/gallery/58072637/Ski-Club"><div class="behance-link"><img src="behance logo.png" class="behance-logo"><div class="behance-text-container"><div class="behance-text">View on</div><div class="behance-text-pink">Behance</div></div></div></a>
+		</div>
+		<div class="img">
+			<img class="content-image" src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/d5438858072637.59eec5cb2277e.png">
 		</div>
 	</div>
 <!--	Waves	-->
 	<div class="content">
 		<div class="content-title">Waves</div>
-		<div class="img">
-			<img class="content-image" src="https://mir-s3-cdn-cf.behance.net/projects/202/b81aef58072217.Y3JvcCw0MDUsMzE3LDUwMSw2NQ.png">
-		</div>
 		<div class="txt">
 			<p>I headed up a team to create an advertising campaign for a product of our own design. Deliverables included a website, graphics, branding, and videos.</p>
 			<a href="https://www.behance.net/gallery/58072217/Waves"><div class="behance-link"><img src="behance logo.png" class="behance-logo"><div class="behance-text-container"><div class="behance-text">View on</div><div class="behance-text-pink">Behance</div></div></div></a>
+		</div>
+		<div class="img">
+			<img class="content-image" src="https://mir-s3-cdn-cf.behance.net/projects/202/b81aef58072217.Y3JvcCw0MDUsMzE3LDUwMSw2NQ.png">
 		</div>
 	</div>
 <!--	Smith Center	-->
 	<div class="content">
 		<div class="content-title">Smith Center Rebrand</div>
-		<div class="img">
-			<img class="content-image" src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/0dc88958098375.59ef831f1b34f.gif">
-		</div>
 		<div class="txt">
 			<p>I was tasked with redesigning the on-air graphics for my school's weekly sports news program. This included an intro animation and green-screen graphics, along with a logo.</p>
 			<a href="https://www.behance.net/gallery/58098375/Smith-Center"><div class="behance-link"><img src="behance logo.png" class="behance-logo"><div class="behance-text-container"><div class="behance-text">View on</div><div class="behance-text-pink">Behance</div></div></div></a>
 		</div>
+		<div class="img">
+			<img class="content-image" src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/0dc88958098375.59ef831f1b34f.gif">
+		</div>
 	</div>
-
-	
 
 	<script>
 		console.log(isDesktop);
 		if (!isDesktop) {
 			document.write('<a href="index.html#portfolio"><div class="bottom-bar"><img src="back-arrow.png" alt="back-arrow" class="mobile-back-arrow"><p class="bottom-bar-text">Portfolio</p></div></a>');
 		}
+	</script>
+	
+	<script>
+		$(document).ready(function(){
+			var scrollPos = 0;
+			var scrollPosCur = 0;
+			var scrollPosLast = 0;
+			var scrollDelta = 0;
+			var Counter = 0;
+			
+			$(window).scroll(function(){
+				scrollPosLast = scrollPosCur;
+				scrollPosCur = $(this).scrollTop();
+				
+				scrollDelta = scrollPos - scrollPosLast;
+				
+				if (scrollPosCur > scrollPos) {
+					Counter -= 1;
+				} else {
+					Counter += 1;
+				}
+				
+				scrollPos = scrollPosCur;
+				
+				if(scrollPos > ($(window).height() / 10)) {
+					$(".title-mobile").addClass("title-mobile-contrast");
+				} else {
+					$(".title-mobile").removeClass("title-mobile-contrast");
+				}
+			});
+		});
 	</script>
 </body>
 
