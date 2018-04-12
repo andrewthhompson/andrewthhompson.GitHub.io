@@ -2,10 +2,24 @@
 <html>
 
 <head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-117438573-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-117438573-1');
+	</script>
+
+
 	<meta charset="UTF-8">
 	<title>Projects</title>
-<!--		<link href="portfolio.css" rel="stylesheet" type="text/css">-->
-<!--		<link href="portfolio-mobile.css" rel="stylesheet" type="text/css">-->
+	<!--		<link href="portfolio.css" rel="stylesheet" type="text/css">-->
+	<!--		<link href="portfolio-mobile.css" rel="stylesheet" type="text/css">-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script>
 		if ($(window).width() > $(window).height()) { //desktop
@@ -67,14 +81,14 @@
 
 	<div class="title-mobile"></div>
 	<script>
-		if ($(window).width() < $(window).height()) {   
+		if ($(window).width() < $(window).height()) {
 			$(".title-mobile").append("Projects");
 		}
 	</script>
-	
-	<div class="content" id="first">		
+
+	<div class="content" id="first">
 		<div class="content-title">Sweet Emotions</div>
-		
+
 		<div class="txt">
 			<p>I created visual advertisements for use in an andvertising campaign prepared for the 2016-17 DECA competition. These were used during my group's presentation to judges at both the state and international level. Included were mockups of both physical and social media advertisements.</p>
 			<p>The company, Sweet Emotions, was a local, single location candy shop in Storrs, Connecticut (it has since closed its doors indefinitely). Their brand image had been centered around mystery, with bright colors reminiscent of Willy Wonka, and their signage and assets had included a characture of their former owner, a retired professor at the nearby University of Connecticut. The campaign that my partner and I created focused on market penetration and brand recognition among college students through the use of pop-up giveaway events known as "candy parties". The intention of both the pop-ups and the physical ads is to bolster social media followship, which would allow the company to run promotions through twitter and instagram.</p>
@@ -83,10 +97,10 @@
 			<p>My role: Art direction & Strategy</p>
 			<p>Partner: Bailey Dogget</p>
 		</div>
-		
+
 		<div class="img" style="top: 10%;">
 			<img class="content-image" src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/0a09d158072777.59eec707590bf.png">
-			
+
 			<a href="https://www.behance.net/gallery/58072777/Sweet-Emotions">
 				<div class="behance-link behance-link-left">
 					<img src="behance logo.png" class="behance-logo behance-logo-left">
@@ -97,9 +111,9 @@
 				</div>
 			</a>
 		</div>
-<!--		<div class="behanceplace-1"></div>-->
+		<!--		<div class="behanceplace-1"></div>-->
 
-<!--
+		<!--
 		<script>
 			if ($(window).width() > $(window).height()) {
 				$(".imageplace-1").append('<img class="content-image" src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/0a09d158072777.59eec707590bf.png">');
@@ -124,7 +138,7 @@
 
 	<div class="content">
 		<div class="content-title">Twizzlers</div>
-		
+
 		<div class="txt">
 			<p>This was a campaign created by a group for a marketing class. I had full control of the art direction and copywriting of the campaign. </p>
 			<p>Twizzler's despite having a long history and a high amount of brand awareness (as a result of being a Hershey's brand) has a very low market share in the Southwestern United States. Therefore, we created a campaign to target this region, centered around the idea of a road trip. Since it's fairly common for families in this region to take long car rides on the interstates that run through them during the summer months, we found that it would be a good segment to target with our limited budget of $500k. Through social media, magazine, and phsyical advertisements, we hoped to bolster both market share and revenue throughout the Southwestern US.</p>
@@ -132,11 +146,11 @@
 			<p>My role: Art direction & Copywriting</p>
 			<p>Team members: Lindsay Saiia, Erin Weiland, Avery Sheruda, & Tyler Texeria</p>
 		</div>
-		
+
 		<div class="img">
 			<img class="content-image stupid-thing" src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/4320f958678147.5a04daad518ae.png">
 			<img class="content-image" src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/6f2ec458678147.5a04daac71438.png" style="top: 0;">
-			
+
 			<a href="https://www.behance.net/gallery/58678147/Twizzlers">
 				<div class="behance-link behance-link-left">
 					<img src="behance logo.png" class="behance-logo behance-logo-left">
@@ -151,7 +165,7 @@
 		<!--		<img class="content-image" src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/6f2ec458678147.5a04daac71438.png">-->
 
 
-<!--
+		<!--
 		<script>
 			if ($(window).width() > $(window).height()) {
 				$(".imageplace-3").append('<img class="content-image" src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/4320f958678147.5a04daad518ae.png">');
@@ -166,31 +180,31 @@
 -->
 
 	</div>
-	
-	
+
+
 	<script>
-		$(document).ready(function(){
+		$(document).ready(function () {
 			var scrollPos = 0;
 			var scrollPosCur = 0;
 			var scrollPosLast = 0;
 			var scrollDelta = 0;
 			var Counter = 0;
-			
-			$(window).scroll(function(){
+
+			$(window).scroll(function () {
 				scrollPosLast = scrollPosCur;
 				scrollPosCur = $(this).scrollTop();
-				
+
 				scrollDelta = scrollPos - scrollPosLast;
-				
+
 				if (scrollPosCur > scrollPos) {
 					Counter -= 1;
 				} else {
 					Counter += 1;
 				}
-				
+
 				scrollPos = scrollPosCur;
-				
-				if(scrollPos > ($(window).height() / 10)) {
+
+				if (scrollPos > ($(window).height() / 10)) {
 					$(".title-mobile").addClass("title-mobile-contrast");
 				} else {
 					$(".title-mobile").removeClass("title-mobile-contrast");
@@ -199,7 +213,7 @@
 		});
 	</script>
 
-<!--
+	<!--
 	<script>
 		if ($(window).width() < $(window).height()) {
 			document.write('<a href="index.html#portfolio"><div class="bottom-bar"><img src="back-arrow.png" alt="back-arrow" class="mobile-back-arrow"><p class="bottom-bar-text">Portfolio</p></div></a>');
