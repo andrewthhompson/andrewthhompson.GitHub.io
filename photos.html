@@ -81,24 +81,29 @@
 		<div class="picture-container" id="pic2" style="grid-area: top-right;"><img class="picture" src="https://imgur.com/HunQKjz.png">
 			<div class="picture-caption">f/2.8 | 1/80s | ISO/400</div>
 			<div class="picture-caption">The Vatican</div>
+			<div class="picture-caption" style="font-size: .75em">Click the picture to minimze</div>
 		</div>
 		<div class="picture-container" id="pic3" style="grid-area: left;"><img class="picture" src="https://imgur.com/XxacbPx.png">
 			<div class="picture-caption">f/2.8 | 1/1000s | ISO/100</div>
 			<div class="picture-caption">The Vatican</div>
+			<div class="picture-caption" style="font-size: .75em">Click the picture to minimze</div>
 		</div>
 		<div class="picture-container" id="pic4" style="grid-area: right;"><img class="picture" src="https://imgur.com/QmUAF8n.png">
 			<div class="picture-caption">f/2.8 | 1/800s | ISO/100</div>
 			<div class="picture-caption">Providence, Rhode Island</div>
+			<div class="picture-caption" style="font-size: .75em">Click the picture to minimze</div>
 		</div>
 		<div class="picture-container" id="pic5" style="grid-area: bottom-left;"><img class="picture" src="https://imgur.com/nRAgTAl.png">
 			<div class="picture-caption">f/1.8 | 1/1600s | ISO/100</div>
 			<div class="picture-caption">Mansfield, Connecticut</div>
+			<div class="picture-caption" style="font-size: .75em">Click the picture to minimze</div>
 		</div>
 		<div class="picture-container" id="pic6" style="grid-area: bottom-right;"><img class="picture" src="https://imgur.com/VzJVSYE.png">
 			<div class="picture-caption">f/1.8 | 1/125s | ISO/200</div>
 			<div class="picture-caption">Providence, Rhode Island</div>
+			<div class="picture-caption" style="font-size: .75em">Click the picture to minimze</div>
 		</div>
-		<div class="picture-caption" id="bottom-caption" style="display: inline-block; width: 90%; grid-column-start: footer-left; grid-column-end: footer-right;">Click each pic for info</div>
+		<div class="picture-caption" id="bottom-caption" style="display: inline-block; width: 90%; grid-column-start: footer-left; grid-column-end: footer-right;">Click each picture for info</div>
 	</div>
 
 	<script>
@@ -128,6 +133,8 @@
 				$(first[i]).css("display", "inline-block");
 			}
 			first.push(target);
+			
+			$('#bottom-caption').css("display", "none");
 
 			$(target + " > .picture-caption").css("display", "none");
 		}
