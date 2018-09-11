@@ -142,7 +142,7 @@
 				scrollPosition = window.scrollY;
 				$('html, body').animate({
 					scrollTop: 0,
-				}, 500);
+				}, 100);
 			} else {
 				$(target).removeClass("picture-highlighted");
 				$(target).addClass("picture-container");
@@ -150,7 +150,7 @@
 				$('.photo-page').css("display", "grid !important;");
 				$('html, body').animate({
 					scrollTop: scrollPosition,
-				}, 500);
+				}, 100);
 			}
 		}
 
