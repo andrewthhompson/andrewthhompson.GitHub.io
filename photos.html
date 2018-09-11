@@ -76,6 +76,7 @@
 		<div class="picture-container" id="pic1" style="grid-area: top-left;"><img class="picture" src="https://imgur.com/PjZ5cX9.png">
 			<div class="picture-caption">f/2.8 | 1/100s | ISO/100</div>
 			<div class="picture-caption">Mansfield, Connecticut</div>
+			<div class="picture-caption" style="font-size: .75em">Click the picture to minimze</div>
 		</div>
 		<div class="picture-container" id="pic2" style="grid-area: top-right;"><img class="picture" src="https://imgur.com/HunQKjz.png">
 			<div class="picture-caption">f/2.8 | 1/80s | ISO/400</div>
@@ -101,6 +102,8 @@
 	</div>
 
 	<script>
+		var scrollPosition = 0;
+		
 		function hideEverythingElse(target) {
 			var first = ["#pic1", "#pic2", "#pic3", "#pic4", "#pic5", "#pic6"];
 			var indexValue = first.indexOf(target);
@@ -110,6 +113,8 @@
 				$(first[i]).css("display", "none");
 			}
 			first.push(target);
+			
+			$('#bottom-caption').css("display", "none");
 
 			$(target + " > .picture-caption").css("display", "inline-block");
 		}
@@ -131,10 +136,21 @@
 			//			console.log(target + " status: " + $(target).hasClass("picture-highlighted"));
 			if (!$(target).hasClass("picture-highlighted")) {
 				$(target).addClass("picture-highlighted");
+				$(target).removeClass("picture-container");
+				$('.photo-page').css("display: block !important;");
 				hideEverythingElse(target);
+				scrollPosition = window.scrollY;
+				$('html, body').animate({
+					scrollTop: 0,
+				}, 500);
 			} else {
 				$(target).removeClass("picture-highlighted");
+				$(target).addClass("picture-container");
 				unhideEverythingElse(target);
+				$('.photo-page').css("display", "grid !important;");
+				$('html, body').animate({
+					scrollTop: scrollPosition,
+				}, 500);
 			}
 		}
 

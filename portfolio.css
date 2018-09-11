@@ -292,11 +292,17 @@ body {
 }
 
 .picture-highlighted {
-	width: 40vw;
-	height: 40vw;
+	margin: 0 !important;
+	width: 35vw;
+	height: 35vw;
 	position: absolute;
-	top: 0;
+	top: -2vh !important;
+	left: 12.5vw !important;
 	z-index: 1000;
+	padding: 0 !important;
+	grid-column: span 2 !important;
+	grid-row: 1 !important;
+	
 }
 
 .picture-caption {
