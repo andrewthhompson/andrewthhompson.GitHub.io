@@ -95,6 +95,32 @@ body {
 	padding-bottom: 2.5%;
 }
 
+.photo-page {
+	width: 60%;
+	height: auto;
+	left: 25%;
+	position: relative;
+	padding-left: 5%;
+	padding-top: 5%;
+	margin-bottom: -5%;
+	display: grid;
+	grid-template-columns: 50% 50%;
+	grid-template-rows: repeat(3, 30vw) 10vw;
+	grid-template-areas: "top-left top-right"
+						 "left right"
+						 "bottom-left bottom-right"
+						 "footer-left footer-right";
+	grid-gap: 5%;
+	column-gap: 5%;
+	align-items: flex-start;
+	
+	length: auto;
+	float: top;
+	
+/*	border: 5px solid black;*/
+	padding-bottom: 2.5%;
+}
+
 .content:last-of-type {
 	padding-bottom: 5%;
 }
@@ -255,6 +281,7 @@ body {
 	height: 20vw;
 	display: inline-block;
 	padding: 5%;
+	margin-right: 10%;
 }
 
 .picture {
