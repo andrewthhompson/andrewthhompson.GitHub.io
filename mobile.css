@@ -89,10 +89,10 @@ body {
 	font-family: "CooperHewitt-Semibold";
 	/*	font-size: 5em;*/
 	font-size: 8vmin;
-	padding-left: 12.5%;
+	padding-left: 10%;
 	padding-bottom: 1%;
 	margin: 0 auto;
-	padding-top: 10%;
+	padding-top: 7.5%;
 }
 
 .center-block p:first-child {
@@ -127,7 +127,7 @@ body {
 .bio-header {
 	position: absolute;
 	top: 5%;
-	left: 5%;
+	left: 10%;
 	font-family: "CooperHewitt-Bold";
 	font-size: 1.5em;
 	color: #ffaeae;
@@ -136,8 +136,8 @@ body {
 .bio-body {
 	font-family: "Source Code Pro";
 	top: 15%;
-	left: 15%;
-	width: 85%;
+	left: 10%;
+	width: 75%;
 	right: 15%;
 	position: absolute;
 	font-size: .5em;
@@ -311,7 +311,7 @@ body {
 	position: absolute;
 	margin: 0 auto;
 	font-family: "CooperHewitt-Bold";
-	font-size: 2em;
+	font-size: 1.75em;
 	text-align: center;
 	color: #ffaeae;
 	top: 15%;
@@ -323,7 +323,7 @@ body {
 	top: 20%;
 	width: 60%;
 	position: absolute;
-	left: 20%;
+	left: 10%;
 	font-size: 1em;
 	color: #7f7f7f;
 	word-break: break-all;
