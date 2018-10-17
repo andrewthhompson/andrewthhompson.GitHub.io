@@ -1,0 +1,194 @@
+<!doctype html>
+<html>
+
+<head>
+	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-117438573-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-117438573-1');
+	</script>
+	
+	<style>
+		@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:400');
+		@font-face {
+			font-family: "CooperHewitt-Bold";
+			src: url(fonts/CooperHewitt-Bold.woff);
+		}
+
+		@font-face {
+			font-family: "CooperHewitt-Semibold";
+			src: url(fonts/CooperHewitt-Semibold.woff);
+		}
+
+		@font-face {
+			font-family: "CooperHewitt-LightItalic";
+			src: url(fonts/CooperHewitt-LightItalic.woff);
+		}
+
+		body {
+			margin: 0 auto;
+			background-color: white;
+		}
+		
+		#card {
+			filter: drop-shadow(0 0 7px #cccccc);
+			z-index: 10;
+			left: 10vw;
+			right: 10vw;
+			top: 10vw;
+			width: 80vw;
+			height: 100vh;
+			position: absolute;
+		}
+		
+		.front {
+			background-color: #ffaeae;
+			width: 100%; 
+			height: 100%;
+			border-radius: 5px;
+		}
+		
+		.back {
+			background-color: white;
+			width: 100%; 
+			height: 100%;
+			border-radius: 5px;
+		}
+		
+		.text_container {
+			
+			left: 10vw;
+			top: 5vw;
+			right: 20%;
+			bottom: 10%;
+			width: 75%;
+			height: 85%;
+			word-wrap: normal;
+			overflow: hidden;
+			position: absolute;
+			z-index: 50;
+		}
+		
+		p {
+			font-family: "Source Code Pro";
+			font-size: 18px;
+			padding-bottom: 1.25vh;
+			color: white;
+		}
+		
+		a { 
+			color: white;
+		}
+		
+		#button {
+			position: absolute;
+			z-index: 20;
+			background-color: white;
+			color: #ffaeae;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: 12.5%;
+			filter: drop-shadow(0 0 7px #cccccc);
+		}
+		
+		#resume_button {
+			position: absolute;
+			width: 50%;
+			height: 100%;
+			left: 0;
+		}
+		
+		#resume_text {
+			font-family: "CooperHewitt-Semibold";
+			font-size: 36px;
+			text-align: center;
+			top: 25%;
+			position: absolute;
+			width: 50%;
+			height: auto;
+			left: 0;
+		}
+		
+		#flip_button {
+			position: absolute;
+			width: 50%;
+			height: 100%;
+			right: 0;
+		}
+		
+		#flip_text {
+			font-family: "CooperHewitt-Semibold";
+			font-size: 36px;
+			text-align: center;
+			top: 25%;
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			right: 0;
+		}
+		
+		#wrapper {
+			height: 100vh;
+			width: 100vw;
+			position: fixed;
+			overflow: hidden;
+		}
+		
+	</style>
+	
+	<meta charset="UTF-8">
+	<title>Andrew Thompson</title>
+	
+	<script>
+		$(function(){
+			$("#card").flip({
+		  		trigger: 'manual'
+			});
+		});
+		
+		$(function(){$('#flip_button').click(function(){
+			$("#card").flip('toggle');
+		});});
+	</script>
+
+</head>
+
+<body>
+	<div id="wrapper">
+	<div id="card">
+	<div class="front"> <div class="text_container">
+		<p>Andrew Thompson</p>
+		<p>Advertising & Marketing Communications Major @ <a href="www.jwu.edu">JWU</a></p>
+		<p>Marketing Strategist & Designer @ <a href="https://www.pangea.app">Pangea.app</a></p>
+		<p><a href="email:andrew@pangea.app">andrew@pangea.app</a></p>
+		<p><a href="www.andrewthompson.me">andrewthompson.me</a></p>
+		<p>(860).994.2748</p>
+	</div> </div>
+	<div class="back">
+		<div class="text_container">ehh</div></div>
+	</div>
+	<div id="button">
+		<a id="resume_button" href="resume.pdf"><div id="resume_text">RESUME</div></a>
+		<div id="flip_button"><div id="flip_text">FLIP</div></div>
+	</div>
+	</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
