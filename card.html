@@ -64,6 +64,15 @@
 			border-radius: 5px;
 		}
 		
+		.back_image {
+			height: 60vh;
+			width: auto;
+			left: 0;
+			right: 0;
+			top: 10vh;
+			position: absolute;
+		}
+		
 		.text_container {
 			
 			left: 10vw;
@@ -170,7 +179,9 @@
 
 <body>
 	<div id="wrapper">
+		
 	<div id="card">
+		
 	<div class="front"> <div class="text_container">
 		<p>Andrew Thompson</p>
 		<p>Advertising & Marketing Communications Major @ <a href="www.jwu.edu">JWU</a></p>
@@ -179,13 +190,18 @@
 		<p><a href="www.andrewthompson.me">andrewthompson.me</a></p>
 		<p>(860).994.2748</p>
 	</div> </div>
+		
 	<div class="back">
-		<div class="text_container">ehh</div></div>
+		<img class="back_image" src="card_back.svg" alt="business-card-back">
 	</div>
+		
+	</div>
+		
 	<div id="button">
 		<a id="resume_button" href="resume.pdf"><div id="resume_text">RESUME</div></a>
 		<div id="flip_button"><div id="flip_text">FLIP</div></div>
 	</div>
+		
 	</div>
 </body>
 </html>
