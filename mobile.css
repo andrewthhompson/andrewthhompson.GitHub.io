@@ -129,7 +129,7 @@ body {
 	top: 5%;
 	left: 5%;
 	font-family: "CooperHewitt-Bold";
-	font-size: 2em;
+	font-size: 1.5em;
 	color: #ffaeae;
 }
 
@@ -137,7 +137,7 @@ body {
 	font-family: "Source Code Pro";
 	top: 15%;
 	left: 15%;
-	width: 70%;
+	width: 85%;
 	right: 15%;
 	position: absolute;
 	font-size: .5em;
@@ -311,10 +311,10 @@ body {
 	position: absolute;
 	margin: 0 auto;
 	font-family: "CooperHewitt-Bold";
-	font-size: 1.5em;
+	font-size: 2em;
 	text-align: center;
 	color: #ffaeae;
-	top: 20%;
+	top: 15%;
 	width: 100%;
 }
 
@@ -324,7 +324,7 @@ body {
 	width: 60%;
 	position: absolute;
 	left: 20%;
-	font-size: .5em;
+	font-size: 1em;
 	color: #7f7f7f;
 	word-break: break-all;
 	word-wrap: break-word;
