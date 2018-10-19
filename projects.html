@@ -89,7 +89,7 @@
 		}
 	</script>
 	
-	<div class="content">
+	<div class="content" id="unicef">
 		<div class="content-title">UNICEF</div>
 		
 		<div class="txt">
@@ -105,7 +105,7 @@
 		</div>
 	</div>
 	
-	<div class="content">
+	<div class="content" id="pangea">
 		<div class="content-title">Pangea.app</div>
 		
 		<div class="txt">
@@ -122,7 +122,7 @@
 		</div>
 	</div>
 	
-	<div class="content">
+	<div class="content" id="oceanSpray">
 		<div class="content-title">Ocean Spray</div>
 		
 		<div class="txt">
@@ -139,7 +139,7 @@
 		</div>
 	</div>
 	
-	<div class="content">
+	<div class="content"  id="moveOut">
 		<div class="content-title">Move Out + Donate</div>
 		
 		<div class="txt">
@@ -165,7 +165,7 @@
 		
 	</div>
 	
-	<div class="content">
+	<div class="content" id="CAS">
 		<div class="content-title">Center for Academic Support</div>
 		
 		<div class="txt">
@@ -192,7 +192,7 @@
 		
 	</div>
 
-	<div class="content" id="first">
+	<div class="content" id="SweetEmotions">
 		<div class="content-title">Sweet Emotions</div>
 
 		<div class="txt">
@@ -242,7 +242,7 @@
 -->
 	</div>
 
-	<div class="content">
+	<div class="content" id="twizzlers">
 		<div class="content-title">Twizzlers</div>
 
 		<div class="txt">
@@ -316,6 +316,82 @@
 					$(".title-mobile").removeClass("title-mobile-contrast");
 				}
 			});
+		});
+	</script>
+	<script>
+		var scrollPosition = 0;
+		
+		function hideEverythingElse(target) {
+			var first = ["#UNICEF", "#Pangea.app", "#oceanSpray", "#moveOut", "#CAS", "#sweetEmotions", "#twizzlers"];
+			var indexValue = first.indexOf(target);
+			first.splice(indexValue, 1);
+			console.log("remove" + first.length);
+			for (i = 0; i < first.length; i++) {
+				$(first[i]).css("display", "none");
+			}
+			first.push(target);
+		}
+
+		function unhideEverythingElse(target) {
+			var first = ["#UNICEF", "#Pangea.app", "#oceanSpray", "#moveOut", "#CAS", "#sweetEmotions", "#twizzlers"];
+			var indexValue = first.indexOf(target);
+			first.splice(indexValue, 1);
+			console.log("add" + first.length);
+			for (i = 0; i < first.length; i++) {
+				$(first[i]).css("display", "inline-block");
+			}
+			first.push(target);
+		}
+
+		function clickerThingy(target) {
+			if (!$(target).hasClass("picture-highlighted")) {
+				$(target).addClass("picture-highlighted");
+				$(target).removeClass("picture-container");
+				$('.photo-page').css("display: block !important;");
+				hideEverythingElse(target);
+				scrollPosition = window.scrollY;
+				$('html, body').animate({
+					scrollTop: 0,
+				}, 100);
+			} else {
+				$(target).removeClass("picture-highlighted");
+				$(target).addClass("picture-container");
+				unhideEverythingElse(target);
+				$('.photo-page').css("display", "grid !important;");
+				$('html, body').animate({
+					scrollTop: scrollPosition,
+				}, 100);
+			}
+		}
+
+
+
+		$("#UNICEF").on("click", function () {
+			clickerThingy("#UNICEF");
+		});
+
+		$("#Pangea.app").on("click", function () {
+			clickerThingy("#Pangea.app");
+		});
+
+		$("#oceanSpray").on("click", function () {
+			clickerThingy("#oceanSpray");
+		});
+
+		$("#moveOut").on("click", function () {
+			clickerThingy("#moveOut");
+		});
+
+		$("#CAS").on("click", function () {
+			clickerThingy("#CAS");
+		});
+
+		$("#sweetEmotions").on("click", function () {
+			clickerThingy("#sweetEmotions");
+		});
+		
+		$("#twizzlers").on("click", function () {
+			clickerThingy("#twizzlers");
 		});
 	</script>
 
