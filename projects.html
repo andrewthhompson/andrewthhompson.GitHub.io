@@ -3,6 +3,7 @@
 
 <head>
 	<link href="portfolio.css" rel="stylesheet" type="text/css">
+	<link href="lightbox-min.css" rel="stylesheet">
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-117438573-1"></script>
 	<script>
@@ -56,6 +57,25 @@
 			});
 		})
 	</script>
+	<script src="lightbox-min.css"></script>
+	<script>
+		$(document).ready(function () {
+		  "use strict";
+		  $(".lightbox").click(function () {
+			  var imgsrc = $(this).attr('src');
+			  $("body").append("<div class='img-popup'><span class='close-lightbox'>&times;</span><img src='" + imgsrc + "'></div>");
+			  $(".close-lightbox, .img-popup").click(function () {
+				  $(".img-popup").fadeOut(500, function () {
+					  $(this).remove();
+				  }).addClass("lightboxfadeout");
+			  });
+		  });
+		  $(".lightbox").click(function () {
+			  $(".img-popup").fadeIn(500);
+		  });
+		});
+	</script>
+	
 </head>
 
 <body>
@@ -100,8 +120,8 @@
 		</div>
 		
 		<div class="img" style="top: 22.5%;">
-			<img class="content-image" src="images/UNICEF_2.png">
-			<img class="content-image" src="images/UNICEF_4.png">
+			<img class="content-image lightbox lightbox" src="images/UNICEF_2.png">
+			<img class="content-image lightbox" src="images/UNICEF_4.png">
 		</div>
 	</div>
 	
@@ -117,8 +137,8 @@
 		</div>
 		
 		<div class="img" style="top: 22.5%;">
-			<img class="content-image" src="images/pangea_logo.png">
-			<img class="content-image" src="images/pangea_ui.png">
+			<img class="content-image lightbox" src="images/pangea_logo.png">
+			<img class="content-image lightbox" src="images/pangea_ui.png">
 		</div>
 	</div>
 	
@@ -134,8 +154,8 @@
 		</div>
 		
 		<div class="img" style="top: 22.5%;">
-			<img class="content-image" src="images/OS_bus.png">
-			<img class="content-image" src="images/OS_media.png">
+			<img class="content-image lightbox" src="images/OS_bus.png">
+			<img class="content-image lightbox" src="images/OS_media.png">
 		</div>
 	</div>
 	
@@ -150,7 +170,7 @@
 		</div>
 		
 		<div class="img" style="top: 22.5%;">
-			<img class="content-image" src="images/moveout.png">
+			<img class="content-image lightbox" src="images/moveout.png">
 
 			<a href="https://www.behance.net/gallery/65409211/Move-Out-Donate">
 				<div class="behance-link behance-link-left">
@@ -177,7 +197,7 @@
 		</div>
 		
 		<div class="img" style="top: 20%;">
-			<img class="content-image" src="images/cas.png">
+			<img class="content-image lightbox" src="images/cas.png">
 
 			<a href="https://www.behance.net/gallery/65410155/CAS">
 				<div class="behance-link behance-link-left">
@@ -205,7 +225,7 @@
 		</div>
 
 		<div class="img" style="top: 10%;">
-			<img class="content-image" src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/0a09d158072777.59eec707590bf.png">
+			<img class="content-image lightbox" src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/0a09d158072777.59eec707590bf.png">
 
 			<a href="https://www.behance.net/gallery/58072777/Sweet-Emotions">
 				<div class="behance-link behance-link-left">
@@ -222,10 +242,10 @@
 		<!--
 		<script>
 			if ($(window).width() > $(window).height()) {
-				$(".imageplace-1").append('<img class="content-image" src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/0a09d158072777.59eec707590bf.png">');
+				$(".imageplace-1").append('<img class="content-image lightbox" src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/0a09d158072777.59eec707590bf.png">');
 				$(".imageplace-1").append('<a href="https://www.behance.net/gallery/58072777/Sweet-Emotions"><div class="behance-link"><img src="behance logo.png" class="behance-logo"><div class="behance-text-container"><div class="behance-text">View on</div><div class="behance-text-pink">Behance</div></div></div></a>');
 			} else {
-				$(".imageplace-2").append('<img class="content-image" src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/0a09d158072777.59eec707590bf.png">');
+				$(".imageplace-2").append('<img class="content-image lightbox" src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/0a09d158072777.59eec707590bf.png">');
 				$(".behanceplace-1").append('<a href="https://www.behance.net/gallery/58072777/Sweet-Emotions"><div class="behance-link"><img src="behance logo.png" class="behance-logo"><div class="behance-text-container"><div class="behance-text">View on</div><div class="behance-text-pink">Behance</div></div></div></a>');
 			}
 		</script>
@@ -254,8 +274,8 @@
 		</div>
 
 		<div class="img">
-			<img class="content-image" src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/4320f958678147.5a04daad518ae.png">
-			<img class="content-image" src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/6f2ec458678147.5a04daac71438.png" style="top: 0;">
+			<img class="content-image lightbox" src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/4320f958678147.5a04daad518ae.png">
+			<img class="content-image lightbox" src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/6f2ec458678147.5a04daac71438.png" style="top: 0;">
 
 			<a href="https://www.behance.net/gallery/58678147/Twizzlers">
 				<div class="behance-link behance-link-left">
@@ -267,19 +287,19 @@
 				</div>
 			</a>
 		</div>
-		<!--		<img class="content-image" src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/4320f958678147.5a04daad518ae.png">-->
-		<!--		<img class="content-image" src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/6f2ec458678147.5a04daac71438.png">-->
+		<!--		<img class="content-image lightbox" src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/4320f958678147.5a04daad518ae.png">-->
+		<!--		<img class="content-image lightbox" src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/6f2ec458678147.5a04daac71438.png">-->
 
 
 		<!--
 		<script>
 			if ($(window).width() > $(window).height()) {
-				$(".imageplace-3").append('<img class="content-image" src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/4320f958678147.5a04daad518ae.png">');
-				$(".imageplace-3").append('<img class="content-image" src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/6f2ec458678147.5a04daac71438.png">');
+				$(".imageplace-3").append('<img class="content-image lightbox" src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/4320f958678147.5a04daad518ae.png">');
+				$(".imageplace-3").append('<img class="content-image lightbox" src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/6f2ec458678147.5a04daac71438.png">');
 				$(".imageplace-3").append('<a href="https://www.behance.net/gallery/58678147/Twizzlers"><div class="behance-link"><img src="behance logo.png" class="behance-logo"><div class="behance-text-container"><div class="behance-text">View on</div><div class="behance-text-pink">Behance</div></div></div></a>');
 			} else {
-				$(".imageplace-5").append('<img class="content-image" src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/4320f958678147.5a04daad518ae.png">');
-				$(".imageplace-6").append('<img class="content-image" src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/6f2ec458678147.5a04daac71438.png">');
+				$(".imageplace-5").append('<img class="content-image lightbox" src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/4320f958678147.5a04daad518ae.png">');
+				$(".imageplace-6").append('<img class="content-image lightbox" src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/6f2ec458678147.5a04daac71438.png">');
 				$(".behanceplace-2").append('<a href="https://www.behance.net/gallery/58678147/Twizzlers"><div class="behance-link"><img src="behance logo.png" class="behance-logo"><div class="behance-text-container"><div class="behance-text">View on</div><div class="behance-text-pink">Behance</div></div></div></a>');
 			}
 		</script>
@@ -318,82 +338,7 @@
 			});
 		});
 	</script>
-	<script>
-		var scrollPosition = 0;
-		
-		function hideEverythingElse(target) {
-			var first = ["#UNICEF", "#Pangea.app", "#oceanSpray", "#moveOut", "#CAS", "#sweetEmotions", "#twizzlers"];
-			var indexValue = first.indexOf(target);
-			first.splice(indexValue, 1);
-			console.log("remove" + first.length);
-			for (i = 0; i < first.length; i++) {
-				$(first[i]).css("display", "none");
-			}
-			first.push(target);
-		}
-
-		function unhideEverythingElse(target) {
-			var first = ["#UNICEF", "#Pangea.app", "#oceanSpray", "#moveOut", "#CAS", "#sweetEmotions", "#twizzlers"];
-			var indexValue = first.indexOf(target);
-			first.splice(indexValue, 1);
-			console.log("add" + first.length);
-			for (i = 0; i < first.length; i++) {
-				$(first[i]).css("display", "inline-block");
-			}
-			first.push(target);
-		}
-
-		function clickerThingy(target) {
-			if (!$(target).hasClass("picture-highlighted")) {
-				$(target).addClass("picture-highlighted");
-				$(target).removeClass("picture-container");
-				$('.photo-page').css("display: block !important;");
-				hideEverythingElse(target);
-				scrollPosition = window.scrollY;
-				$('html, body').animate({
-					scrollTop: 0,
-				}, 100);
-			} else {
-				$(target).removeClass("picture-highlighted");
-				$(target).addClass("picture-container");
-				unhideEverythingElse(target);
-				$('.photo-page').css("display", "grid !important;");
-				$('html, body').animate({
-					scrollTop: scrollPosition,
-				}, 100);
-			}
-		}
-
-
-
-		$("#UNICEF").on("click", function () {
-			clickerThingy("#UNICEF");
-		});
-
-		$("#Pangea.app").on("click", function () {
-			clickerThingy("#Pangea.app");
-		});
-
-		$("#oceanSpray").on("click", function () {
-			clickerThingy("#oceanSpray");
-		});
-
-		$("#moveOut").on("click", function () {
-			clickerThingy("#moveOut");
-		});
-
-		$("#CAS").on("click", function () {
-			clickerThingy("#CAS");
-		});
-
-		$("#sweetEmotions").on("click", function () {
-			clickerThingy("#sweetEmotions");
-		});
-		
-		$("#twizzlers").on("click", function () {
-			clickerThingy("#twizzlers");
-		});
-	</script>
+	
 
 	<!--
 	<script>
