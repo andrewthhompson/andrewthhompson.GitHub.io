@@ -21,7 +21,11 @@
 	
 	<title>Pieces</title>
 	<!--	<link href="portfolio-mobile.css" rel="stylesheet" type="text/css">-->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!--	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+	<script src="jquery.js"></script>
+	<script src="jquery.lazy.min.js"></script>
+	<link href="lightbox-min.css" rel="stylesheet">
+	<script src="lightbox-min.css"></script>
 	<script>
 		var isDesktop = true;
 	</script>
@@ -70,6 +74,32 @@
 			});
 		})
 	</script>
+	<script>
+		$(document).ready(function () {
+			"use strict";
+			$(".lightbox").click(function () {
+				var imgsrc = $(this).attr('src');
+				$("body").append("<div class='img-popup'><span class='close-lightbox'>&times;</span><img src='" + imgsrc + "'></div>");
+				$(".close-lightbox, .img-popup").click(function () {
+					$(".img-popup").fadeOut(500, function () {
+						$(this).remove();
+					}).addClass("lightboxfadeout");
+				});
+			});
+			$(".lightbox").click(function () {
+				$(".img-popup").fadeIn(500);
+			});
+			
+			$(function() {
+				$('.content-image').Lazy({
+					effect: 'fadeIn',
+					effectTime: "250",
+					visibleOnly: true
+				});
+				console.log("hit");
+			});
+		});
+	</script>
 </head>
 
 <body>
@@ -108,14 +138,14 @@
 			<a href="https://www.behance.net/gallery/59856837/PINK-VS-vs-Breast-Cancer">
 				<div class="behance-link"><img src="behance logo.png" class="behance-logo">
 					<div class="behance-text-container">
-						<div class="behance-text">View on</div>
+						<div class="behance-text behance-text-right">View on</div>
 						<div class="behance-text-pink">Behance</div>
 					</div>
 				</div>
 			</a>
 		</div>
 		<div class="img">
-			<img class="content-image" src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/0a2b8859856837.5a319ef0c6546.png">
+			<img class="content-image lightbox" data-src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/0a2b8859856837.5a319ef0c6546.png">
 		</div>
 	</div>
 	<!--	Ski Club	-->
@@ -126,14 +156,14 @@
 			<a href="https://www.behance.net/gallery/58072637/Ski-Club">
 				<div class="behance-link"><img src="behance logo.png" class="behance-logo">
 					<div class="behance-text-container">
-						<div class="behance-text">View on</div>
+						<div class="behance-text behance-text-right">View on</div>
 						<div class="behance-text-pink">Behance</div>
 					</div>
 				</div>
 			</a>
 		</div>
 		<div class="img">
-			<img class="content-image" src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/d5438858072637.59eec5cb2277e.png">
+			<img class="content-image lightbox" data-src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/d5438858072637.59eec5cb2277e.png">
 		</div>
 	</div>
 	<!--	Waves	-->
@@ -144,14 +174,14 @@
 			<a href="https://www.behance.net/gallery/58072217/Waves">
 				<div class="behance-link"><img src="behance logo.png" class="behance-logo">
 					<div class="behance-text-container">
-						<div class="behance-text">View on</div>
+						<div class="behance-text behance-text-right">View on</div>
 						<div class="behance-text-pink">Behance</div>
 					</div>
 				</div>
 			</a>
 		</div>
 		<div class="img">
-			<img class="content-image" src="https://mir-s3-cdn-cf.behance.net/projects/202/b81aef58072217.Y3JvcCw0MDUsMzE3LDUwMSw2NQ.png">
+			<img class="content-image lightbox" data-src="https://mir-s3-cdn-cf.behance.net/projects/202/b81aef58072217.Y3JvcCw0MDUsMzE3LDUwMSw2NQ.png">
 		</div>
 	</div>
 	<!--	Smith Center	-->
@@ -162,14 +192,14 @@
 			<a href="https://www.behance.net/gallery/58098375/Smith-Center">
 				<div class="behance-link"><img src="behance logo.png" class="behance-logo">
 					<div class="behance-text-container">
-						<div class="behance-text">View on</div>
+						<div class="behance-text behance-text-right">View on</div>
 						<div class="behance-text-pink">Behance</div>
 					</div>
 				</div>
 			</a>
 		</div>
 		<div class="img">
-			<img class="content-image" src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/0dc88958098375.59ef831f1b34f.gif">
+			<img class="content-image" data-src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/0dc88958098375.59ef831f1b34f.gif">
 		</div>
 	</div>
 

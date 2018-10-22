@@ -22,7 +22,12 @@
 	<title>Photography</title>
 <!--		<link href="portfolio.css" rel="stylesheet" type="text/css">-->
 	<!--	<link href="portfolio-mobile.css" rel="stylesheet" type="text/css">-->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!--	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+	<script src="jquery.js"></script>
+	<script src="jquery.lazy.min.js"></script>
+	<link href="lightbox-min.css" rel="stylesheet">
+	<script src="lightbox-min.css"></script>
+
 	<script>
 		if ($(window).width() > $(window).height()) { //desktop
 			document.write('<link href="portfolio.css" rel="stylesheet" type="text/css">');
@@ -50,6 +55,33 @@
 			}
 		})
 	</script>
+	
+	<script>
+		$(document).ready(function () {
+			"use strict";
+			$(".lightbox").click(function () {
+				var imgsrc = $(this).attr('src');
+				$("body").append("<div class='img-popup'><span class='close-lightbox'>&times;</span><img src='" + imgsrc + "'></div>");
+				$(".close-lightbox, .img-popup").click(function () {
+					$(".img-popup").fadeOut(500, function () {
+						$(this).remove();
+					}).addClass("lightboxfadeout");
+				});
+			});
+			$(".lightbox").click(function () {
+				$(".img-popup").fadeIn(500);
+			});
+			
+			$(function() {
+				$('.content-image').Lazy({
+					effect: 'fadeIn',
+					effectTime: "250",
+					visibleOnly: true
+				});
+				console.log("hit");
+			});
+		});
+	</script>
 </head>
 
 <body>
@@ -75,32 +107,32 @@
 		</a>
 	</div>
 	<div class="photo-page">
-		<div class="picture-container" id="pic1" style="grid-area: top-left;"><img class="picture" src="https://imgur.com/PjZ5cX9.png">
+		<div class="picture-container lightbox" id="pic1" style="grid-area: top-left;"><img class="picture" data-src="https://imgur.com/PjZ5cX9.png">
 			<div class="picture-caption">f/2.8 | 1/100s | ISO/100</div>
 			<div class="picture-caption">Mansfield, Connecticut</div>
 			<div class="picture-caption" style="font-size: .75em">Click the picture to minimze</div>
 		</div>
-		<div class="picture-container" id="pic2" style="grid-area: top-right;"><img class="picture" src="https://imgur.com/HunQKjz.png">
+		<div class="picture-container lightbox" id="pic2" style="grid-area: top-right;"><img class="picture" data-src="https://imgur.com/HunQKjz.png">
 			<div class="picture-caption">f/2.8 | 1/80s | ISO/400</div>
 			<div class="picture-caption">The Vatican</div>
 			<div class="picture-caption" style="font-size: .75em">Click the picture to minimze</div>
 		</div>
-		<div class="picture-container" id="pic3" style="grid-area: left;"><img class="picture" src="https://imgur.com/XxacbPx.png">
+		<div class="picture-container lightbox" id="pic3" style="grid-area: left;"><img class="picture" data-src="https://imgur.com/XxacbPx.png">
 			<div class="picture-caption">f/2.8 | 1/1000s | ISO/100</div>
 			<div class="picture-caption">The Vatican</div>
 			<div class="picture-caption" style="font-size: .75em">Click the picture to minimze</div>
 		</div>
-		<div class="picture-container" id="pic4" style="grid-area: right;"><img class="picture" src="https://imgur.com/QmUAF8n.png">
+		<div class="picture-container lightbox" id="pic4" style="grid-area: right;"><img class="picture" data-src="https://imgur.com/QmUAF8n.png">
 			<div class="picture-caption">f/2.8 | 1/800s | ISO/100</div>
 			<div class="picture-caption">Providence, Rhode Island</div>
 			<div class="picture-caption" style="font-size: .75em">Click the picture to minimze</div>
 		</div>
-		<div class="picture-container" id="pic5" style="grid-area: bottom-left;"><img class="picture" src="https://imgur.com/nRAgTAl.png">
+		<div class="picture-container lightbox" id="pic5" style="grid-area: bottom-left;"><img class="picture" data-src="https://imgur.com/nRAgTAl.png">
 			<div class="picture-caption">f/1.8 | 1/1600s | ISO/100</div>
 			<div class="picture-caption">Mansfield, Connecticut</div>
 			<div class="picture-caption" style="font-size: .75em">Click the picture to minimze</div>
 		</div>
-		<div class="picture-container" id="pic6" style="grid-area: bottom-right;"><img class="picture" src="https://imgur.com/VzJVSYE.png">
+		<div class="picture-container lightbox" id="pic6" style="grid-area: bottom-right;"><img class="picture" data-src="https://imgur.com/VzJVSYE.png">
 			<div class="picture-caption">f/1.8 | 1/125s | ISO/200</div>
 			<div class="picture-caption">Providence, Rhode Island</div>
 			<div class="picture-caption" style="font-size: .75em">Click the picture to minimze</div>
@@ -108,7 +140,7 @@
 		<div class="picture-caption" id="bottom-caption" style="display: inline-block; width: 90%; grid-column-start: footer-left; grid-column-end: footer-right;">Click each picture for info</div>
 	</div>
 
-	<script>
+	<!--<script>
 		var scrollPosition = 0;
 		
 		function hideEverythingElse(target) {
@@ -145,7 +177,7 @@
 			//			console.log(target + " status: " + $(target).hasClass("picture-highlighted"));
 			if (!$(target).hasClass("picture-highlighted")) {
 				$(target).addClass("picture-highlighted");
-				$(target).removeClass("picture-container");
+				$(target).removeClass("picture-container lightbox");
 				$('.photo-page').css("display: block !important;");
 				hideEverythingElse(target);
 				scrollPosition = window.scrollY;
@@ -154,7 +186,7 @@
 				}, 100);
 			} else {
 				$(target).removeClass("picture-highlighted");
-				$(target).addClass("picture-container");
+				$(target).addClass("picture-container lightbox");
 				unhideEverythingElse(target);
 				$('.photo-page').css("display", "grid !important;");
 				$('html, body').animate({

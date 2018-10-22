@@ -1,0 +1,148 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>JWU CAS</title>
+	<link href="main.css" rel="stylesheet" type="text/css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js"></script>
+</head>
+
+<body>
+	<!--
+	<video playsinline autoplay muted loop poster="video.jpg" id="bgvid">
+		<source src="video.mp4" type="video/mp4">
+	</video>
+-->
+	<!--	<div id="colorfilter"></div>-->
+
+	<img src="square_logo.png" id="logo" class="master">
+	<img src="square_logo_state_1.png" id="logo_state_1" class="master">
+	<img src="square_logo_state_2.png" id="logo_state_2" class="master">
+	<img src="square_panic.png" id="panic" class="master">
+	<img src="square_panic_inverse.png" id="panic_inverse" class="master">
+
+	<a href="panic.html" class="panic_button">
+		<div id="hitbox"></div>
+	</a>
+	
+	<img src="scroll.png" id="scroll">
+
+	<p id="text_1">We're about more than just plain-old learning. Our center is a place for students to learn how to learn, and to pick up skills that they'll carry on for decades to come. We're a hub for collaboration, not a nurse's office for failing grades.</p>
+
+	<p id="text_2">But if you do need a bit of extra help <b>right now</b>, hit the panic button to the left.</p>
+
+	<ul id="header">
+		<li class="header_name"><a href="index.html">The Center for Academic Support</a></li>
+		<li><a href="services.html">Hours</a></li>
+		<li><a href="center.html">Tutoring</a></li>
+	</ul>
+
+	<div id="screen1"></div>
+	<div id="screen2"></div>
+
+
+
+	<script>
+		$(document).ready(function () {
+			// scroll variables
+			var scrollPos = 0;
+			var scrollPosCur = 0;
+			var scrollPosLast = 0;
+			var scrollDelta = 0;
+			var Counter = 0;
+
+			// opacity variables
+			var opac1 = 1;
+			var opac2 = 0;
+			var opac3 = 0;
+
+			$('.panic_button').hide();
+			
+			// centers text boxes
+			$("#text_1").css("margin-top", -$("#text_1").height() / 2);
+			$("#text_2").css("margin-top", -$("#text_2").height() / 2);
+
+			$(window).scroll(function () {
+				scrollPosLast = scrollPosCur;
+				scrollPosCur = $(this).scrollTop();
+
+				scrollDelta = scrollPos - scrollPosLast;
+
+				if (scrollPosCur > scrollPos) {
+					Counter -= 1;
+				} else {
+					Counter += 1;
+				}
+
+				scrollPos = scrollPosCur;
+				opac2 = (scrollPos / $(window).height());
+				opac1 = 1 - opac2;
+				opac3 = (scrollPos / $(window).height());
+
+				$('#logo_state_1').css("opacity", opac1); // CAS letters
+				$('#logo_state_2').css("opacity", opac2); // cube structure
+
+				$('#text_1').css("opacity", opac1); // screen1 text
+				$('#text_2').css("opacity", opac2); // screen2 text
+
+
+				if ((scrollPos / $(window).height()) > .75) { // displays panic only when page is loaded enough
+					$('#panic').css("opacity", opac3); // sets default panic opacity
+					$('.panic_button').show();
+					$('#hitbox').hover(function () { // hitbox hover
+						$('#panic').css("opacity", 0); // alternate state of panic
+						$('#panic_inverse').css("opacity", 1);
+					}, function () { // hitbox unhovered
+						$('#panic').css("opacity", 1); // regular state of panic
+						$('#panic_inverse').css("opacity", 0);
+					});
+				} else {
+					$('#hitbox').off("mouseenter mouseleave"); // removes hitbox properties when unhittable
+					$('#panic_inverse').css("opacity", 0); // failsafe
+					$('#panic').css("opacity", opac3); // failsafe
+					$('.panic_button').hide();
+				}
+
+				/*
+				$("#bgvid").css('filter', "blur(" + blur + "px)");
+				
+				if(scrollPos > $(window).height() / 3 && scrollPos < $(window).height()) {
+					logoTop = 40 - (((scrollPos - $(window).height() / 3) / ((2/3) * $(window).height())) * 32.5);
+					logoHeight = 20 - (((scrollPos - $(window).height() / 3) / ((2/3) * $(window).height())) * 10);
+					logoBackgroundTop = 37.5 - (((scrollPos - $(window).height() / 3) / ((2/3) * $(window).height())) * 32.5);
+					logoBackgroundOpacity = (0 + (((scrollPos - $(window).height() / 3) / ((2/3) * $(window).height())) * 100))/100;
+					logoBackgroundWidth = 45 - (((scrollPos - $(window).height() / 3) / ((2/3) * $(window).height())) * 20);
+					logoBackgroundHeight = 25 - (((scrollPos - $(window).height() / 3) / ((2/3) * $(window).height())) * 10);
+				} else if(scrollPos < $(window).height() / 3){
+					logoTop = 40;
+					logoHeight = 20;
+					logoBackgroundTop = 37.5;
+					logoBackgroundOpacity = 0;
+					logoBackgroundWidth = 45;
+					logoBackgroundHeight = 25;
+				} else if(scrollPos > $(window).height()){
+					logoTop = 7.5;
+					logoHeight = 10;
+					logoBackgroundTop = 5;
+					logoBackgroundOpacity = 100;
+					logoBackgroundWidth = 25;
+					logoBackgroundHeight = 15;
+				}
+				
+				$('#logo').css("top", logoTop + "%");
+				$('#logo').css("height", logoHeight + "%");
+				$('#logoBackground').css("top", logoBackgroundTop + "%");
+				$('#logoBackground').css("opacity", logoBackgroundOpacity);
+				$('#logoBackground').css("width", logoBackgroundWidth + "%");
+				$('#logoBackground').css("height", logoBackgroundHeight + "%");
+				*/
+			});
+			/*$("#bgvid").css('filter', blurString);*/
+		});
+	</script>
+</body>
+
+</html>

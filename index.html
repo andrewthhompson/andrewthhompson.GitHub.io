@@ -20,9 +20,12 @@
 	
 	<title>Andrew Thompson</title>
 	
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!--	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
 	<!--	<link href="main.css" rel="stylesheet" type="text/css">-->
 	<!--	<link href="mobile.css" rel="stylesheet" type="text/css">-->
+	<script src="jquery.js"></script>
+	<script src="jquery.lazy.min.js"></script>
+	
 	<script>
 		var isDesktop = $(window).width() > $(window).height();
 
@@ -31,6 +34,20 @@
 		} else {
 			document.write('<link href="mobile.css" rel="stylesheet" type="text/css">');
 		}
+	</script>
+	
+	<script>
+		$(document).ready(function() {
+			"use strict;
+			$(function($) {
+				$('.bio-picture').Lazy({
+					effect: 'fadeIn',
+					effectTime: "250",
+					visibleOnly: true
+				});
+				console.log("hit");
+			});
+		});
 	</script>
 </head>
 
