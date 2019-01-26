@@ -1,0 +1,525 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="js/anime.min.js"></script>
+	<script src="js/siema.min.js"></script>
+	<script src="js/papaparse.min.js"></script>
+	<script src="js/barba.min.js" type="text/javascript"></script>
+	<script src="js/jquery.center.min.js"></script>
+	<script src="js/tilt.jquery.min.js"></script>
+
+
+	<link rel="stylesheet" href="https://use.typekit.net/uxg6tuv.css">
+	<link rel="stylesheet" href="main.css">
+	
+	<title>Andrew Thompson</title>
+	
+	<style>
+		
+		
+	</style>
+	
+	<script>
+		var timerID = 0; 
+		var indexOnExit = 0;
+		var baseURL = window.location.href;
+		
+		var caption = [
+			["UNICEF Kid Power Band", "Advertising Campaign", "img/unicef.png", "#unicef"],
+			["Ocean Spray", "Advertising Campaign", "img/os.png", "#os"]
+		];
+				
+		function changeCaption(){
+			var slideNum = this.currentSlide;
+			$(".siemaName").html(caption[slideNum][0]);
+			$(".siemaCaption").html(caption[slideNum][1]);
+		}
+		
+		function nextSlide(){
+			mySiema.next();
+		}
+		
+		function updateURL(index) {
+			if(index==null) {
+				window.location = baseURL;
+				document.title = 'Andrew Thompson';
+			} else {
+				console.log(window.location.href);
+				history.pushState(null, null, window.location.href);
+
+				if (!window.location.href.includes(caption[index][3])) {
+					  window.location = baseURL + caption[index][3];
+				}
+				
+				history.pushState(null, null, window.location.href);
+				
+				document.title = caption[index][0];
+			}
+			
+			console.log("url changed");
+		}
+		
+		function portfolio(index) {			
+			var photos = [
+				['img/unicef1.png', 'img/unicef2.png', 'img/unicef3.png', 'img/unicef4.png'],
+				['img/unicef1.png', 'img/unicef2.png', 'img/unicef3.png', 'img/unicef4.png']
+			]
+			
+			var tempNum = index + 1;
+			var selector = '.portfolioSiema' + tempNum
+			
+			var mySiema = new Siema({
+				selector: selector,
+				duration: 1200,
+				perPage: 3,
+				easing: "cubic-bezier(0.19, 1, 0.22, 1)",
+				loop: true
+			});
+			
+			$(".bigTitle").center({against: ".headerImage"});
+			
+			for(var i = 0; i < photos[index].length; i++) {
+				var numOfPic = i + 1;
+				var hold = '.littyCarousel' + numOfPic;
+				$(hold).on('click', function(){	lity(photos[index][i]);	});
+			}
+			
+//			$('.littyCarousel1').on('click', function(){	lity(photos[index[0]]);		});
+//			$('.littyCarousel2').on('click', function(){	lity('img/unicef2.png');		});
+//			$('.littyCarousel3').on('click', function(){	lity('img/unicef3.png');		});
+//			$('.littyCarousel4').on('click', function(){	lity('img/unicef4.png');		});
+		}
+		
+		function loadPortfolioContent(index) {
+//			$(caption[index][3]).show();
+			anime({
+				targets: caption[index][3],
+				opacity: [0, 1],
+				duration: 1000,
+				easing: 'easeOutExpo',
+				loop: false,
+				begin: () => {console.log("Portfolio page " + index + " loaded.");},
+				complete: () => {$(caption[index][3]).hide();}
+			});
+		}
+		
+		function expandPane(index) {
+			$('.right').css('background-image', 'url('+ caption[index][2] +')');
+			$('.right').css('background-scale', 'contain');
+			$('.right').css('opacity', 1);
+			$('#panelCover').show();
+			$(caption[index][3]).show();
+			
+			setTimeout(function(){
+				$('.button').hide();
+				$('.siema').hide();
+			}, 50);
+			
+			anime({
+				targets: ['#right'],
+				width: ['50%', '100%'],
+				duration: 2000,
+				easing: 'easeOutExpo',
+				loop: false,
+				begin: function() {	
+					$('#panelCover').css('z-index', 250);
+					anime({
+						targets: '#panelCover',
+						opacity: [0, 1],
+						delay: 900,
+						duration: 600,
+						easing: 'easeOutExpo',
+						loop: false,
+						complete: function() {
+//							showPortfolioContent(index);
+						}
+					});
+				}, 
+				complete: () => {updateURL(index); portfolio(index);}
+			});
+		}
+		
+		function closePane(index) {
+			$('.right').css('opacity', 0);
+			$('.button').show();
+			$('.siema').show();
+			$('#right').css('width', '50%');
+//			$('.right').css('width', '50%');
+			
+			$(caption[index][3]).hide();
+			
+			anime({
+				targets: '#panelCover',
+				opacity: [1, 0],
+				delay: 900,
+				duration: 600,
+				easing: 'easeOutExpo',
+				loop: false,
+				complete: function() {
+					updateURL(null);
+					$('#panelCover').hide();
+				}
+			});
+		}
+		
+		function convertCSVtoPane(csv) {
+			console.log(csv);
+			var temp = Papa.parse(csv, {
+				download: true,
+				complete: function(results) {
+					console.log(results);
+				}
+			});
+		}
+		
+		
+	$(document).ready(function(){
+		$(".logo").center({against: '#main'});
+		$(".bio").center({against: '#left'});
+		$(".bio").css('left', 0);
+		
+		const tilt = $('.portfolioTile').tilt({
+			maxTilt: 5,
+			perspective: 250
+		});
+
+		for(var i = 0; i < caption.length; i++) {		// preload portfolio pages
+			loadPortfolioContent(i);
+		}
+
+
+
+		var logoLeftVal = '-=' + (((parseInt($(".logo").css('left'),10) + 25) / $('#main').width())) * (1 * $('#main').width()).toString();
+		var logoTopVal = '-=' + (((parseInt($(".logo").css('top'),10) + 25) / $('#main').height())) * (1 * $('#main').height()).toString();
+
+		console.log($('#main').width() + " " + $('#main').height());
+		console.log(logoLeftVal + " " + logoTopVal);
+
+		if ($(window).width() < 600) { 
+			$('#left').css('width', '100%').css('height', '50%');
+			$('.bio').css('width', "100%").css('top', '50%').css('font-size', '1.5em');
+			
+			$('.links').css('top', '0').css('right', '0').css('width', '40%').css('text-align', 'right');
+		} else {
+			
+		}
+		
+
+		anime({
+				targets: '.logo',
+				duration: 1200,
+				delay: 1200,
+				translateX: {
+					value: logoLeftVal,
+					duration: 1200
+				},
+				translateY: {
+					value: logoTopVal,
+					duration: 1200
+				},
+				scale: [1, .5],
+				easing: 'easeOutExpo',
+				complete: function() {
+					anime({
+						targets: '.bio',
+						duration: 900,
+						opacity: [0, 1],
+						loop: false,
+						easing: 'easeOutExpo',
+						complete: function() {
+							anime({
+								targets: '.links',
+								duration: 900,
+								opacity: [0, 1],
+								loop: false,
+								easing: 'easeOutExpo'
+							});
+						}
+					});
+
+					if ($(window).width() < 600) { 					//MOBILE
+						$('#right').css('width', '100%').css('bottom', '0');
+						anime({	
+							targets: '#right',
+							height: ['0%', '50%'],
+							duration: 1500,
+							backgroundColor: '#ffaeae',
+							easing: 'easeOutExpo',
+							delay: 1500,
+							loop: false,
+							complete: function() {								
+								anime({
+									targets: ['.siema', '.siemaName', '.siemaCaption', '.backButton', '.forwardButton'],
+									opacity: [0, 1],
+									duration: 600,
+									easing: 'easeOutExpo',
+									loop: false
+								});
+
+								const mySiema = new Siema({
+									selector: '.siema',
+									duration: 1200,
+									easing: "cubic-bezier(0.19, 1, 0.22, 1)",
+									loop: true,
+									onInit: changeCaption,
+									onChange: changeCaption
+								});
+								
+								timerID = window.setInterval(() => mySiema.next(), 3000);
+
+								const prev = document.querySelector('.backButton');
+								const next = document.querySelector('.forwardButton');
+
+								next.addEventListener('click', () => mySiema.next());
+								prev.addEventListener('click', () => mySiema.prev());
+								
+								$(".right").bind('mouseenter', function(){
+									console.log("in");
+									window.clearInterval(timerID);
+								});
+								$(".right").bind('mouseleave', function(){
+									console.log("out");
+									timerID = window.setInterval(() => mySiema.next(), 3000);
+								});
+								$(".right").bind('click', function(){
+									console.log(caption[mySiema.currentSlide][0]);
+									indexOnExit = mySiema.currentSlide;
+									window.clearInterval(timerID);
+									expandPane(indexOnExit);
+								});
+								$("#panelCover").bind('click', function(){
+									console.log(caption[mySiema.currentSlide][0]);
+									indexOnExit = mySiema.currentSlide;
+									window.clearInterval(timerID);
+									closePane(indexOnExit);
+								});
+							}
+						});	
+					} else {										//DESKTOP
+						$('#right').css('height', '100%');
+						anime({	
+							targets: '#right',
+							width: ['0%', '50%'],
+							duration: 1500,
+							backgroundColor: '#ffaeae',
+							easing: 'easeOutExpo',
+							delay: 1500,
+							loop: false,
+							complete: function() {
+								
+								$('body').css('height', 'auto').css('overflow', 'visible');
+								$('#work').css('display', 'inline-grid');
+
+								
+								anime({
+									targets: ['.siema', '.siemaName', '.siemaCaption', '.backButton', '.forwardButton'],
+									opacity: [0, 1],
+									duration: 600,
+									easing: 'easeOutExpo',
+									loop: false
+								});
+
+								const mySiema = new Siema({
+									selector: '.siema',
+									duration: 1200,
+									easing: "cubic-bezier(0.19, 1, 0.22, 1)",
+									loop: true,
+									onInit: changeCaption,
+									onChange: changeCaption
+								});
+								
+								timerID = window.setInterval(() => mySiema.next(), 3000);
+
+								const prev = document.querySelector('.backButton');
+								const next = document.querySelector('.forwardButton');
+
+								next.addEventListener('click', () => mySiema.next());
+								prev.addEventListener('click', () => mySiema.prev());
+								
+								$(".right").bind('mouseenter', function(){
+									console.log("in");
+									window.clearInterval(timerID);
+								});
+								$(".right").bind('mouseleave', function(){
+									console.log("out");
+									timerID = window.setInterval(() => mySiema.next(), 3000);
+								});
+								$(".right").bind('click', function(){
+									console.log(caption[mySiema.currentSlide][0]);
+									indexOnExit = mySiema.currentSlide;
+									window.clearInterval(timerID);
+									expandPane(indexOnExit);
+								});
+								$("#panelCover").bind('click', function(){
+									console.log(caption[mySiema.currentSlide][0]);
+									indexOnExit = mySiema.currentSlide;
+									window.clearInterval(timerID);
+									closePane(indexOnExit);
+								});
+							}
+						});
+					}
+				}
+			});
+			
+					
+			
+
+			
+		});
+	</script>
+</head>
+
+<body>
+	
+	<div id="panelCover">
+		<div id="unicef" class="portfolioContainer">
+			<div class="headerImage" style="background-image: url(img/unicef.jpg)">
+				<div class="bigTitle">Unicef Kid Power Bands</div>
+			</div>
+			<div class="titleContainer"> <div class="titleContainerContainer">
+			</div> </div>
+			<div class="portfolioBrief">
+				<div><h1>Brief</h1>
+					<p>Handshake bootstrapping seed round analytics disruptive social media bandwidth hackathon low hanging fruit. Graphical user interface buyer channels product management return on investment leverage stealth social proof early adopters sales startup non-disclosure agreement hackathon burn rate. Business plan channels accelerator twitter return on investment value proposition crowdfunding virality focus strategy validation social media monetization interaction design. Influencer iPhone sales hackathon creative technology. Success metrics mass market termsheet partnership learning curve sales hackathon. Twitter paradigm shift low hanging fruit influencer client crowdfunding startup gamification iPad funding business-to-business user experience. Facebook angel investor rockstar first mover advantage assets seed money business-to-business hackathon gen-z. Gen-z growth hacking niche market infrastructure innovator graphical user interface facebook alpha business-to-business influencer business model canvas learning curve beta social proof. Growth hacking analytics startup churn rate channels bandwidth MVP holy grail focus. MVP creative direct mailing analytics low hanging fruit user experience branding research & development burn rate product management traction.</p></div>
+			</div>
+			<div class="portfolioSiema1 portfolioSiema">
+				<div>
+					<img  src="img/unicef1.png" style="width: 100%;" class="littyCarousel1">
+				</div>
+				<div>
+					<img src="img/unicef2.png" style="width: 100%;" class="littyCarousel2">
+				</div>
+				<div>
+					<img  src="img/unicef3.png" style="width: 100%;" class="littyCarousel3">
+				</div>
+				<div>
+					<img src="img/unicef4.png" style="width: 100%;" class="littyCarousel4">
+				</div>
+			</div>
+			<div class="portfolioSolution">
+				<div><h1>Solution</h1>
+					<p>Handshake bootstrapping seed round analytics disruptive social media bandwidth hackathon low hanging fruit. Graphical user interface buyer channels product management return on investment leverage stealth social proof early adopters sales startup non-disclosure agreement hackathon burn rate. Business plan channels accelerator twitter return on investment value proposition crowdfunding virality focus strategy validation social media monetization interaction design. Influencer iPhone sales hackathon creative technology. Success metrics mass market termsheet partnership learning curve sales hackathon. Twitter paradigm shift low hanging fruit influencer client crowdfunding startup gamification iPad funding business-to-business user experience. Facebook angel investor rockstar first mover advantage assets seed money business-to-business hackathon gen-z. Gen-z growth hacking niche market infrastructure innovator graphical user interface facebook alpha business-to-business influencer business model canvas learning curve beta social proof. Growth hacking analytics startup churn rate channels bandwidth MVP holy grail focus. MVP creative direct mailing analytics low hanging fruit user experience branding research & development burn rate product management traction.</p></div>
+			</div>
+			<div class="portfolioResults">
+				<div><h1>Results</h1>
+					<p>Handshake bootstrapping seed round analytics disruptive social media bandwidth hackathon low hanging fruit. Graphical user interface buyer channels product management return on investment leverage stealth social proof early adopters sales startup non-disclosure agreement hackathon burn rate. Business plan channels accelerator twitter return on investment value proposition crowdfunding virality focus strategy validation social media monetization interaction design. Influencer iPhone sales hackathon creative technology. Success metrics mass market termsheet partnership learning curve sales hackathon. Twitter paradigm shift low hanging fruit influencer client crowdfunding startup gamification iPad funding business-to-business user experience. Facebook angel investor rockstar first mover advantage assets seed money business-to-business hackathon gen-z. Gen-z growth hacking niche market infrastructure innovator graphical user interface facebook alpha business-to-business influencer business model canvas learning curve beta social proof. Growth hacking analytics startup churn rate channels bandwidth MVP holy grail focus. MVP creative direct mailing analytics low hanging fruit user experience branding research & development burn rate product management traction.</p></div>
+			</div>
+		</div>
+		
+		<div id="os" class="portfolioContainer">
+			<div class="headerImage" style="background-image: url(img/unicef.jpg)">
+				<div class="bigTitle">Ocean Spray</div>
+			</div>
+			<div class="titleContainer"> <div class="titleContainerContainer">
+			</div> </div>
+			<div class="portfolioBrief">
+				<div><h1>Brief</h1>
+					<p>Handshake bootstrapping seed round analytics disruptive social media bandwidth hackathon low hanging fruit. Graphical user interface buyer channels product management return on investment leverage stealth social proof early adopters sales startup non-disclosure agreement hackathon burn rate. Business plan channels accelerator twitter return on investment value proposition crowdfunding virality focus strategy validation social media monetization interaction design. Influencer iPhone sales hackathon creative technology. Success metrics mass market termsheet partnership learning curve sales hackathon. Twitter paradigm shift low hanging fruit influencer client crowdfunding startup gamification iPad funding business-to-business user experience. Facebook angel investor rockstar first mover advantage assets seed money business-to-business hackathon gen-z. Gen-z growth hacking niche market infrastructure innovator graphical user interface facebook alpha business-to-business influencer business model canvas learning curve beta social proof. Growth hacking analytics startup churn rate channels bandwidth MVP holy grail focus. MVP creative direct mailing analytics low hanging fruit user experience branding research & development burn rate product management traction.</p></div>
+			</div>
+			<div class="portfolioSiema2 portfolioSiema">
+				<div>
+					<img  src="img/unicef1.png" style="width: 100%;" class="littyCarousel1">
+				</div>
+				<div>
+					<img src="img/unicef2.png" style="width: 100%;" class="littyCarousel2">
+				</div>
+				<div>
+					<img  src="img/unicef3.png" style="width: 100%;" class="littyCarousel3">
+				</div>
+				<div>
+					<img src="img/unicef4.png" style="width: 100%;" class="littyCarousel4">
+				</div>
+			</div>
+			<div class="portfolioSolution">
+				<div><h1>Solution</h1>
+					<p>Handshake bootstrapping seed round analytics disruptive social media bandwidth hackathon low hanging fruit. Graphical user interface buyer channels product management return on investment leverage stealth social proof early adopters sales startup non-disclosure agreement hackathon burn rate. Business plan channels accelerator twitter return on investment value proposition crowdfunding virality focus strategy validation social media monetization interaction design. Influencer iPhone sales hackathon creative technology. Success metrics mass market termsheet partnership learning curve sales hackathon. Twitter paradigm shift low hanging fruit influencer client crowdfunding startup gamification iPad funding business-to-business user experience. Facebook angel investor rockstar first mover advantage assets seed money business-to-business hackathon gen-z. Gen-z growth hacking niche market infrastructure innovator graphical user interface facebook alpha business-to-business influencer business model canvas learning curve beta social proof. Growth hacking analytics startup churn rate channels bandwidth MVP holy grail focus. MVP creative direct mailing analytics low hanging fruit user experience branding research & development burn rate product management traction.</p></div>
+			</div>
+			<div class="portfolioResults">
+				<div><h1>Results</h1>
+					<p>Handshake bootstrapping seed round analytics disruptive social media bandwidth hackathon low hanging fruit. Graphical user interface buyer channels product management return on investment leverage stealth social proof early adopters sales startup non-disclosure agreement hackathon burn rate. Business plan channels accelerator twitter return on investment value proposition crowdfunding virality focus strategy validation social media monetization interaction design. Influencer iPhone sales hackathon creative technology. Success metrics mass market termsheet partnership learning curve sales hackathon. Twitter paradigm shift low hanging fruit influencer client crowdfunding startup gamification iPad funding business-to-business user experience. Facebook angel investor rockstar first mover advantage assets seed money business-to-business hackathon gen-z. Gen-z growth hacking niche market infrastructure innovator graphical user interface facebook alpha business-to-business influencer business model canvas learning curve beta social proof. Growth hacking analytics startup churn rate channels bandwidth MVP holy grail focus. MVP creative direct mailing analytics low hanging fruit user experience branding research & development burn rate product management traction.</p></div>
+			</div>
+		</div>
+	</div>
+	<div id="container">
+	<div id="main"> 
+		<div class="logo"></div>
+		<div id="left">
+			<div class="left">
+				<div class="bio">Andrew Thompson <i>is an </i>advertising major <i>at </i>Johnson & Wales University <i>in </i>Providence, Rhode Island. <i>He specializes in </i>UI/UX <i>and </i>Graphic Design.</div>
+				<div class="links">
+					<p><a href="">Resume</a></p>
+					<p><a href="">Linkedin</a></p>
+					<p><a href="">Contact</a></p>
+				</div>
+			</div>
+		</div>
+		<div id="right">
+			<div class="right"></div>
+			<div class="siema">
+				<div>
+					<img src="img/unicef.png" style="width: 100%; padding-left: -10%; padding-top: -10%;">
+				</div>
+				<div>
+<!--					<div style="background-image: url('img/os.png'); background-repeat: no-repeat; background-size: cover; background-position: center; width: 100%; height: 100%; position: absolute;"></div>-->
+					<img src="img/os.png" style="height: 100%; padding-left: -10%; padding-top: -10%;">
+				</div>
+			</div>
+			<div class="siemaName"></div>
+			<div class="siemaCaption"></div>
+			<div class="backButton button"><svg class="svg-icon" viewBox="0 0 20 20">
+<path fill="none" d="M18.271,9.212H3.615l4.184-4.184c0.306-0.306,0.306-0.801,0-1.107c-0.306-0.306-0.801-0.306-1.107,0
+L1.21,9.403C1.194,9.417,1.174,9.421,1.158,9.437c-0.181,0.181-0.242,0.425-0.209,0.66c0.005,0.038,0.012,0.071,0.022,0.109
+c0.028,0.098,0.075,0.188,0.142,0.271c0.021,0.026,0.021,0.061,0.045,0.085c0.015,0.016,0.034,0.02,0.05,0.033l5.484,5.483
+c0.306,0.307,0.801,0.307,1.107,0c0.306-0.305,0.306-0.801,0-1.105l-4.184-4.185h14.656c0.436,0,0.788-0.353,0.788-0.788
+S18.707,9.212,18.271,9.212z"></path>
+</svg></div>
+			<div class="forwardButton button"><svg class="svg-icon" viewBox="0 0 20 20">
+<path fill="none" d="M1.729,9.212h14.656l-4.184-4.184c-0.307-0.306-0.307-0.801,0-1.107c0.305-0.306,0.801-0.306,1.106,0
+l5.481,5.482c0.018,0.014,0.037,0.019,0.053,0.034c0.181,0.181,0.242,0.425,0.209,0.66c-0.004,0.038-0.012,0.071-0.021,0.109
+c-0.028,0.098-0.075,0.188-0.143,0.271c-0.021,0.026-0.021,0.061-0.045,0.085c-0.015,0.016-0.034,0.02-0.051,0.033l-5.483,5.483
+c-0.306,0.307-0.802,0.307-1.106,0c-0.307-0.305-0.307-0.801,0-1.105l4.184-4.185H1.729c-0.436,0-0.788-0.353-0.788-0.788
+S1.293,9.212,1.729,9.212z"></path>
+</svg></div>
+		</div>
+	</div>
+	<div id="work">
+		<div data-tilt class="portfolioTile" style="grid-row: 1 / 2; background-image: url(img/unicef.jpg);" onclick="$('#container').load('unicef.html');">
+			<div class="portfolioTileName">UNICEF Kid Power Band</div>
+			<div class="portfolioTileCaption">Advertising Campaign</div>
+		</div>
+		
+		<div class="portfolioTile" style="grid-row: 2 / 3; background-image: url(img/os_cover.png)">
+			<div class="portfolioTileName">Ocean Spray</div>
+			<div class="portfolioTileCaption">Advertising Campaign</div>
+		</div>
+		
+		<div class="portfolioTile" style="grid-row: 3 / 4; background-image: url(img/pangea.png)">
+			<div class="portfolioTileName">Pangea.app</div>
+			<div class="portfolioTileCaption">UI/UX, Advertising, Branding</div>
+			
+		</div>
+		
+		<div class="portfolioTile" style="grid-row: 4 / 5; background-image: url(img/bhddh_cover.png)">
+			<div class="portfolioTileName">BHDDH</div>
+			<div class="portfolioTileCaption">Branding</div>
+		</div>
+		
+		<div class="portfolioTile" style="grid-row: 5 / 6; background-image: url(img/cas_cover.png)">
+			<div class="portfolioTileName">CAS</div>
+			<div class="portfolioTileCaption">UI/UX, Advertising, Branding</div>
+		</div>
+		
+		<div class="portfolioTile" style="grid-row: 6 / 7; background-image: url(img/moveout_cover.png)">
+			<div class="portfolioTileName">Move Out + Donate</div>
+			<div class="portfolioTileCaption">Advertising Campaign</div>
+		</div>
+	</div>
+	</div>
+</body>
+</html>
