@@ -1,0 +1,443 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="js/anime.min.js"></script>
+	<script src="js/siema.min.js"></script>
+	<script src="js/papaparse.min.js"></script>
+	<script src="js/barba.min.js" type="text/javascript"></script>
+
+	
+	<link rel="stylesheet" href="https://use.typekit.net/uxg6tuv.css">
+	
+	<title>Andrew Thompson</title>
+	
+	<style>
+		body {
+			padding: 0;
+			margin: 0 auto;
+		}
+		
+		#main {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			overflow: hidden;
+			background-color: #213466;
+		}
+		
+		#left {
+			position: absolute;
+			left: 0;
+			height: 100%;
+			width: 50%;
+			background-color: #213466;
+		}
+		
+		.left {
+			position: absolute;
+			margin: 5%;
+			width: 90%;
+			height: 90%;
+		}
+		
+		.logo {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 15vh;
+			height: 15vh;
+			background-image: url("img/logo.png");
+			background-repeat: no-repeat;
+			background-size: contain;
+		}
+		
+		.bio {
+			position: absolute;
+			top: 35%;
+			height: 30%;
+			width: 100%;
+			
+			color: #ffaeae;
+			font-weight: 400;
+			font-family: "freight-micro-pro", serif;
+			font-size: 2em;
+			vertical-align: middle;
+		}
+		
+		.links {
+			position: absolute;
+			bottom: 0%;
+			width: 100%;
+			
+			color: #ffaeae;
+			font-weight: 500;
+			font-family: "freight-sans-pro", serif;
+			font-size: 1.5em;
+		}
+		
+		.links p {
+			margin-top: .5em;
+			margin-bottom: 0;
+		}
+		
+		.links p a {
+			color: inherit;
+			text-decoration: none;
+		}
+		
+		.links p a:hover {
+			text-decoration: line-through;
+		}
+		
+		
+		
+		#right {
+			position: absolute;
+			right: 0;
+			height: 100%;
+			background-color: #ffaeae;
+		}
+		
+		.right {
+			position: absolute;
+			height: 100%;
+			width: 100%;
+			opacity: 0;
+			z-index: 150;
+		}
+		
+		.siema {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			opacity: 0;
+		}
+		
+		.siemaName {
+			opacity: 0;
+			
+			position: absolute;
+			bottom: 12.5%;
+			right: 5%;
+			padding: 1% 2% 1% 2%;
+			
+			max-width: 80%;
+			
+			background-color: white;
+			color: #ffaeae;
+			font-weight: 400;
+			font-family: "freight-micro-pro", serif;
+			font-size: 2em;
+			
+			z-index: 100;
+		}
+		
+		.siemaCaption {
+			opacity: 0;
+			
+			position: absolute;
+			bottom: 5%;
+			right: 5%;
+			padding: 1% 2% 1% 2%;
+			
+			background-color: white;
+			color: #ffaeae;
+			font-weight: 600;
+			font-family: "freight-sans-pro", serif;
+			font-size: 1.25em;
+			
+			z-index: 100;
+		}
+		
+		.forwardButton {
+			opacity: 0;
+			
+			position: absolute;
+			top: 5%;
+			right: 5%;
+			
+			width: 7.5vh;
+			height: 7.5vh;
+		}
+		
+		.backButton {
+			opacity: 0;
+			
+			position: absolute;
+			top: 5%;
+			right: 19%;
+			
+			width: 7.5vh;
+			height: 7.5vh;
+		}
+		
+		.button {
+			transition: .6s background-color;
+			background-color: white;
+			z-index: 200;
+		}
+		
+		.button:hover {
+			transition: .6s background-color;
+			background-color: #ffaeae;
+		}
+		
+		#panelCover {
+			opacity: 0;
+			
+			background-color: #FFAEAE;
+			
+			position: absolute;
+			height: 100%;
+			width: 100%;
+			opacity: 0;
+			z-index: -100;
+		}
+		
+	</style>
+	
+	<script>
+		var timerID = 0; 
+		var indexOnExit = 0;
+		
+		var caption = [
+			["UNICEF Kid Power Band", "Advertising Campaign", "img/unicef.png", "portfolio/unicef.html"],
+			["Ocean Spray", "Advertising Campaign", "img/os.png", "portfolio/os.html"]
+		];
+		
+		var csvList = ["csv/unicef.csv", "csv/os.csv"];
+		
+		function changeCaption(){
+			var slideNum = this.currentSlide;
+			$(".siemaName").html(caption[slideNum][0]);
+			$(".siemaCaption").html(caption[slideNum][1]);
+		}
+		
+		function nextSlide(){
+			mySiema.next();
+		}
+		
+		function expandPane(index){
+			$('.right').css('background-image', 'url('+ caption[index][2] +')');
+			$('.right').css('background-scale', 'contain');
+			$('.right').css('opacity', 1);
+			
+			setTimeout(function(){
+				$('.button').hide();
+				$('.siema').hide();
+			}, 50);
+			
+			anime({
+				targets: ['#right'],
+				width: ['50%', '100%'],
+				opacity: [0, 1],
+				duration: 1500,
+				easing: 'easeOutExpo',
+				loop: false,
+				begin: function() {	
+					$('#panelCover').css('z-index', 250);
+					anime({
+						targets: '#panelCover',
+						opacity: [0, 1],
+						delay: 900,
+						duration: 600,
+						easing: 'easeOutExpo',
+						loop: false,
+						complete: function() {
+							convertCSVtoPane(csvList[index]);
+						}
+					});
+				}
+			});
+		}
+		
+		function convertCSVtoPane(csv) {
+			console.log(csv);
+			var temp = Papa.parse(csv, {
+				download: true,
+				complete: function(results) {
+					console.log(results);
+				}
+			});
+		}
+		
+		var myAnimation = anime({
+			
+		});
+		
+		var FadeTransition = Barba.BaseTransition.extend({
+				start: function() {
+					/**
+					* This function is automatically called as soon the Transition starts
+					* this.newContainerLoading is a Promise for the loading of the new container
+					* (Barba.js also comes with an handy Promise polyfill!)
+					*/
+					// As soon the loading is finished and the old page is faded out, let's fade the new page
+					Promise
+					.all([this.newContainerLoading, this.fadeOut()])
+					.then(this.fadeIn.bind(this));
+				},
+
+				fadeOut: function() {
+					/**
+					* this.oldContainer is the HTMLElement of the old Container
+					*/
+					return $(this.oldContainer).animate({ opacity: 0 }).promise();
+				},
+
+				fadeIn: function() {
+					/**
+					* this.newContainer is the HTMLElement of the new Container
+					* At this stage newContainer is on the DOM (inside our #barba-container and with visibility: hidden)
+					* Please note, newContainer is available just after newContainerLoading is resolved!
+					*/
+					var _this = this;
+					var $el = $(this.newContainer);
+
+					return new Promise((resolve, reject) => {
+						resolve();
+					})
+					.then(() => {
+						_this.newContainer.style.visibility = 'visible';
+						_this.newContainer.style.opacity = '1';
+					})
+					.then(delayPromise(100))
+					.then(() => {
+						anime({
+							targets: _this.oldContainer,
+							translateX: '-100%',
+							opacity: '0',
+							easing: 'easeOutExpo',
+							duration: 900,
+						});
+					})
+					.then(delayPromise(1200))
+					.then(() => {
+						anime({
+							targets: _this.newContainer,
+							translateX: 0,
+							translateY: '-' + oldHeight + 'px',
+							easing: 'easeOutExpo',
+							duration: 1300,
+						});
+					})
+					.then(delayPromise(1350))
+					.then(() => {
+						_this.newContainer.style.transform = '';
+						enableScroll();
+						_this.done();
+					})
+					
+				}
+			});
+		
+			Barba.Pjax.getTransition = function() {
+				return FadeTransition;
+			};
+		
+		$(document).ready(function(){
+			
+			Barba.Pjax.start();			
+			
+			anime({
+				targets: '#right',
+				width: ['0%', '50%'],
+				duration: 1500,
+				backgroundColor: '#ffaeae',
+				easing: 'easeOutExpo',
+				delay: 1500,
+				loop: false,
+				complete: function() {
+//					$(".siema").css("opacity","1");
+					anime({
+						targets: ['.siema', '.siemaName', '.siemaCaption', '.backButton', '.forwardButton'],
+						opacity: [0, 1],
+						duration: 600,
+						easing: 'easeOutExpo',
+						loop: false
+					});
+					
+					const mySiema = new Siema({
+						selector: '.siema',
+						duration: 1200,
+						easing: "cubic-bezier(0.19, 1, 0.22, 1)",
+						loop: true,
+						onInit: changeCaption,
+  						onChange: changeCaption
+					});
+					
+					timerID = window.setInterval(() => mySiema.next(), 3000);
+					
+					const prev = document.querySelector('.backButton');
+					const next = document.querySelector('.forwardButton');
+					
+					next.addEventListener('click', () => mySiema.next());
+					prev.addEventListener('click', () => mySiema.prev());
+					
+					
+					$(".right").bind('mouseenter', function(){
+						console.log("in");
+						window.clearInterval(timerID);
+					});
+//					$("#left").bind('mouseover', function(){
+//						console.log("out");
+//						timerID = window.setInterval(() => mySiema.next(), 3000);
+//					});
+					$(".right").bind('mouseleave', function(){
+						console.log("out");
+						timerID = window.setInterval(() => mySiema.next(), 3000);
+					});
+					$(".right").bind('click', function(){
+						console.log(caption[mySiema.currentSlide][0]);
+						indexOnExit = mySiema.currentSlide;
+						window.clearInterval(timerID);
+//						alert(caption[mySiema.currentSlide][0]);
+//						expandPane(mySiema.currentSlide);
+						location.href=caption[mySiema.currentSlide][3];
+					})
+				}
+			});
+		});
+	</script>
+</head>
+
+<body>
+	<div id="barba-wrapper">
+		<div class="barba-container">
+			<div id="panelCover"></div>
+			<div id="left">
+				<div class="left">
+					<a href="index.html"><div class="logo"></div></a>
+					<div class="bio">Andrew Thompson <i>is an </i>advertising major <i>at </i>Johnson & Wales University <i>in </i>Providence, Rhode Island. <i>He specializes in </i>UI/UX <i>and </i>Graphic Design.</div>
+					<div class="links">
+						<p><a href="">Resume</a></p>
+						<p><a href="">Linkedin</a></p>
+						<p><a href="">Contact</a></p>
+					</div>
+				</div>
+			</div>
+			<div id="right">
+				<div class="right"></div>
+				<div class="siema">
+					<div>
+						<img src="img/unicef.png" style="width: 120%; padding-left: -10%; padding-top: -10%;">
+					</div>
+					<div>
+						<img src="img/os.png" style="width: 120%; padding-left: -10%; padding-top: -10%;">
+					</div>
+				</div>
+				<div class="siemaName"></div>
+				<div class="siemaCaption"></div>
+				<div class="backButton button"></div>
+				<div class="forwardButton button"></div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
