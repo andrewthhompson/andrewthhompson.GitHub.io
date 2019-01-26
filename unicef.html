@@ -18,6 +18,26 @@
 	<link rel="stylesheet" href="main.css">
 	
 	<title>Andrew Thompson</title>
+	
+	<script>
+		var photos = ['img/unicef1.png', 'img/unicef2.png', 'img/unicef3.png', 'img/unicef4.png'];
+
+		var mySiema = new Siema({
+			selector: '.portfolioSiema1',
+			duration: 1200,
+			perPage: 3,
+			easing: "cubic-bezier(0.19, 1, 0.22, 1)",
+			loop: true
+		});
+
+		$(".bigTitle").center({against: ".headerImage"});
+
+		for(var i = 0; i < photos[index].length; i++) {
+			var numOfPic = i + 1;
+			var hold = '.littyCarousel' + numOfPic;
+			$(hold).on('click', function(){	lity(photos[index][i]);	});
+		}
+	</script>
 </head>
 
 <body>
