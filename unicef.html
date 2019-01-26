@@ -20,32 +20,72 @@
 	<title>Andrew Thompson</title>
 	
 	<script>
-		$(document).scrollTop(0);
-		console.log('scroll position: ' + $('body').scrollTop);
-		
-		var photos = ['img/unicef1.png', 'img/unicef2.png', 'img/unicef3.png', 'img/unicef4.png'];
+		function runBarba() {
+			Barba.Pjax.start();
+			
+			var FadeTransition = Barba.BaseTransition.extend({
+			  start: function() {
+				Promise
+				  .all([this.newContainerLoading, this.fadeOut()])
+				  .then(this.fadeIn.bind(this));
+			  },
 
-		var mySiema = new Siema({
-			selector: '.portfolioSiema1',
-			duration: 1200,
-			perPage: 3,
-			easing: "cubic-bezier(0.19, 1, 0.22, 1)",
-			loop: true
-		});
+			  fadeOut: function() {
+				return $(this.oldContainer).animate({ opacity: 0 }).promise();
+			  },
 
-		$(".bigTitle").center({against: ".headerImage"});
+			  fadeIn: function() {
+				var _this = this;
+				var $el = $(this.newContainer);
 
-		for(var i = 0; i < photos.length; i++) {
-			var numOfPic = i + 1;
-			var hold = '.littyCarousel' + numOfPic;
-			$(hold).on('click', function(){	lity(photos[i]);	});
+				$(this.oldContainer).hide();
+
+				$el.css({
+				  visibility : 'visible',
+				  opacity : 0
+				});
+
+				$el.animate({ opacity: 1 }, 400, function() {
+				  _this.done();
+				});
+			  }
+			});
+
+			Barba.Pjax.getTransition = function() {
+			  return FadeTransition;
+			};
 		}
 		
+		
+		$(document).ready(function(){
+			runBarba();
+			$(document).scrollTop(0);
+			console.log('scroll position: ' + $('body').scrollTop);
+
+			var photos = ['img/unicef1.png', 'img/unicef2.png', 'img/unicef3.png', 'img/unicef4.png'];
+
+			var mySiema = new Siema({
+				selector: '.portfolioSiema1',
+				duration: 1200,
+				perPage: 3,
+				easing: "cubic-bezier(0.19, 1, 0.22, 1)",
+				loop: true
+			});
+
+			$(".bigTitle").center({against: ".headerImage"});
+
+			for(var i = 0; i < photos.length; i++) {
+				var numOfPic = i + 1;
+				var hold = '.littyCarousel' + numOfPic;
+				$(hold).on('click', function(){	lity(photos[i]);	});
+			}
+		}
 	</script>
 </head>
 
 <body>
-	<div id="container">
+	<div id="barba-wrapper">
+		<div class="barba-container">
 		<div id="unicef" class="portfolioContainer">
 			<div class="headerImage" style="background-image: url(img/unicef.jpg)">
 				<div class="bigTitle">Unicef Kid Power Bands</div>
@@ -78,6 +118,7 @@
 				<div><h1>Results</h1>
 					<p>Handshake bootstrapping seed round analytics disruptive social media bandwidth hackathon low hanging fruit. Graphical user interface buyer channels product management return on investment leverage stealth social proof early adopters sales startup non-disclosure agreement hackathon burn rate. Business plan channels accelerator twitter return on investment value proposition crowdfunding virality focus strategy validation social media monetization interaction design. Influencer iPhone sales hackathon creative technology. Success metrics mass market termsheet partnership learning curve sales hackathon. Twitter paradigm shift low hanging fruit influencer client crowdfunding startup gamification iPad funding business-to-business user experience. Facebook angel investor rockstar first mover advantage assets seed money business-to-business hackathon gen-z. Gen-z growth hacking niche market infrastructure innovator graphical user interface facebook alpha business-to-business influencer business model canvas learning curve beta social proof. Growth hacking analytics startup churn rate channels bandwidth MVP holy grail focus. MVP creative direct mailing analytics low hanging fruit user experience branding research & development burn rate product management traction.</p></div>
 			</div>
+		</div>
 		</div>
 	</div>
 </body>
