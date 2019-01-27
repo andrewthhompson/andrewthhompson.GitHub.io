@@ -215,6 +215,9 @@
 	$(document).ready(function(){
 		runBarba();
 		
+		$(document).scrollTop(0);
+		$('body').css('height', '100vh').css('overflow', 'hidden');
+		
 		$(".logo").center({against: '#main'});
 		$(".bio").center({against: '#left'});
 		$(".bio").css('left', 0);
