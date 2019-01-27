@@ -416,7 +416,6 @@ h1 {
 	
 	grid-template-columns: 15% 70% 15%;
 	grid-template-rows: auto;
-	grid-row-gap: 5%;
 	margin-bottom: 20%;
 }
 
@@ -435,7 +434,7 @@ h1 {
 	z-index: 100;
 	
 	transform-style: preserve-3d;
-/*	margin-bottom: 5%;*/
+	margin-bottom: 5%;
 }
 
 .portfolioTileName {
