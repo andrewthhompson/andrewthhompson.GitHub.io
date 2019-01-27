@@ -446,8 +446,8 @@ h1 {
 
 	max-width: 80%;
 
-	background-color: white;
-	color: #ffaeae;
+/*	background-color: white;*/
+	color: white;
 	font-weight: 400;
 	font-family: "freight-micro-pro", serif;
 	font-size: 2em;
@@ -463,8 +463,8 @@ h1 {
 	right: 5%;
 	padding: 1% 2% 1% 2%;
 
-	background-color: white;
-	color: #ffaeae;
+/*	background-color: white;*/
+	color: white;
 	font-weight: 600;
 	font-family: "freight-sans-pro", serif;
 	font-size: 1.25em;
