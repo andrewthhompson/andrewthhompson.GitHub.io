@@ -283,6 +283,15 @@ body {
 	padding: 0 2.5% 0 2.5%;
 }
 
+.homeLogo {
+	position: absolute;
+	background-image: url(img/logo_white.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	width: auto;
+}
+
+
 .smallTitle {
 	position: relative;
 	display: inline-block;
@@ -470,3 +479,4 @@ h1 {
 	
 	transform: translateZ(20px);
 }
+

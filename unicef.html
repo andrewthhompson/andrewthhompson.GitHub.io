@@ -75,6 +75,7 @@
 			});
 
 			$(".bigTitle").center({against: ".headerImage"});
+			$(".homeLogo").center({against: ".headerImage"}).css('left', '20%').css('height', $(".bigTitle").css('height'));
 
 			for(var i = 0; i < photos.length; i++) {
 				var numOfPic = i + 1;
@@ -91,6 +92,7 @@
 		<div id="unicef" class="portfolioContainer">
 			<div class="headerImage" style="background-image: url(img/unicef.jpg)" onclick="$('#barba-wrapper').load('indexLoaded.html');">
 				<div class="bigTitle">Unicef Kid Power Bands</div>
+				<div class="homeLogo"></div>
 			</div>
 			<div class="titleContainer"> <div class="titleContainerContainer">
 			</div> </div>

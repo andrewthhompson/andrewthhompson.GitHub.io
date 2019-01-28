@@ -61,120 +61,6 @@
 //			console.log("url changed");
 		}
 		
-		function portfolio(index) {			
-			var photos = [
-				['img/unicef1.png', 'img/unicef2.png', 'img/unicef3.png', 'img/unicef4.png'],
-				['img/unicef1.png', 'img/unicef2.png', 'img/unicef3.png', 'img/unicef4.png']
-			]
-			
-			var tempNum = index + 1;
-			var selector = '.portfolioSiema' + tempNum
-			
-			var mySiema = new Siema({
-				selector: selector,
-				duration: 1200,
-				perPage: 3,
-				easing: "cubic-bezier(0.19, 1, 0.22, 1)",
-				loop: true
-			});
-			
-			$(".bigTitle").center({against: ".headerImage"});
-			
-			for(var i = 0; i < photos[index].length; i++) {
-				var numOfPic = i + 1;
-				var hold = '.littyCarousel' + numOfPic;
-				$(hold).on('click', function(){	lity(photos[index][i]);	});
-			}
-			
-//			$('.littyCarousel1').on('click', function(){	lity(photos[index[0]]);		});
-//			$('.littyCarousel2').on('click', function(){	lity('img/unicef2.png');		});
-//			$('.littyCarousel3').on('click', function(){	lity('img/unicef3.png');		});
-//			$('.littyCarousel4').on('click', function(){	lity('img/unicef4.png');		});
-		}
-		
-		function loadPortfolioContent(index) {
-//			$(caption[index][3]).show();
-			anime({
-				targets: caption[index][3],
-				opacity: [0, 1],
-				duration: 1000,
-				easing: 'easeOutExpo',
-				loop: false,
-				begin: () => {console.log("Portfolio page " + index + " loaded.");},
-				complete: () => {$(caption[index][3]).hide();}
-			});
-		}
-		
-		function expandPane(index) {
-			$('.right').css('background-image', 'url('+ caption[index][2] +')');
-			$('.right').css('background-scale', 'contain');
-			$('.right').css('opacity', 1);
-			$('#panelCover').show();
-			$(caption[index][3]).show();
-			
-			setTimeout(function(){
-				$('.button').hide();
-				$('.siema').hide();
-			}, 50);
-			
-			anime({
-				targets: ['#right'],
-				width: ['50%', '100%'],
-				duration: 2000,
-				easing: 'easeOutExpo',
-				loop: false,
-				begin: function() {	
-					$('#panelCover').css('z-index', 250);
-					anime({
-						targets: '#panelCover',
-						opacity: [0, 1],
-						delay: 900,
-						duration: 600,
-						easing: 'easeOutExpo',
-						loop: false,
-						complete: function() {
-//							showPortfolioContent(index);
-						}
-					});
-				}, 
-				complete: () => {updateURL(index); portfolio(index);}
-			});
-		}
-		
-		function closePane(index) {
-			$('.right').css('opacity', 0);
-			$('.button').show();
-			$('.siema').show();
-			$('#right').css('width', '50%');
-//			$('.right').css('width', '50%');
-			
-			$(caption[index][3]).hide();
-			
-			anime({
-				targets: '#panelCover',
-				opacity: [1, 0],
-				delay: 900,
-				duration: 600,
-				easing: 'easeOutExpo',
-				loop: false,
-				complete: function() {
-					updateURL(null);
-					$('#panelCover').hide();
-				}
-			});
-		}
-		
-		function convertCSVtoPane(csv) {
-			console.log(csv);
-			var temp = Papa.parse(csv, {
-				download: true,
-				complete: function(results) {
-					console.log(results);
-				}
-			});
-		}
-		
-		
 		function runBarba() {
 			Barba.Pjax.start();
 			
@@ -227,12 +113,6 @@
 			perspective: 250
 		});
 
-		for(var i = 0; i < caption.length; i++) {		// preload portfolio pages
-			loadPortfolioContent(i);
-		}
-
-
-
 		var logoLeftVal = '-=' + (((parseInt($(".logo").css('left'),10) + 25) / $('#main').width())) * (1 * $('#main').width()).toString();
 		var logoTopVal = '-=' + (((parseInt($(".logo").css('top'),10) + 25) / $('#main').height())) * (1 * $('#main').height()).toString();
 
@@ -264,6 +144,9 @@
 				scale: [1, .5],
 				easing: 'easeOutExpo',
 				complete: function() {
+					$('body').css('height', 'auto').css('overflow', 'visible');
+					$('#work').css('display', 'inline-grid');
+					
 					anime({
 						targets: '.bio',
 						duration: 900,
@@ -293,7 +176,7 @@
 							loop: false,
 							complete: function() {								
 								anime({
-									targets: ['.siema', '.siemaName', '.siemaCaption', '.backButton', '.forwardButton'],
+									targets: '.siema',
 									opacity: [0, 1],
 									duration: 600,
 									easing: 'easeOutExpo',
@@ -310,33 +193,6 @@
 								});
 								
 								timerID = window.setInterval(() => mySiema.next(), 3000);
-
-								const prev = document.querySelector('.backButton');
-								const next = document.querySelector('.forwardButton');
-
-								next.addEventListener('click', () => mySiema.next());
-								prev.addEventListener('click', () => mySiema.prev());
-								
-								$(".right").bind('mouseenter', function(){
-									console.log("in");
-									window.clearInterval(timerID);
-								});
-								$(".right").bind('mouseleave', function(){
-									console.log("out");
-									timerID = window.setInterval(() => mySiema.next(), 3000);
-								});
-								$(".right").bind('click', function(){
-									console.log(caption[mySiema.currentSlide][0]);
-									indexOnExit = mySiema.currentSlide;
-									window.clearInterval(timerID);
-									expandPane(indexOnExit);
-								});
-								$("#panelCover").bind('click', function(){
-									console.log(caption[mySiema.currentSlide][0]);
-									indexOnExit = mySiema.currentSlide;
-									window.clearInterval(timerID);
-									closePane(indexOnExit);
-								});
 							}
 						});	
 					} else {										//DESKTOP
@@ -350,13 +206,8 @@
 							delay: 1500,
 							loop: false,
 							complete: function() {
-								
-								$('body').css('height', 'auto').css('overflow', 'visible');
-								$('#work').css('display', 'inline-grid');
-
-								
 								anime({
-									targets: ['.siema', '.siemaName', '.siemaCaption', '.backButton', '.forwardButton'],
+									targets: '.siema',
 									opacity: [0, 1],
 									duration: 600,
 									easing: 'easeOutExpo',
@@ -373,33 +224,6 @@
 								});
 								
 								timerID = window.setInterval(() => mySiema.next(), 3000);
-
-								const prev = document.querySelector('.backButton');
-								const next = document.querySelector('.forwardButton');
-
-								next.addEventListener('click', () => mySiema.next());
-								prev.addEventListener('click', () => mySiema.prev());
-								
-								$(".right").bind('mouseenter', function(){
-									console.log("in");
-									window.clearInterval(timerID);
-								});
-								$(".right").bind('mouseleave', function(){
-									console.log("out");
-									timerID = window.setInterval(() => mySiema.next(), 3000);
-								});
-								$(".right").bind('click', function(){
-									console.log(caption[mySiema.currentSlide][0]);
-									indexOnExit = mySiema.currentSlide;
-									window.clearInterval(timerID);
-									expandPane(indexOnExit);
-								});
-								$("#panelCover").bind('click', function(){
-									console.log(caption[mySiema.currentSlide][0]);
-									indexOnExit = mySiema.currentSlide;
-									window.clearInterval(timerID);
-									closePane(indexOnExit);
-								});
 							}
 						});
 					}
@@ -460,7 +284,7 @@
 				<div class="bio">Andrew Thompson <i>is an </i>advertising major <i>at </i>Johnson & Wales University <i>in </i>Providence, Rhode Island. <i>He specializes in </i>UI/UX <i>and </i>Graphic Design.</div>
 				<div class="links">
 					<p><a href="resume.pdf">Resume</a></p>
-					<p><a href="linkedin.com/in/andrew-l-thompson">Linkedin</a></p>
+					<p><a href="http://www.linkedin.com/in/andrew-l-thompson">Linkedin</a></p>
 					<p><a href="mailto:me@andrewthompson.me">Contact</a></p>
 				</div>
 			</div>
@@ -472,26 +296,9 @@
 					<img src="img/unicef.png" style="width: 100%; padding-left: -10%; padding-top: -10%;">
 				</div>
 				<div>
-<!--					<div style="background-image: url('img/os.png'); background-repeat: no-repeat; background-size: cover; background-position: center; width: 100%; height: 100%; position: absolute;"></div>-->
 					<img src="img/os.png" style="height: 100%; padding-left: -10%; padding-top: -10%;">
 				</div>
 			</div>
-			<div class="siemaName"></div>
-			<div class="siemaCaption"></div>
-			<div class="backButton button"><svg class="svg-icon" viewBox="0 0 20 20">
-<path fill="none" d="M18.271,9.212H3.615l4.184-4.184c0.306-0.306,0.306-0.801,0-1.107c-0.306-0.306-0.801-0.306-1.107,0
-L1.21,9.403C1.194,9.417,1.174,9.421,1.158,9.437c-0.181,0.181-0.242,0.425-0.209,0.66c0.005,0.038,0.012,0.071,0.022,0.109
-c0.028,0.098,0.075,0.188,0.142,0.271c0.021,0.026,0.021,0.061,0.045,0.085c0.015,0.016,0.034,0.02,0.05,0.033l5.484,5.483
-c0.306,0.307,0.801,0.307,1.107,0c0.306-0.305,0.306-0.801,0-1.105l-4.184-4.185h14.656c0.436,0,0.788-0.353,0.788-0.788
-S18.707,9.212,18.271,9.212z"></path>
-</svg></div>
-			<div class="forwardButton button"><svg class="svg-icon" viewBox="0 0 20 20">
-<path fill="none" d="M1.729,9.212h14.656l-4.184-4.184c-0.307-0.306-0.307-0.801,0-1.107c0.305-0.306,0.801-0.306,1.106,0
-l5.481,5.482c0.018,0.014,0.037,0.019,0.053,0.034c0.181,0.181,0.242,0.425,0.209,0.66c-0.004,0.038-0.012,0.071-0.021,0.109
-c-0.028,0.098-0.075,0.188-0.143,0.271c-0.021,0.026-0.021,0.061-0.045,0.085c-0.015,0.016-0.034,0.02-0.051,0.033l-5.483,5.483
-c-0.306,0.307-0.802,0.307-1.106,0c-0.307-0.305-0.307-0.801,0-1.105l4.184-4.185H1.729c-0.436,0-0.788-0.353-0.788-0.788
-S1.293,9.212,1.729,9.212z"></path>
-</svg></div>
 		</div>
 	</div>
 	<div id="work">
