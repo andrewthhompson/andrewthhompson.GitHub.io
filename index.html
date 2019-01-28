@@ -67,6 +67,11 @@
 	$(document).ready(function(){
 		runBarba();
 		
+		if(window.location.href.includes('index.html')) {
+			console.log("oops we got a file tag");
+			window.location = window.location.href.replace('index.html', '');
+		}
+		
 		$(document).scrollTop(0);
 		$('body').css('height', '100vh').css('overflow', 'hidden');
 		
