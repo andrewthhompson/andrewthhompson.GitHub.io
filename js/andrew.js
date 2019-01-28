@@ -32,10 +32,7 @@ function runBarba() {
 						duration: 600,
 						scale: 1.2,
 						loop: false,
-						easing: 'easeOutExpo',
-						begin: function() {
-							console.log("dipshit");
-						}
+						easing: 'easeOutExpo'
 					});
 				},
 				mouseleave: function () {
@@ -90,10 +87,7 @@ function runBarba() {
 						duration: 600,
 						scale: 1.2,
 						loop: false,
-						easing: 'easeOutExpo',
-						begin: function() {
-							console.log("dipshit");
-						}
+						easing: 'easeOutExpo'
 					});
 				},
 				mouseleave: function () {
@@ -148,10 +142,7 @@ function runBarba() {
 						duration: 600,
 						scale: 1.2,
 						loop: false,
-						easing: 'easeOutExpo',
-						begin: function() {
-							console.log("dipshit");
-						}
+						easing: 'easeOutExpo'
 					});
 				},
 				mouseleave: function () {
@@ -206,10 +197,7 @@ function runBarba() {
 						duration: 600,
 						scale: 1.2,
 						loop: false,
-						easing: 'easeOutExpo',
-						begin: function() {
-							console.log("dipshit");
-						}
+						easing: 'easeOutExpo'
 					});
 				},
 				mouseleave: function () {
@@ -264,10 +252,7 @@ function runBarba() {
 						duration: 600,
 						scale: 1.2,
 						loop: false,
-						easing: 'easeOutExpo',
-						begin: function() {
-							console.log("dipshit");
-						}
+						easing: 'easeOutExpo'
 					});
 				},
 				mouseleave: function () {
@@ -322,10 +307,7 @@ function runBarba() {
 						duration: 600,
 						scale: 1.2,
 						loop: false,
-						easing: 'easeOutExpo',
-						begin: function() {
-							console.log("dipshit");
-						}
+						easing: 'easeOutExpo'
 					});
 				},
 				mouseleave: function () {
