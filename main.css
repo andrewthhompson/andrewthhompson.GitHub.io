@@ -284,11 +284,16 @@ body {
 }
 
 .homeLogo {
+	transition: .6s height;
 	position: absolute;
 	background-image: url(img/logo_white.png);
 	background-repeat: no-repeat;
 	background-size: cover;
 	width: auto;
+}
+
+.homeLogo:hover {
+	transition: .6s height;
 }
 
 

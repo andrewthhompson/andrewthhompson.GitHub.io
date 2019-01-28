@@ -73,8 +73,39 @@
 			});
 
 			$(".bigTitle").center({against: ".headerImage"});
-			$(".homeLogo").center({against: ".headerImage"}).css('left', '20%').css('height', $(".bigTitle").css('height'));
-
+			
+			var logoSize = $(".bigTitle").css('height');
+			
+			$(".homeLogo").css('height', logoSize).css('width', logoSize).center({against: ".headerImage"}).css('left', '10%');
+			
+			$(".homeLogo").on({
+				mouseenter: function () {
+					anime({
+						targets: '.homeLogo',
+						duration: 600,
+						scale: 1.2,
+						loop: false,
+						easing: 'easeOutExpo',
+						begin: function() {
+							console.log("dipshit");
+						}
+					});
+				},
+				mouseleave: function () {
+					anime({
+						targets: '.homeLogo',
+						duration: 600,
+						scale: 1,
+						loop: false,
+						easing: 'easeOutExpo'
+					});
+				}
+			});
+			
+			
+			
+			console.log($(".bigTitle").css('height'));
+			
 			for(var i = 0; i < photos.length; i++) {
 				var numOfPic = i + 1;
 				var hold = '.littyCarousel' + numOfPic;
@@ -90,7 +121,7 @@
 		<div id="unicef" class="portfolioContainer">
 			<div class="headerImage" style="background-image: url(img/unicef.jpg)">
 				<div class="bigTitle">Unicef Kid Power Bands</div>
-				<div class="homeLogo" onclick="location.href='index.html'"></div>
+				<div class="homeLogo" title="home" onclick="location.href='index.html'"></div>
 			</div>
 			<div class="titleContainer"> <div class="titleContainerContainer">
 			</div> </div>
