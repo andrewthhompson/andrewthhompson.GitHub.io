@@ -2,6 +2,10 @@ function runBarba() {
 	var Unicef = Barba.BaseView.extend({
 	  namespace: 'unicef',
 	  onEnter: function() {
+		  
+	  },
+	  onEnterCompleted: function() {
+		  // The Transition has just finished.
 		  $(document).scrollTop(0);
 			console.log('scroll position: ' + $('body').scrollTop);
 
@@ -44,9 +48,6 @@ function runBarba() {
 					});
 				}
 			});
-	  },
-	  onEnterCompleted: function() {
-		  // The Transition has just finished.
 	  },
 	  onLeave: function() {
 		  // A new Transition toward a new page has just started.
@@ -59,6 +60,10 @@ function runBarba() {
 	var Cas = Barba.BaseView.extend({
 	  namespace: 'unicef',
 	  onEnter: function() {
+		  
+	  },
+	  onEnterCompleted: function() {
+		  // The Transition has just finished.
 		  $(document).scrollTop(0);
 			console.log('scroll position: ' + $('body').scrollTop);
 
@@ -101,9 +106,6 @@ function runBarba() {
 					});
 				}
 			});
-	  },
-	  onEnterCompleted: function() {
-		  // The Transition has just finished.
 	  },
 	  onLeave: function() {
 		  // A new Transition toward a new page has just started.
@@ -116,6 +118,10 @@ function runBarba() {
 	var Moveout = Barba.BaseView.extend({
 	  namespace: 'unicef',
 	  onEnter: function() {
+		  
+	  },
+	  onEnterCompleted: function() {
+		  // The Transition has just finished.
 		  $(document).scrollTop(0);
 			console.log('scroll position: ' + $('body').scrollTop);
 
@@ -158,9 +164,6 @@ function runBarba() {
 					});
 				}
 			});
-	  },
-	  onEnterCompleted: function() {
-		  // The Transition has just finished.
 	  },
 	  onLeave: function() {
 		  // A new Transition toward a new page has just started.
@@ -173,6 +176,10 @@ function runBarba() {
 	var Os = Barba.BaseView.extend({
 	  namespace: 'unicef',
 	  onEnter: function() {
+		  
+	  },
+	  onEnterCompleted: function() {
+		  // The Transition has just finished.
 		  $(document).scrollTop(0);
 			console.log('scroll position: ' + $('body').scrollTop);
 
@@ -215,9 +222,6 @@ function runBarba() {
 					});
 				}
 			});
-	  },
-	  onEnterCompleted: function() {
-		  // The Transition has just finished.
 	  },
 	  onLeave: function() {
 		  // A new Transition toward a new page has just started.
@@ -230,6 +234,10 @@ function runBarba() {
 	var Pangea = Barba.BaseView.extend({
 	  namespace: 'unicef',
 	  onEnter: function() {
+		  
+	  },
+	  onEnterCompleted: function() {
+		  // The Transition has just finished.
 		  $(document).scrollTop(0);
 			console.log('scroll position: ' + $('body').scrollTop);
 
@@ -272,9 +280,6 @@ function runBarba() {
 					});
 				}
 			});
-	  },
-	  onEnterCompleted: function() {
-		  // The Transition has just finished.
 	  },
 	  onLeave: function() {
 		  // A new Transition toward a new page has just started.
@@ -287,6 +292,10 @@ function runBarba() {
 	var Bhddh = Barba.BaseView.extend({
 	  namespace: 'unicef',
 	  onEnter: function() {
+		  
+	  },
+	  onEnterCompleted: function() {
+		  // The Transition has just finished.
 		  $(document).scrollTop(0);
 			console.log('scroll position: ' + $('body').scrollTop);
 
@@ -329,9 +338,6 @@ function runBarba() {
 					});
 				}
 			});
-	  },
-	  onEnterCompleted: function() {
-		  // The Transition has just finished.
 	  },
 	  onLeave: function() {
 		  // A new Transition toward a new page has just started.
