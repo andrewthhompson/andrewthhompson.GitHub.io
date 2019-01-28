@@ -1,6 +1,6 @@
 function runBarba() {
 	var Unicef = Barba.BaseView.extend({
-	  namespace: 'unicef',
+	  namespace: 'Unicef',
 	  onEnter: function() {
 		  
 	  },
@@ -58,7 +58,7 @@ function runBarba() {
 	});
 
 	var Cas = Barba.BaseView.extend({
-	  namespace: 'unicef',
+	  namespace: 'Cas',
 	  onEnter: function() {
 		  
 	  },
@@ -116,7 +116,7 @@ function runBarba() {
 	});
 	
 	var Moveout = Barba.BaseView.extend({
-	  namespace: 'unicef',
+	  namespace: 'Moveout',
 	  onEnter: function() {
 		  
 	  },
@@ -174,7 +174,7 @@ function runBarba() {
 	});
 	
 	var Os = Barba.BaseView.extend({
-	  namespace: 'unicef',
+	  namespace: 'Os',
 	  onEnter: function() {
 		  
 	  },
@@ -232,7 +232,7 @@ function runBarba() {
 	});
 	
 	var Pangea = Barba.BaseView.extend({
-	  namespace: 'unicef',
+	  namespace: 'Pangea',
 	  onEnter: function() {
 		  
 	  },
@@ -290,7 +290,7 @@ function runBarba() {
 	});
 	
 	var Bhddh = Barba.BaseView.extend({
-	  namespace: 'unicef',
+	  namespace: 'Bhddh',
 	  onEnter: function() {
 		  
 	  },
