@@ -1,185 +1,74 @@
-<!doctype html>
-<html>
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Andrew Thompson | Move Out & Donate</title>
 	
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="js/anime.min.js"></script>
-	<script src="js/siema.min.js"></script>
-	<script src="js/barba.min.js" type="text/javascript"></script>
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<link rel="stylesheet" type="text/css" href="flickity.css"/>
+	<link rel="stylesheet" type="text/css" href="fullscreen.css"/>
+	
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+	<script src="js/barba.min.js"></script>
+	<script src="js/flowtype.js"></script>
 	<script src="js/jquery.center.min.js"></script>
-	<script src="js/andrew.js"></script>
-
-	<link rel="stylesheet" href="https://use.typekit.net/uxg6tuv.css">
-	<link rel="stylesheet" href="main.css">
 	
-	<title>Andrew Thompson</title>
+	<script type="text/javascript" src="js/flickity.pkgd.min.js"></script>
+	<script type="text/javascript" src="js/fullscreen.js"></script>
 	
-	<style type="text/css">
-		.portfolioContainer {
-			position: absolute;
-			width: 100%;
-			margin: auto;
-			left: 0;
-			right: 0;
-			height: auto;
-			z-index: 300;
-			background-color: #ffffff;
-			padding-bottom: 10vh;
-/*			display: inline-grid;*/
-/*			grid-template-columns: 60% 40%;*/
-/*			grid-template-rows: 40vh 40vh 40vh 60vh 40vh;*/
-/*			grid-template-rows: repeat(auto-fill,minmax(40vh, auto));*/
-/*			grid-auto-rows: minmax(min-content, max-content);*/
-/*			grid-row-gap: 5vh;*/
-		}
-	</style>
-	
-	<script>
-		
-		function sizeParent(parent) {
-			var heightTotal = 0;
-			var placeholder = 0;
-			var cssValue = '';
-			var children = $(parent).children().toArray();
-			for(var i = 0; i < children.length; i++) {
-				placeholder = parseInt($(children[i]).css('height'));
-				heightTotal += placeholder;
-			}
-			cssValue = heightTotal + 'px';
-			console.log(heightTotal + " " + cssValue);
-			$(parent).css('height', cssValue);
-			if($(parent).css('height') != cssValue) {
-				console.log('oopsie!');
-			}
-		}
-		
-		function sizeSiema(parent) {
-			var heightTotal = 0;
-			var placeholder = 0;
-			var cssValue = '';
-			var children = $(parent).children().toArray();
-			for(var i = 0; i < children.length; i++) {
-				placeholder = parseInt($(children[i]).children().toArray()[0].css('height'));
-				heightTotal += placeholder;
-			}
-			cssValue = heightTotal + 'px';
-			console.log(heightTotal + " " + cssValue);
-			$(parent).css('height', cssValue);
-			if($(parent).css('height') != cssValue) {
-				console.log('oopsie!');
-			}
-		}
-		
-		$(document).ready(function(){
-			runBarba();
-						
-			$(document).scrollTop(0);
-//			console.log('scroll position: ' + $('body').scrollTop);
+</script>
 
-			var mySiema1 = new Siema({
-				selector: '.portfolioSiema1',
-				duration: 1200,
-				perPage: 3,
-				easing: "cubic-bezier(0.19, 1, 0.22, 1)",
-				loop: true
-			});
-			
-			var mySiema2 = new Siema({
-				selector: '.portfolioSiema2',
-				duration: 1200,
-				perPage: 3,
-				easing: "cubic-bezier(0.19, 1, 0.22, 1)",
-				loop: true
-			});
-			
-			var childrenOfGrid = $('.portfolioContainer').children().toArray();
-			for(var i = 1; i < childrenOfGrid.length; i++) {
-				sizeParent(childrenOfGrid[i]);
-			}
-
-			$(".bigTitle").center({against: ".headerImage"});
-			
-			var logoSize = $(".bigTitle").css('height');
-			
-			$(".homeLogo").css('height', logoSize).css('width', logoSize).center({against: ".headerImage"}).css('left', '10%');
-			
-			$(".homeLogo").on({
-				mouseenter: function () {
-					anime({
-						targets: '.homeLogo',
-						duration: 600,
-						scale: 1.2,
-						loop: false,
-						easing: 'easeOutExpo',
-						begin: function() {
-//							console.log("dipshit");
-						}
-					});
-				},
-				mouseleave: function () {
-					anime({
-						targets: '.homeLogo',
-						duration: 600,
-						scale: 1,
-						loop: false,
-						easing: 'easeOutExpo'
-					});
-				}
-			});
-		});
-	</script>
 </head>
 
+<!--	TODO:		-->
+<!--	Add link	-->
+
+<script>
+	$(document).ready(function(){
+		$(".headerName").find(".headerText").center({against: '.headerName'});
+		$(".headerWork").find(".headerText").center({against: '.headerWork'});
+		$(".headerAbout").find(".headerText").center({against: '.headerAbout'});
+		$(".headerContact").find(".headerText").center({against: '.headerContact'});
+		
+		$('.main-carousel').flickity({
+			cellAlign: 'left',
+			contain: true,
+			fullscreen: true,
+			pageDots: false,
+			lazyLoad: 3,
+			imagesLoaded: true
+		});
+	});
+</script>
+
 <body>
-	<div id="barba-wrapper">
-		<div class="barba-container" data-namespace="Moveout">
-		<div id="unicef" class="portfolioContainer">
-			<div class="headerImage" style="background-image: url(img/moveout_cover.png)">
-				<div class="bigTitle">Move Out + Donate</div>
-				<div class="homeLogo" title="home" onclick="location.href='index.html'"></div>
-			</div>
-			<div class="titleContainer"> <div class="titleContainerContainer"> 
-			</div> </div>
-			<div class="portfolioBrief">
-				<h1>The Brief</h1>
-					<p>"Don't Chuck It, Fill The Bucket" was an extension on a yearly advertising campaign internal to Johnson & Wales University focusing on eliminating year-end move out waste. Our take on it centered around the idea of nostalgia and the connection that students have to their furniture and items rather than trying to guilt them into recycling. Lindsay Saiia and Desiree Dominguez contributed copywriting for this project.</p>
-			</div>
-			<div class="portfolioSiema1 portfolioSiema" style="height: auto;">
-				<div>
-					<img  src="img/moveout/social1.png" style="width: 100%;">
-				</div>
-				<div>
-					<img  src="img/moveout/social2.png" style="width: 100%;">
-				</div>
-				<div>
-					<img  src="img/moveout/social3.png" style="width: 100%;">
-				</div>
-			</div>
-			<div class="portfolioSolution">
-				<h1 id="solution">The Solution</h1>
-					<p id="solution1">Flyers were posted around campus targeting both on-campus (blue) and off-campus (yellow) students. Logos of our partners, along with the perennial logo of the campaign, feature in the bottom-left corner. Large format prints of posters were also located in all residence halls and in dining halls, while similar "retargeting" posters were put up on dumpsters to convince students to reconsider what they were about to throw out. In addition, posts on official JWU social media accounts were made to feature campaign branded content.</p>
-			</div>
-			<div class="portfolioSiema2 portfolioSiema" style="">
-				<div>
-					<img  src="img/moveout/poster1.png" style="width: 100%;">
-				</div>
-				<div>
-					<img  src="img/moveout/poster2.png" style="width: 100%;">
-				</div>
-				<div>
-					<img  src="img/moveout/poster3.png" style="width: 100%;">
-				</div>
-			</div>
-			<div class="portfolioResults">
-				<h1>The Creative</h1>
-					<p>The creative was based around a simple idea: reminding students about the amount of time they spent with the objects in their dorm rooms over the past year, and trying to convince them that that object's life didn't have to end with them. Since we are located in an urban setting, we're intrinsically aware of the outcomes of our wasteful actions, from litter in parks and fountains to floating trash in Providence's three rivers. But convincing students to make sure their dorm supplies are disposed of properly is not only an environmental issue—we also had to keep neighbors happy in off-campus-heavy neighborhoods like Federal Hill, Smith Hill, and the South End.</p>
-					<p>We figured that recycling is usually a decision you make when you're about to throw something away. Therefore, it has to be an easy alternative, and you have to inform the students that it is an option. The idea of giving the items, like lamps, alarm clocks, and couches, second lives resonated with the pysical aspects of the campaign, which were run by a sustainablity organization on campus. Ultimately, minimalistic line art provided an adaptable format that would allow us to brand the campaign on any platform. The use of the tag line as a constant headline allowed viewers to see exactly what we wanted them to do, a visual, and a logo without having to read a single thing, accopmlishing the main goal of the campaign; the body copy exists to goad those on the fence.</p>
+	<div class="secondaryContainer">
+		<div id="head">
+			<div class="headerContainer">
+				<a class="headerLogo" href="index.html"></a>
+				<div class="headerName"><div class="headerText"><div class="pink">Andrew Thompson</div>Art Director</div></div>
+				<a class="headerWork" href="index.html"><div class="headerText">Work</div></a>
+				<a class="headerAbout" href="about.html"><div class="headerText">About</div></a>
+				<a class="headerContact" href="contact.html"><div class="headerText">Contact</div></a>
 			</div>
 		</div>
+		<div id="name">Move Out & Donate</div>
+<!--		<div id="link"><a class="link" href="https://www.pangea.app">Slidedeck</a></div>-->
+		<div id="ask">
+			<h3>The Ask</h3>
+			<p>Get students to donate the dorm furniture they've coexisted with for the past 9 months</p>
 		</div>
+		<div id="answer">
+			<h3>The Answer</h3>
+			<p>Make it an easy breakup and let your unwanted alarm clock, tv, or couch live a second life</p>
+		</div>
+		<div id="showcase"> <div class="showcase">
+			<div class="main-carousel">
+				<div class="carousel-cell"><img data-flickity-lazyload-srcset="img/moveout/1.png"></div>
+				<div class="carousel-cell"><img data-flickity-lazyload-srcset="img/moveout/dumpster.png"></div>
+				<div class="carousel-cell"><img data-flickity-lazyload-srcset="img/moveout/social.png"></div>
+				<div class="carousel-cell"><img data-flickity-lazyload-srcset="img/moveout/2.png"></div>
+				<div class="carousel-cell"><img data-flickity-lazyload-srcset="img/moveout/3.png"></div>
+			</div>
+		</div> </div>
+		<div id="portfolioLinks"><a href="pangea.html">Pangea.app</a> | <a href="unicef.html">UNICEF</a> | <a href="os.html">Ocean Spray</a> | <a href="bhddh.html">BHDDH</a> | Move Out & Donate</div>
 	</div>
 </body>
-</html>

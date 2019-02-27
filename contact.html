@@ -1,0 +1,64 @@
+<head>
+	<title>Andrew Thompson | About</title>
+	
+	<link rel="stylesheet" type="text/css" href="main.css">
+
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+	<script src="js/barba.min.js"></script>
+	<script src="js/flowtype.js"></script>
+	<script src="js/jquery.center.min.js"></script>
+
+</head>
+
+
+<script>
+	$(document).ready(function(){
+		$(".headerName").find(".headerText").center({against: '.headerName'});
+		$(".headerWork").find(".headerText").center({against: '.headerWork'});
+		$(".headerAbout").find(".headerText").center({against: '.headerAbout'});
+		$(".headerContact").find(".headerText").center({against: '.headerContact'});
+		
+		$('.tag').flowtype({
+			minFont: 32,
+			maxFont: 48
+		});
+		$(".tag").center({against: '#tag'});
+		
+		$(".tile").hover(function () {
+			$(this).find(".hoverTitle").css('opacity', 1);
+			$(this).css('box-shadow', 'inset 0 0 0 2000px rgba(0,0,0,0.6)');
+		}, function () {
+			$(this).find(".hoverTitle").css('opacity', 0);
+			$(this).css('box-shadow', 'none');
+		});
+		
+		$("#Pangea").find(".hoverTitle").center({against: '#Pangea'});
+		$("#Unicef").find(".hoverTitle").center({against: '#Unicef'});
+		$("#OS").find(".hoverTitle").center({against: '#OS'});
+		$("#BHDDH").find(".hoverTitle").center({against: '#BHDDH'});
+	});
+</script>
+
+<body>
+	<div class="contactContainer">
+		<div id="head">
+			<div class="headerContainer">
+				<a class="headerLogo" href="index.html"></a>
+				<div class="headerName"><div class="headerText"><div class="pink">Andrew Thompson</div>Art Director</div></div>
+				<a class="headerWork" href="index.html"><div class="headerText">Work</div></a>
+				<a class="headerAbout" href="about.html"><div class="headerText">About</div></a>
+				<a class="headerContact" href=""><div class="headerText active">Contact</div></a>
+			</div>
+		</div>
+		<div id="title">Get<br>In<br>Touch</div>
+		<div id="list"><ul>
+			<li><a href="">Linkedin</a></li>
+			<li><a href="">Email</a></li>
+			<li><a href="">Instagram</a></li>
+			<li>1.860.994.2748</li>
+			<li><a href="">Resume</a></li>
+		</ul></div>
+		
+	</div>
+</body>
