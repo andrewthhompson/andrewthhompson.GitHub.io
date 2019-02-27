@@ -27,29 +27,78 @@
 			height: auto;
 			z-index: 300;
 			background-color: #ffffff;
-			display: inline-grid;
-			grid-template-columns: 60% 40%;
-			grid-template-rows: 40vh 40vh 40vh 60vh 40vh;
-			grid-row-gap: 5vh;
+			padding-bottom: 10vh;
+/*			display: inline-grid;*/
+/*			grid-template-columns: 60% 40%;*/
+/*			grid-template-rows: 40vh 40vh 40vh 60vh 40vh;*/
+/*			grid-template-rows: repeat(auto-fill,minmax(40vh, auto));*/
+/*			grid-auto-rows: minmax(min-content, max-content);*/
+/*			grid-row-gap: 5vh;*/
 		}
 	</style>
 	
 	<script>
+		
+		function sizeParent(parent) {
+			var heightTotal = 0;
+			var placeholder = 0;
+			var cssValue = '';
+			var children = $(parent).children().toArray();
+			for(var i = 0; i < children.length; i++) {
+				placeholder = parseInt($(children[i]).css('height'));
+				heightTotal += placeholder;
+			}
+			cssValue = heightTotal + 'px';
+			console.log(heightTotal + " " + cssValue);
+			$(parent).css('height', cssValue);
+			if($(parent).css('height') != cssValue) {
+				console.log('oopsie!');
+			}
+		}
+		
+		function sizeSiema(parent) {
+			var heightTotal = 0;
+			var placeholder = 0;
+			var cssValue = '';
+			var children = $(parent).children().toArray();
+			for(var i = 0; i < children.length; i++) {
+				placeholder = parseInt($(children[i]).children().toArray()[0].css('height'));
+				heightTotal += placeholder;
+			}
+			cssValue = heightTotal + 'px';
+			console.log(heightTotal + " " + cssValue);
+			$(parent).css('height', cssValue);
+			if($(parent).css('height') != cssValue) {
+				console.log('oopsie!');
+			}
+		}
+		
 		$(document).ready(function(){
 			runBarba();
-			
+						
 			$(document).scrollTop(0);
-			console.log('scroll position: ' + $('body').scrollTop);
+//			console.log('scroll position: ' + $('body').scrollTop);
 
-			var photos = ['img/unicef1.png', 'img/unicef2.png', 'img/unicef3.png', 'img/unicef4.png'];
-
-			var mySiema = new Siema({
+			var mySiema1 = new Siema({
 				selector: '.portfolioSiema1',
 				duration: 1200,
 				perPage: 3,
 				easing: "cubic-bezier(0.19, 1, 0.22, 1)",
 				loop: true
 			});
+			
+			var mySiema2 = new Siema({
+				selector: '.portfolioSiema2',
+				duration: 1200,
+				perPage: 3,
+				easing: "cubic-bezier(0.19, 1, 0.22, 1)",
+				loop: true
+			});
+			
+			var childrenOfGrid = $('.portfolioContainer').children().toArray();
+			for(var i = 1; i < childrenOfGrid.length; i++) {
+				sizeParent(childrenOfGrid[i]);
+			}
 
 			$(".bigTitle").center({against: ".headerImage"});
 			
@@ -66,7 +115,7 @@
 						loop: false,
 						easing: 'easeOutExpo',
 						begin: function() {
-							console.log("dipshit");
+//							console.log("dipshit");
 						}
 					});
 				},
@@ -95,36 +144,39 @@
 			<div class="titleContainer"> <div class="titleContainerContainer"> 
 			</div> </div>
 			<div class="portfolioBrief">
-				<div><h1>The Brief</h1>
-					<p>I was assigned as part of a group to analyze and create an advertising campaign for a product of our choosing. We were given a list of the 25 best inventions of 2016, and chose the UNICEF Kid Power Band, a toy that fits somewhere in between a Fitbit and an Apple Watch. The breakthrough that the team at UNICEF had had was that one third of US children didn't get enough exercise, and one third of children in developing countries were malnourished; by allowing kids in the US to earn food for kids worldwide, they were able to kill two birds with one stone. This reminded me a lot of a game I used to play in Elementary School called <a href="http://www.freerice.com">freerice.com</a> which has a similar goal but presents itself as a trivia game.</p>
-					<p>The deliverables for this project were three creative directions, with executions, that could be supported by our strategy. I tasked myself with creating two of these, while Manal Jakhar created the other one. Lindsay Saiia covered both strategy and copywriting, and Erin Weiland & Taylor Haughton focused on research.</p>
+				<h1>The Brief</h1>
+					<p>"Don't Chuck It, Fill The Bucket" was an extension on a yearly advertising campaign internal to Johnson & Wales University focusing on eliminating year-end move out waste. Our take on it centered around the idea of nostalgia and the connection that students have to their furniture and items rather than trying to guilt them into recycling. Lindsay Saiia and Desiree Dominguez contributed copywriting for this project.</p>
+			</div>
+			<div class="portfolioSiema1 portfolioSiema" style="height: auto;">
+				<div>
+					<img  src="img/moveout/social1.png" style="width: 100%;">
+				</div>
+				<div>
+					<img  src="img/moveout/social2.png" style="width: 100%;">
+				</div>
+				<div>
+					<img  src="img/moveout/social3.png" style="width: 100%;">
 				</div>
 			</div>
 			<div class="portfolioSolution">
-				<div><h1>The Solution</h1>
-					<p>We found that targeting the children's mothers would be the most effective route, as not only did they index highly on MRI+, but UNICEF's own advertising guidelines suggested that they were uncomfortable with targeting minors with ads. We contrasted the product with a plethora of alternatives—games that would get them moving or products that would similarly track their activity—like Pokemon GO, Just Dance Now, Garmin, and Fitbit. Also included were charities like the World Wildlife Foundation, the Nature Conservatory, and the Red Cross, all groups that had similar goals and share of mind to UNICEF. What we discovered was that the Kid Power Bands shared the characteristics of all three catagories: it's happy, healthy, <i>and</i> helpful.</p>
-					<p>We realized that, with a target that doesn't compromise and a competitive set that runs the gamut, our product fills in the whitesapce by having it all.</p>
-				</div>
+				<h1 id="solution">The Solution</h1>
+					<p id="solution1">Flyers were posted around campus targeting both on-campus (blue) and off-campus (yellow) students. Logos of our partners, along with the perennial logo of the campaign, feature in the bottom-left corner. Large format prints of posters were also located in all residence halls and in dining halls, while similar "retargeting" posters were put up on dumpsters to convince students to reconsider what they were about to throw out. In addition, posts on official JWU social media accounts were made to feature campaign branded content.</p>
 			</div>
-			<div class="portfolioSiema1 portfolioSiema">
+			<div class="portfolioSiema2 portfolioSiema" style="">
 				<div>
-					<img  src="img/unicef3.png" style="width: 100%;" class="littyCarousel1">
+					<img  src="img/moveout/poster1.png" style="width: 100%;">
 				</div>
 				<div>
-					<img src="img/unicef4.png" style="width: 100%;" class="littyCarousel2">
+					<img  src="img/moveout/poster2.png" style="width: 100%;">
 				</div>
 				<div>
-					<img  src="img/unicef1.png" style="width: 100%;" class="littyCarousel3">
-				</div>
-				<div>
-					<img src="img/unicef2.png" style="width: 100%;" class="littyCarousel4">
+					<img  src="img/moveout/poster3.png" style="width: 100%;">
 				</div>
 			</div>
 			<div class="portfolioResults">
-				<div><h1>The Creative</h1>
-					<p>The first concept focuses on showing kids in the great outdoors, exploring what it really means to be a kid. The copy is almost conservation-minded, connecting the idea of saving the world through both experiencing it and helping others like them halfway across it.</p>
-					<p>The second concept focuses on extending teh UI of the app into the real world bridging the gap between the product and the lives of the users. Its headlines ask questions about hte power that the user has, and answers them with a call to action in the body copy.</p>
-				</div>
+				<h1>The Creative</h1>
+					<p>The creative was based around a simple idea: reminding students about the amount of time they spent with the objects in their dorm rooms over the past year, and trying to convince them that that object's life didn't have to end with them. Since we are located in an urban setting, we're intrinsically aware of the outcomes of our wasteful actions, from litter in parks and fountains to floating trash in Providence's three rivers. But convincing students to make sure their dorm supplies are disposed of properly is not only an environmental issue—we also had to keep neighbors happy in off-campus-heavy neighborhoods like Federal Hill, Smith Hill, and the South End.</p>
+					<p>We figured that recycling is usually a decision you make when you're about to throw something away. Therefore, it has to be an easy alternative, and you have to inform the students that it is an option. The idea of giving the items, like lamps, alarm clocks, and couches, second lives resonated with the pysical aspects of the campaign, which were run by a sustainablity organization on campus. Ultimately, minimalistic line art provided an adaptable format that would allow us to brand the campaign on any platform. The use of the tag line as a constant headline allowed viewers to see exactly what we wanted them to do, a visual, and a logo without having to read a single thing, accopmlishing the main goal of the campaign; the body copy exists to goad those on the fence.</p>
 			</div>
 		</div>
 		</div>

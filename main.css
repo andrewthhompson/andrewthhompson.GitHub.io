@@ -236,7 +236,7 @@ a {
 
 .headerImage {
 /*	background-color: green;*/
-	position: absolute;
+	position: relative;
 	display: grid;
 	height: 40vh;
 	width: 100%;
@@ -253,8 +253,9 @@ a {
 
 .titleContainer {
 /*	background-color: red;*/
-	position: absolute;
-	display: grid;
+	position: relative;
+/*	display: grid;*/
+	display: inline-block;
 	height: 100%;
 	width: 100%;
 	grid-column: 2/3;
@@ -270,7 +271,8 @@ a {
 	position: absolute;
 	width: 100%;
 	height: 100%;
-	display: grid;
+/*	display: grid;*/
+	display: inline-block;
 	grid-template-rows: 2fr 1fr 1fr;
 }
 
@@ -350,8 +352,9 @@ h1 {
 	font-family: 'freight-sans-pro', serif;
 	font-size: 1.35vmax;
 	
-	position: absolute;
-	display: grid;
+	position: relative;
+/*	display: grid;*/
+	display: inline-block;
 	height: 100%;
 	width: 80%;
 	grid-column: 1 / 3;
@@ -368,8 +371,9 @@ h1 {
 .portfolioSiema {
 	grid-column: 1 / 3;
 	grid-row: 4 / 5;
-	position: absolute;
-	display: grid;
+	position: relative;
+/*	display: grid;*/
+	display: inline-block;
 	overflow: hidden;
 	width: 80%;
 	height: 100%;
@@ -380,8 +384,9 @@ h1 {
 	font-family: 'freight-sans-pro', serif;
 	font-size: 1.35vw;
 	
-	position: absolute;
-	display: grid;
+	position: relative;
+/*	display: grid;*/
+	display: inline-block;
 	height: 100%;
 	width: 80%;
 	grid-column: 1 / 3;
@@ -399,8 +404,9 @@ h1 {
 	font-family: 'freight-sans-pro', serif;
 	font-size: 1.35vw;
 	
-	position: absolute;
-	display: grid;
+	position: relative;
+/*	display: grid;*/
+	display: inline-block;
 	height: 100%;
 	width: 80%;
 	grid-column: 1 / 3;
@@ -418,8 +424,9 @@ h1 {
 	font-weight: 400;
 	font-family: "freight-micro-pro", serif;
 	font-size: 2em;
-	display: grid;
-	position: absolute;
+/*	display: grid;*/
+	display: inline-block;
+	position: relative;
 	height: 90%;
 	width: 70%;
 	grid-column: 1 / 3;
