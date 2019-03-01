@@ -5,6 +5,8 @@
 	<link rel="stylesheet" type="text/css" href="flickity.css"/>
 	<link rel="stylesheet" type="text/css" href="fullscreen.css"/>
 	
+	<link rel="stylesheet" href="https://use.typekit.net/uxg6tuv.css">
+	
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
 	<script src="js/barba.min.js"></script>
@@ -27,6 +29,8 @@
 		$(".headerWork").find(".headerText").center({against: '.headerWork'});
 		$(".headerAbout").find(".headerText").center({against: '.headerAbout'});
 		$(".headerContact").find(".headerText").center({against: '.headerContact'});
+		
+		$(".link").center({against: '#link'});
 		
 		$('.main-carousel').flickity({
 			cellAlign: 'left',
@@ -52,13 +56,21 @@
 		</div>
 		<div id="name">Move Out & Donate</div>
 <!--		<div id="link"><a class="link" href="https://www.pangea.app">Slidedeck</a></div>-->
-		<div id="ask">
+		<div id="ask" class="copyBlock">
 			<h3>The Ask</h3>
 			<p>Get students to donate the dorm furniture they've coexisted with for the past 9 months</p>
 		</div>
-		<div id="answer">
+		<div id="answer" class="copyBlock">
 			<h3>The Answer</h3>
 			<p>Make it an easy breakup and let your unwanted alarm clock, tv, or couch live a second life</p>
+		</div>
+		<div id="execution" class="copyBlock">
+			<h3>Execution</h3>
+			<p>Posters were placed at points of conversion, like dumpsters and dorm building entrances. Social images were posted to JWU official accounts on instagram, twitter, and facebook.</p>
+		</div>
+		<div id="results" class="copyBlock">
+			<h3>Results</h3>
+			<p>This campaign was used by Johnson & Wales University for a month at the end of the school year. Campaign as a whole was covered by multiple local news networks.</p>
 		</div>
 		<div id="showcase"> <div class="showcase">
 			<div class="main-carousel">
@@ -69,6 +81,9 @@
 				<div class="carousel-cell"><img data-flickity-lazyload-srcset="img/moveout/3.png"></div>
 			</div>
 		</div> </div>
-		<div id="portfolioLinks"><a href="pangea.html">Pangea.app</a> | <a href="unicef.html">UNICEF</a> | <a href="os.html">Ocean Spray</a> | <a href="bhddh.html">BHDDH</a> | Move Out & Donate</div>
+		<div id="footContainer">
+			<div id="portfolioLinks" style="margin-top: 2vh;"><a href="pangea.html">Pangea.app</a> | <a href="unicef.html">UNICEF</a> | <a href="os.html">Ocean Spray</a> | <a href="bhddh.html">BHDDH</a> | <b>Move Out & Donate</b></div>
+			<div id="friends"><b>Lindsay Saiia</b>&mdash;Writing<br><b>Desiree Dominguez</b>&mdash;Writing</div>
+		</div>
 	</div>
 </body>

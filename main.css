@@ -30,16 +30,17 @@ body {
 	left: 7.5%;
 	top: 7.5%;
 	width: 92.5%;
-	height: 120%;
-	grid-template-rows: 14vh .5fr 1fr 5fr 1fr;
-	grid-template-columns: 1fr .7fr .3fr 7.5%;
+	height: 140%;
+	grid-template-rows: 14vh .5fr 1fr 5fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr 7.5%;
 	grid-template-areas: 
 		'head head head .'
 		'name name link .'
-		'first second second .'
-		'third third third third'
+		'first second third .'
+		'fifth fifth fifth fifth'
 		'foot foot foot .';
-	grid-row-gap: 2.5vw;
+	grid-row-gap: 2.5vh;
+	grid-column-gap: 2.5vw;
 	padding-bottom: 15vh;
 }
 
@@ -105,7 +106,10 @@ body {
 			'first'
 			'second'
 			'third'
-			'fourth';
+			'fourth'
+			'fifth'
+			'foot-right'
+			'foot';
 		grid-column-gap: 2.5vw;
 		grid-row-gap: 2.5vw;
 		padding-bottom: 15vh;
@@ -144,9 +148,9 @@ body {
 .hoverTitle {
 	font-size: 2em;
 	opacity: 0;
-	font-family: "Helvetica Neue";
-	font-size: 1.5em;
-	font-weight: 400;
+	font-family: neue-haas-grotesk-display, sans-serif;
+	font-size: 1.75em;
+	font-weight: 300;
 	color: white;
 	position: relative;
 	z-index: 200;
@@ -182,7 +186,7 @@ body {
 
 .pink {
 	color: #1F386D;
-	font-weight: 400;
+	font-weight: 600;
 }
 
 .headerName {
@@ -222,7 +226,7 @@ body {
 
 .headerText {
 	transition: .6s color;
-	font-family: "Helvetica Neue";
+	font-family: neue-haas-grotesk-display, sans-serif;
 	font-size: 1.25em;
 	font-weight: 300;
 	color: #1F386D;
@@ -253,9 +257,9 @@ body {
 .tag {
 	position: relative;
 	width: 100%;
-	font-family: "Helvetica Neue";
+	font-family: neue-haas-grotesk-display, sans-serif;
 	font-size: 3em;
-	font-weight: 200;
+	font-weight: 300;
 	color: #1F386D;
 }
 
@@ -281,60 +285,79 @@ body {
 
 #name {
 	grid-area: name;
-	font-family: "Helvetica Neue";
+	font-family: neue-haas-grotesk-display, sans-serif;
 	font-size: 2.5em;
-	font-weight: 200;
+	font-weight: 300;
 	color: #1F386D;
 }
 
 #ask {
 	grid-area: first;
 	width: 100%;
-	height: 100%;
-	margin-right: 2vw;
+/*	height: 80%;*/
+/*	margin-top: 20%;*/
+/*	border-right: 1px solid #1F386D;*/
 }
 
 #answer {
 	grid-area: second;
 	width: 100%;
+	margin-left: 5%;
+/*	height: 80%;*/
+/*	margin-top: 20%;*/
+/*	border-right: 1px solid #1F386D;*/
+}
+
+#execution {
+	display: none;
+	grid-area: third;
+	width: 100%;
 	height: 100%;
-	margin-left: 2vw;
 }
 
-#ask p {
-	font-family: "Helvetica Neue";
-	font-size: 1.25em;
-	font-weight: 200;
-	color: #1F386D;
+#results {
+	grid-area: third;
+	width: 100%;
+	margin-left: 10%;
+/*	height: 80%;*/
+/*	margin-top: 20%;*/
 }
 
-#answer p {
-	font-family: "Helvetica Neue";
-	font-size: 1.25em;
-	font-weight: 200;
-	color: #1F386D;
-}
-
-#ask h3 {
-	font-family: "Helvetica Neue";
-	font-size: 1.25em;
+.copyBlock p {
+	font-family: neue-haas-grotesk-text, sans-serif;
+	font-size: 1em;
 	font-weight: 400;
 	color: #1F386D;
+	margin-top: -2vh;
+	text-align: left;
+	width: 90%;
 }
 
-#answer h3 {
-	font-family: "Helvetica Neue";
-	font-size: 1.25em;
-	font-weight: 400;
+.copyBlock h3 {
+	font-family: neue-haas-grotesk-display, sans-serif;
+	font-size: 1.75em;
+	font-weight: 300;
 	color: #1F386D;
 }
 
 #showcase {
-	grid-area: third;
+	grid-area: fifth;
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
 /*	background-color: red;*/
+	padding: 4vh 0;
+}
+
+#friends {
+	grid-area: foot-right;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	font-family: neue-haas-grotesk-display, sans-serif;
+	font-size: 1.25em;
+	font-weight: 300;
+	color: #1F386D;
 }
 
 .showcase {
@@ -357,14 +380,22 @@ body {
 	margin-right: 0 !important;
 }
 
-#portfolioLinks {
+#footContainer {
 	grid-area: foot;
-	font-family: "Helvetica Neue";
-	font-size: 1.25em;
-	font-weight: 200;
+	display: grid;
+	grid-template-areas: 'left right';
+	grid-template-columns: 2fr 1fr;
+	margin-top: 2vh;
+}
+
+#portfolioLinks {
+	grid-area: left;
+	font-family: neue-haas-grotesk-display, sans-serif;
+	font-size: 1.5em;
+	font-weight: 300;
 	color: #1F386D;
-	text-align: center;
-	padding-top: 5vh;
+	text-align: left;
+	margin-top: 4vh;
 }
 
 #portfolioLinks a {
@@ -377,16 +408,37 @@ body {
 	color: #ffaeae;
 }
 
-#link {
-	grid-area: link;
-	font-family: "Helvetica Neue";
+#friends {
+	grid-area: right;
+	font-family: neue-haas-grotesk-display, sans-serif;
 	font-size: 1.25em;
-	font-weight: 200;
+	font-weight: 300;
 	color: #1F386D;
-	width: 100%;
-	height: 100%;
 	text-align: right;
+}
+
+#link {
+	transition: .6s background-color;
+	grid-area: link;
+	font-family: neue-haas-grotesk-display, sans-serif;
+	font-size: 1.25em;
+	font-weight: 300;
+	background-color: #1F386D;
+	width: 90%;
+	height: 100%;
+	text-align: left;
 	bottom: 0;
+	margin-left: 10%;
+}
+
+#link:hover {
+	transition: .6s background-color;
+	background-color: #ffaeae;
+}
+
+#link a {
+	color: white;
+	text-decoration: none;
 }
 
 .link {
@@ -414,9 +466,9 @@ body {
 
 #bio {
 	grid-area: bio;
-	font-family: "Helvetica Neue";
+	font-family: neue-haas-grotesk-display, sans-serif;
 	font-size: 1.5em;
-	font-weight: 200;
+	font-weight: 300;
 	color: #1F386D;
 	width: 100%;
 	height: 100%;
@@ -424,10 +476,10 @@ body {
 
 #caption {
 	grid-area: caption;
-	font-family: "Helvetica Neue";
+	font-family: neue-haas-grotesk-display, sans-serif;
 	font-style: italic;
 	font-size: 1em;
-	font-weight: 200;
+	font-weight: 300;
 	color: #333333;
 	width: 100%;
 	height: 100%;
@@ -441,7 +493,7 @@ body {
 
 #title {
 	grid-area: title;
-	font-family: "Helvetica Neue";
+	font-family: neue-haas-grotesk-display, sans-serif;
 	font-size: 6em;
 	font-weight: 600;
 	color: #1F386D;
@@ -451,9 +503,9 @@ body {
 
 #list {
 	grid-area: list;
-	font-family: "Helvetica Neue";
+	font-family: neue-haas-grotesk-display, sans-serif;
 	font-size: 1.5em;
-	font-weight: 200;
+	font-weight: 300;
 	color: #1F386D;
 	width: 100%;
 	height: 100%;
