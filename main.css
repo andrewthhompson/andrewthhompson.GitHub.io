@@ -148,9 +148,9 @@ body {
 .hoverTitle {
 	font-size: 2em;
 	opacity: 0;
-	font-family: neue-haas-grotesk-display, sans-serif;
+	font-family: roster, serif;
 	font-size: 1.75em;
-	font-weight: 300;
+	font-weight: 200;
 	color: white;
 	position: relative;
 	z-index: 200;
@@ -186,7 +186,8 @@ body {
 
 .pink {
 	color: #1F386D;
-	font-weight: 600;
+	font-weight: 400;
+	margin-bottom: 1vh;
 }
 
 .headerName {
@@ -226,9 +227,9 @@ body {
 
 .headerText {
 	transition: .6s color;
-	font-family: neue-haas-grotesk-display, sans-serif;
+	font-family: roster, serif;
 	font-size: 1.25em;
-	font-weight: 300;
+	font-weight: 200;
 	color: #1F386D;
 	text-align: right;
 	position: relative;
@@ -257,7 +258,7 @@ body {
 .tag {
 	position: relative;
 	width: 100%;
-	font-family: neue-haas-grotesk-display, sans-serif;
+	font-family: neue-haas-unica, sans-serif;
 	font-size: 3em;
 	font-weight: 300;
 	color: #1F386D;
@@ -285,9 +286,9 @@ body {
 
 #name {
 	grid-area: name;
-	font-family: neue-haas-grotesk-display, sans-serif;
+	font-family: roster, serif;
 	font-size: 2.5em;
-	font-weight: 300;
+	font-weight: 200;
 	color: #1F386D;
 }
 
@@ -324,9 +325,9 @@ body {
 }
 
 .copyBlock p {
-	font-family: neue-haas-grotesk-text, sans-serif;
+	font-family: neue-haas-unica, sans-serif;
 	font-size: 1em;
-	font-weight: 400;
+	font-weight: 300;
 	color: #1F386D;
 	margin-top: -2vh;
 	text-align: left;
@@ -334,9 +335,9 @@ body {
 }
 
 .copyBlock h3 {
-	font-family: neue-haas-grotesk-display, sans-serif;
+	font-family: roster, serif;
 	font-size: 1.75em;
-	font-weight: 300;
+	font-weight: 200;
 	color: #1F386D;
 }
 
@@ -354,7 +355,7 @@ body {
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
-	font-family: neue-haas-grotesk-display, sans-serif;
+	font-family: neue-haas-unica, sans-serif;
 	font-size: 1.25em;
 	font-weight: 300;
 	color: #1F386D;
@@ -390,7 +391,7 @@ body {
 
 #portfolioLinks {
 	grid-area: left;
-	font-family: neue-haas-grotesk-display, sans-serif;
+	font-family: neue-haas-unica, sans-serif;
 	font-size: 1.5em;
 	font-weight: 300;
 	color: #1F386D;
@@ -410,7 +411,7 @@ body {
 
 #friends {
 	grid-area: right;
-	font-family: neue-haas-grotesk-display, sans-serif;
+	font-family: neue-haas-unica, sans-serif;
 	font-size: 1.25em;
 	font-weight: 300;
 	color: #1F386D;
@@ -420,7 +421,7 @@ body {
 #link {
 	transition: .6s background-color;
 	grid-area: link;
-	font-family: neue-haas-grotesk-display, sans-serif;
+	font-family: neue-haas-unica, sans-serif;
 	font-size: 1.25em;
 	font-weight: 300;
 	background-color: #1F386D;
@@ -466,7 +467,7 @@ body {
 
 #bio {
 	grid-area: bio;
-	font-family: neue-haas-grotesk-display, sans-serif;
+	font-family: neue-haas-unica, sans-serif;
 	font-size: 1.5em;
 	font-weight: 300;
 	color: #1F386D;
@@ -476,7 +477,7 @@ body {
 
 #caption {
 	grid-area: caption;
-	font-family: neue-haas-grotesk-display, sans-serif;
+	font-family: neue-haas-unica, sans-serif;
 	font-style: italic;
 	font-size: 1em;
 	font-weight: 300;
@@ -493,9 +494,9 @@ body {
 
 #title {
 	grid-area: title;
-	font-family: neue-haas-grotesk-display, sans-serif;
+	font-family: roster, serif;
 	font-size: 6em;
-	font-weight: 600;
+	font-weight: 200;
 	color: #1F386D;
 	width: 100%;
 	height: 100%;
@@ -503,7 +504,7 @@ body {
 
 #list {
 	grid-area: list;
-	font-family: neue-haas-grotesk-display, sans-serif;
+	font-family: neue-haas-unica, sans-serif;
 	font-size: 1.5em;
 	font-weight: 300;
 	color: #1F386D;
@@ -525,4 +526,12 @@ body {
 	transition: .6s color;
 	color: #ffaeae;
 	padding-bottom: 5vh;
+}
+
+#list a {
+	color: inherit;
+}
+
+#list a:visited {
+	color: inherit;
 }
