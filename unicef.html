@@ -15,6 +15,7 @@
 	<link rel="stylesheet" type="text/css" href="main.css">
 	<link rel="stylesheet" type="text/css" href="flickity.css"/>
 	<link rel="stylesheet" type="text/css" href="fullscreen.css"/>
+	<link rel="stylesheet" href="animsition.min.css">
 	
 	<link rel="stylesheet" href="https://use.typekit.net/uxg6tuv.css">
 	
@@ -26,6 +27,7 @@
 	
 	<script type="text/javascript" src="js/flickity.pkgd.min.js"></script>
 	<script type="text/javascript" src="js/fullscreen.js"></script>
+	<script src="js/animsition.min.js"></script>
 	
 </script>
 
@@ -49,18 +51,41 @@
 			lazyLoad: 3,
 			imagesLoaded: true
 		});
+		
+		$(".animsition").animsition({
+			inClass: 'fade-in-up-sm',
+    		outClass: 'fade-out-up-sm',
+			inDuration: 1500,
+			outDuration: 800,
+			linkElement: '.animsition',
+			// e.g. linkElement: 'a:not([target="_blank"]):not([href^="#"])'
+			loading: true,
+			loadingParentElement: 'body', //animsition wrapper element
+			loadingClass: 'animsition-loading',
+			loadingInner: '', // e.g '<img src="loading.svg" />'
+			timeout: false,
+			timeoutCountdown: 5000,
+			onLoadEvent: true,
+			browser: [ 'animation-duration', '-webkit-animation-duration'],
+			// "browser" option allows you to disable the "animsition" in case the css property in the array is not supported by your browser.
+			// The default setting is to disable the "animsition" in a browser that does not support "animation-duration".
+			overlay : false,
+			overlayClass : 'animsition-overlay-slide',
+			overlayParentElement : 'body',
+			transition: function(url){ window.location.href = url; }
+		});
 	});
 </script>
 
 <body>
-	<div class="secondaryContainer">
+	<div id="secondaryContainer" class="animsition">
 		<div id="head">
 			<div class="headerContainer">
-				<a class="headerLogo" href="index.html"></a>
+				<a class="headerLogo animsition-link" href="index.html"></a>
 				<div class="headerName"><div class="headerText"><div class="pink">Andrew Thompson</div>Art Director</div></div>
-				<a class="headerWork" href="index.html"><div class="headerText">Work</div></a>
-				<a class="headerAbout" href="about.html"><div class="headerText">About</div></a>
-				<a class="headerContact" href="contact.html"><div class="headerText">Contact</div></a>
+				<a class="headerWork animsition-link" href="index.html"><div class="headerText">Work</div></a>
+				<a class="headerAbout animsition-link" href="about.html"><div class="headerText">About</div></a>
+				<a class="headerContact animsition-link" href="contact.html"><div class="headerText">Contact</div></a>
 			</div>
 		</div>
 		<div id="name">UNICEF Kid Power Bands</div>
@@ -91,7 +116,7 @@
 			</div>
 		</div> </div>
 		<div id="footContainer">
-			<div id="portfolioLinks"><a href="pangea.html">Pangea.app</a> | <b>UNICEF</b> | <a href="os.html">Ocean Spray</a> | <a href="bhddh.html">BHDDH</a> | <a href="moveout.html">Move Out & Donate</a></div>
+			<div id="portfolioLinks"><a class="animsition-link" href="pangea.html">Pangea.app</a> | <b>UNICEF</b> | <a class="animsition-link" href="os.html">Ocean Spray</a> | <a class="animsition-link" href="bhddh.html">BHDDH</a> | <a class="animsition-link" href="moveout.html">Move Out & Donate</a></div>
 			<div id="friends"><b>Manal Jakhar</b>&mdash;Design<br><b>Lindsay Saiia</b>&mdash;Writing<br><b>Erin Weiland</b>&mdash;Strategy<br><b>Taylor Haughton</b>&mdash;Strategy</div>
 		</div>
 	</div>

@@ -15,12 +15,14 @@
 	<link rel="stylesheet" type="text/css" href="main.css">
 	
 	<link rel="stylesheet" href="https://use.typekit.net/uxg6tuv.css">
+	<link rel="stylesheet" href="animsition.min.css">
 
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
 	<script src="js/barba.min.js"></script>
 	<script src="js/flowtype.js"></script>
 	<script src="js/jquery.center.min.js"></script>
+	<script src="js/animsition.min.js"></script>
 
 </head>
 
@@ -50,34 +52,57 @@
 		$("#Unicef").find(".hoverTitle").center({against: '#Unicef'});
 		$("#OS").find(".hoverTitle").center({against: '#OS'});
 		$("#BHDDH").find(".hoverTitle").center({against: '#BHDDH'});
+		
+		$(".animsition").animsition({
+			inClass: 'fade-in-up-sm',
+    		outClass: 'fade-out-up-sm',
+			inDuration: 1500,
+			outDuration: 800,
+			linkElement: '.animsition',
+			// e.g. linkElement: 'a:not([target="_blank"]):not([href^="#"])'
+			loading: true,
+			loadingParentElement: 'body', //animsition wrapper element
+			loadingClass: 'animsition-loading',
+			loadingInner: '', // e.g '<img src="loading.svg" />'
+			timeout: false,
+			timeoutCountdown: 5000,
+			onLoadEvent: true,
+			browser: [ 'animation-duration', '-webkit-animation-duration'],
+			// "browser" option allows you to disable the "animsition" in case the css property in the array is not supported by your browser.
+			// The default setting is to disable the "animsition" in a browser that does not support "animation-duration".
+			overlay : false,
+			overlayClass : 'animsition-overlay-slide',
+			overlayParentElement : 'body',
+			transition: function(url){ window.location.href = url; }
+		});
 	});
 </script>
 
 <body>
-	<div class="container">
+	<div id="container" class="animsition">
 		<div id="head">
 			<div class="headerContainer">
 				<a class="headerLogo" href="index.html"></a>
 				<div class="headerName"><div class="headerText"><div class="pink">Andrew Thompson</div>Art Director</div></div>
-				<a class="headerWork" href=""><div class="headerText active">Work</div></a>
-				<a class="headerAbout" href="about.html"><div class="headerText">About</div></a>
-				<a class="headerContact" href="contact.html"><div class="headerText">Contact</div></a>
+				<a class="headerWork animsition-link" href=""><div class="headerText active">Work</div></a>
+				<a class="headerAbout animsition-link" href="about.html"><div class="headerText">About</div></a>
+				<a class="headerContact animsition-link" href="contact.html"><div class="headerText">Contact</div></a>
 			</div>
 		</div>
-		<a id="Pangea" class="tile" href="pangea.html">
+		<a id="Pangea" class="tile animsition-link" href="pangea.html">
 			<div class="hoverTitle">Pangea.app</div>
 		</a>
-		<a id="Unicef" class="tile" href="unicef.html">
+		<a id="Unicef" class="tile animsition-link" href="unicef.html">
 			<div class="hoverTitle">UNICEF</div>
 		</a>
 		<div id="tag"><div class="tag">Andrew Thompson is an Advertising major at Johnson & Wales University in Providence, RI. He specializes in UI/UX and Graphic Design.</div></div>
-		<a id="OS" class="tile" href="os.html">
+		<a id="OS" class="tile animsition-link" href="os.html">
 			<div class="hoverTitle">Ocean Spray</div>
 		</a>
-		<a id="BHDDH" class="tile" href="bhddh.html">
+		<a id="BHDDH" class="tile animsition-link" href="bhddh.html">
 			<div class="hoverTitle">BHDDH</div>
 		</a>
-		<a id="MoveOut" class="tile" href="moveout.html">
+		<a id="MoveOut" class="tile animsition-link" href="moveout.html">
 			<div class="hoverTitle">Move Out & Donate</div>
 		</a>
 	</div>

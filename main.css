@@ -4,7 +4,7 @@ body {
 	background-color: white;
 }
 
-.container {
+#container {
 	display: grid;
 	position: absolute;
 	left: 7.5%;
@@ -24,7 +24,7 @@ body {
 	padding-bottom: 15vh;
 }
 
-.secondaryContainer {
+#secondaryContainer {
 	display: grid;
 	position: absolute;
 	left: 7.5%;
@@ -44,7 +44,7 @@ body {
 	padding-bottom: 15vh;
 }
 
-.aboutContainer {
+#aboutContainer {
 	display: grid;
 	position: absolute;
 	left: 7.5%;
@@ -61,7 +61,7 @@ body {
 	grid-row-gap: 2.5vw;
 }
 
-.contactContainer {
+#contactContainer {
 	display: grid;
 	position: absolute;
 	left: 7.5%;
@@ -78,7 +78,7 @@ body {
 }
 
 @media (max-width: 700px) {
-	.container {
+	#container {
 		grid-template-areas: 
 			'head'
 			'first'
@@ -91,7 +91,7 @@ body {
 		grid-row-gap: 1vh;
 	}
 	
-	.secondaryContainer {
+	#secondaryContainer {
 		display: grid;
 		position: absolute;
 		left: 7.5%;
@@ -115,7 +115,7 @@ body {
 		padding-bottom: 15vh;
 	}
 	
-	.aboutContainer {
+	#aboutContainer {
 		display: grid;
 		position: absolute;
 		left: 7.5%;

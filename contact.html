@@ -15,12 +15,14 @@
 	<link rel="stylesheet" type="text/css" href="main.css">
 	
 	<link rel="stylesheet" href="https://use.typekit.net/uxg6tuv.css">
+	<link rel="stylesheet" href="animsition.min.css">
 
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
 	<script src="js/barba.min.js"></script>
 	<script src="js/flowtype.js"></script>
 	<script src="js/jquery.center.min.js"></script>
+	<script src="js/animsition.min.js"></script>
 
 </head>
 
@@ -50,27 +52,50 @@
 		$("#Unicef").find(".hoverTitle").center({against: '#Unicef'});
 		$("#OS").find(".hoverTitle").center({against: '#OS'});
 		$("#BHDDH").find(".hoverTitle").center({against: '#BHDDH'});
+		
+		$(".animsition").animsition({
+			inClass: 'fade-in-up-sm',
+    		outClass: 'fade-out-up-sm',
+			inDuration: 1500,
+			outDuration: 800,
+			linkElement: '.animsition',
+			// e.g. linkElement: 'a:not([target="_blank"]):not([href^="#"])'
+			loading: true,
+			loadingParentElement: 'body', //animsition wrapper element
+			loadingClass: 'animsition-loading',
+			loadingInner: '', // e.g '<img src="loading.svg" />'
+			timeout: false,
+			timeoutCountdown: 5000,
+			onLoadEvent: true,
+			browser: [ 'animation-duration', '-webkit-animation-duration'],
+			// "browser" option allows you to disable the "animsition" in case the css property in the array is not supported by your browser.
+			// The default setting is to disable the "animsition" in a browser that does not support "animation-duration".
+			overlay : false,
+			overlayClass : 'animsition-overlay-slide',
+			overlayParentElement : 'body',
+			transition: function(url){ window.location.href = url; }
+		});
 	});
 </script>
 
 <body>
-	<div class="contactContainer">
+	<div id="contactContainer" class="animsition">
 		<div id="head">
 			<div class="headerContainer">
-				<a class="headerLogo" href="index.html"></a>
+				<a class="headerLogo animsition-link" href="index.html"></a>
 				<div class="headerName"><div class="headerText"><div class="pink">Andrew Thompson</div>Art Director</div></div>
-				<a class="headerWork" href="index.html"><div class="headerText">Work</div></a>
-				<a class="headerAbout" href="about.html"><div class="headerText">About</div></a>
-				<a class="headerContact" href=""><div class="headerText active">Contact</div></a>
+				<a class="headerWork animsition-link" href="index.html"><div class="headerText">Work</div></a>
+				<a class="headerAbout animsition-link" href="about.html"><div class="headerText">About</div></a>
+				<a class="headerContact animsition-link" href=""><div class="headerText active">Contact</div></a>
 			</div>
 		</div>
 		<div id="title">Get<br>In<br>Touch</div>
 		<div id="list"><ul>
-			<li><a href="https://www.linkedin.com/in/andrew-l-thompson/">Linkedin</a></li>
-			<li><a href="mailto:me@andrewthompson.me?Subject=Hey!">Email</a></li>
-			<li><a href="https://www.instagram.com/andrew_thhompson/">Instagram</a></li>
+			<li><a class="animsition-link" href="https://www.linkedin.com/in/andrew-l-thompson/">Linkedin</a></li>
+			<li><a class="animsition-link" href="mailto:me@andrewthompson.me?Subject=Hey!">Email</a></li>
+			<li><a class="animsition-link" href="https://www.instagram.com/andrew_thhompson/">Instagram</a></li>
 			<li>1.860.994.2748</li>
-			<li><a href="https://www.dropbox.com/s/32vh9c11m0jtoih/Andrew%20Thompson%20Resume%202019.pdf?dl=0">Resume</a></li>
+			<li><a class="animsition-link" href="https://www.dropbox.com/s/32vh9c11m0jtoih/Andrew%20Thompson%20Resume%202019.pdf?dl=0">Resume</a></li>
 		</ul></div>
 		
 	</div>
