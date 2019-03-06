@@ -34,25 +34,6 @@
 		$(".headerAbout").find(".headerText").center({against: '.headerAbout'});
 		$(".headerContact").find(".headerText").center({against: '.headerContact'});
 		
-		$('.tag').flowtype({
-			minFont: 32,
-			maxFont: 48
-		});
-		$(".tag").center({against: '#tag'});
-		
-		$(".tile").hover(function () {
-			$(this).find(".hoverTitle").css('opacity', 1);
-			$(this).css('box-shadow', 'inset 0 0 0 2000px rgba(0,0,0,0.6)');
-		}, function () {
-			$(this).find(".hoverTitle").css('opacity', 0);
-			$(this).css('box-shadow', 'none');
-		});
-		
-		$("#Pangea").find(".hoverTitle").center({against: '#Pangea'});
-		$("#Unicef").find(".hoverTitle").center({against: '#Unicef'});
-		$("#OS").find(".hoverTitle").center({against: '#OS'});
-		$("#BHDDH").find(".hoverTitle").center({against: '#BHDDH'});
-		
 		$(".animsition").animsition({
 			inClass: 'fade-in-up-sm',
     		outClass: 'fade-out-up-sm',
