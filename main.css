@@ -10,15 +10,17 @@ body {
 	left: 7.5%;
 	top: 7.5%;
 	width: 85%;
-	height: 180%;
-	grid-template-rows: 14vh 3fr 3fr 3fr 3fr;
+	height: 250%;
+	grid-template-rows: 14vh 3fr 3fr 3fr 3fr 3fr 3fr;
 	grid-template-columns: 1fr 1fr;
 	grid-template-areas: 
 		'head head'
 		'first first'
 		'second third'
-		'fourth fourth'
-		'fifth sixth';
+		'fourth fifth'
+		'sixth sixth'
+		'seventh eigth'
+		'ninth tenth';
 	grid-column-gap: 2.5vw;
 	grid-row-gap: 2.5vw;
 	padding-bottom: 15vh;
@@ -30,7 +32,7 @@ body {
 	left: 7.5%;
 	top: 7.5%;
 	width: 92.5%;
-	height: 140%;
+	height: 160%;
 	grid-template-rows: 14vh .5fr 1fr 5fr 1fr 1fr;
 	grid-template-columns: 1fr 1fr 1fr 7.5%;
 	grid-template-areas: 
@@ -38,6 +40,7 @@ body {
 		'name name link .'
 		'first second third .'
 		'fifth fifth fifth fifth'
+		'gap gap gap .'
 		'foot foot foot .';
 	grid-row-gap: 2.5vh;
 	grid-column-gap: 2.5vw;
@@ -97,7 +100,8 @@ body {
 		left: 7.5%;
 		top: 7.5%;
 		width: 85%;
-		height: 85%;
+/*		height: 85%;*/
+		height: auto;
 		grid-template-rows: 14vh;
 		grid-template-columns: 1fr;
 		grid-template-areas: 
@@ -108,6 +112,10 @@ body {
 			'third'
 			'fourth'
 			'fifth'
+			'sixth'
+			'seventh'
+			'eighth'
+			'ninth'
 			'foot-right'
 			'foot';
 		grid-column-gap: 2.5vw;
@@ -264,23 +272,43 @@ body {
 	color: #1F386D;
 }
 
-#Unicef {
+#Unplug {
 	grid-area: second;
-	background-image: url(img/home/unicef.jpg);
+	background-image: url(img/home/unplug_cover.png);
+}
+
+#ATT {
+	grid-area: fourth;
+	background-image: url(img/home/att_cover.png);
+}
+
+#Dunkin {
+	grid-area: fifth;
+	background-image: url(img/home/dunkin_cover.png);
+}
+
+#WS {
+	grid-area: sixth;
+	background-image: url(img/home/ws_cover.png);
+}
+
+#Unicef {
+	grid-area: seventh;
+	background-image: url(img/home/unicef_cover.jpg);
 }
 
 #OS {
-	grid-area: fourth;
+	grid-area: eigth;
 	background-image: url(img/home/os_cover.png);
 }
 
 #BHDDH {
-	grid-area: fifth;
+	grid-area: ninth;
 	background-image: url(img/home/bhddh_cover.png);
 }
 
 #MoveOut {
-	grid-area: sixth;
+	grid-area: tenth;
 	background-image: url(img/home/moveout_cover.png);
 }
 
