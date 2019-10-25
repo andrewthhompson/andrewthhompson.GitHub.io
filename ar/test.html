@@ -5,13 +5,15 @@
 	<script src="https://raw.githack.com/jeromeetienne/AR.js/2.0.5/aframe/build/aframe-ar.js"></script>
 	
 	<body style='margin : 0px; overflow: hidden;'>
-		<div style="height: 100vh; width: 100vw; position: fixed;">
+<!--		<div style="height: 100vh; width: 100vw; position: fixed;">-->
 		<a-scene embedded arjs>
 <!--			<a-box width="4" depth="2.25" height=".25" position="0 0 .375" color="#342E37"></a-box>-->
 			<a-assets>
 				<video id="frank-ocean" autoplay loop="true" src="dearapril.mp4"></video>
+				<img id="posardi-logo" src="posardi-logo-01.png">
 			</a-assets>
 			
+			<a-image src="#posardi-logo" width="1" height=".25" position="0 .5 .25"></a-image>
 			<a-video src="#frank-ocean" width="1" height=".5625" position="0 0 .25" rotation="-90 0 0"></a-video>
 			
 <!--			<a-marker preset="hiro" size="4">-->
@@ -19,9 +21,10 @@
 <!--			</a-marker>-->
 <!--			<a-entity camera></a-entity>-->
 			<a-marker-camera preset="hiro" smooth="true"></a-marker-camera>
-		</a-scene></div>
+		</a-scene>
+<!--		</div>-->
 		
-		<div style="position: absolute; height: 80vh; width: 100vw; border-radius: 20px; background-color: white; top: 60vh; z-index: 2000;">Recipes</div>
+<!--		<div style="position: absolute; height: 80vh; width: 100vw; border-radius: 20px; background-color: white; top: 60vh; z-index: 2000;">Recipes</div>-->
 		
 		<button style="width: 20vw; height: 10vh; position: fixed; bottom: 5vh; left: 10vw; background-color: #342E37; border-style: none; color: #FA824C; font-size: 2em; z-index: 2004" onclick="document.getElementById('frank-ocean').play();">Start Video</button>
 		
