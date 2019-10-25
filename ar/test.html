@@ -6,17 +6,62 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	
 	<script>
+		var versionNum = "Version 2"
 		var printedSize = 5.5;	// in inches
-		var ratio = 39.3701;	// in inches
+		var ratio = 39.3701;	// in inches, for conversion to meters
+		var tvratio = .5625;	// convert width to height
 		
-		function inchesToMeters(inches) {
-			return (inches * ratio);
+		function itm(inches) {
+			var halfway = inches * ratio;
+			var final = halfway / printedSize;
+			return final;
 		}
 		
-		function metersToInches(meters) {
+		function mti(meters) {
 			return (meters / ratio);
 		}
 		
+		function videoBillboard (width, depth, offcenter, id, src) {
+			if (~id.indexOf("#")) {
+				id.replace("#","");
+			}
+			
+			var height = width * tvratio;
+			
+			var output1 = "<video id='";
+			output1.concat(id, "' autoplay loop='true' src='", src, "'></video>");
+			$("a-assets").append(output1);
+			
+			var output2 = "<a-video src='#";
+			output2.concat(id, "' width='", itm(width), "' height='", itm(height), "' position='", itm(depth), " 0 " , itm(offcenter),"' rotation='-90 0 0'></a-video>");	
+			$("a-scene").append(output1);
+			return;
+		}
+		
+		function logoBillboard (width, height, depth, offcenter, id, src) {
+			if (~id.indexOf("#")) {
+				id.replace("#","");
+			}
+			
+			var output1 = "<img id='";
+			output1.concat(id, "' src='", src, "'>");
+			$("a-assets").append(output1);
+			
+			var output2 = "<a-image src='#";
+			output2.concat(id, "' width='", itm(width), "' height='", itm(height), "' position='", itm(depth), " 0 " , (-1 * itm(offcenter)),"' rotation='-90 0 0'></a-image>");	
+			$("a-scene").append(output1);
+			return;
+		}
+		
+		
+		
+		
+		$( document ).ready(function() {
+			console.log( versionNum );
+			
+			logoBillboard(10, 2.5, 2, .25, "logo", "posardi-logo-01.png");
+			videoBillboard(10, 2, .25, "frank", "dearapril.mp4");
+		});
 		
 	</script>
 	
@@ -24,30 +69,21 @@
 	
 	
 	<body style='margin : 0px; overflow: hidden;'>
-<!--		<div style="height: 100vh; width: 100vw; position: fixed;">-->
 		<a-scene embedded arjs>
-<!--			<a-box width="4" depth="2.25" height=".25" position="0 0 .375" color="#342E37"></a-box>-->
 			<a-assets>
-				<video id="frank-ocean" autoplay loop="true" src="dearapril.mp4"></video>
-				<img id="posardi-logo" src="posardi-logo-01.png">
+<!--				<img id="posardi-logo" src="posardi-logo-01.png">-->
+<!--				<video id="frank-ocean" autoplay loop="true" src="dearapril.mp4"></video>-->
 			</a-assets>
-			<div id="test">
-				<a-image src="#posardi-logo" width="4" height="1" position=".0762 0 -.75" rotation="-90 0 0"></a-image>
-			</div>
-			<a-video src="#frank-ocean" width="4" height="2.25" position=".0762 0 1" rotation="-90 0 0"></a-video>
 			
-<!--			<a-marker preset="hiro" size="4">-->
-		
-<!--			</a-marker>-->
-<!--			<a-entity camera></a-entity>-->
 			<a-marker-camera type="pattern" url="posardi.patt" smooth="true"></a-marker-camera>
+			
+<!--			<a-image src="#posardi-logo" width="4" height="1" position=".0762 0 -.75" rotation="-90 0 0"></a-image>-->
+<!--			<a-video src="#frank-ocean" width="4" height="2.25" position=".0762 0 1" rotation="-90 0 0"></a-video>-->
+			
 		</a-scene>
-<!--		</div>-->
-		
-<!--		<div style="position: absolute; height: 80vh; width: 100vw; border-radius: 20px; background-color: white; top: 60vh; z-index: 2000;">Recipes</div>-->
 		
 		<button style="width: 20vw; height: 10vh; position: fixed; bottom: 5vh; right: 10vw; background-color: #342E37; border-style: none; color: #FA824C; font-size: .5em; z-index: 2004" onclick="document.getElementById('frank-ocean').play();">Start Video</button>
 		
-		<div style="width: 80vw; height: 10vh; position: fixed; top: 5vh; left: 10vw; border-style: none; color: #FA824C; font-size: 1em; font-family='sans-serif'; text-align: center; z-index: 2004">Version 1.91</div>
+		<div style="width: 80vw; height: 10vh; position: fixed; top: 5vh; left: 10vw; border-style: none; color: #FA824C; font-size: 1em; font-family='sans-serif'; text-align: center; z-index: 2004">Version 2</div>
 	</body>
 </html>
