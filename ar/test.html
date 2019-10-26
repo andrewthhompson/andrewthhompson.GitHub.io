@@ -3,101 +3,20 @@
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	
-	<script>
-		var versionNum = "Version 2.31"
-		var printedSize = 5.5;	// in inches
-		var ratio = 39.3701;	// in inches, for conversion to meters
-		var tvratio = .5625;	// convert width to height
-		
-		function itm(inches) {
-			var halfway = inches * ratio;
-			var final = halfway / printedSize;
-			return final;
-		}
-		
-		function mti(meters) {
-			return (meters / ratio);
-		}
-		
-		function videoBillboard (width, depth, offcenter) {
-//			if (~id.indexOf("#")) {
-//				id.replace("#","");
-//			}
-//			
-//			var height = width * tvratio;
-//			
-//			var output1 = "<video id='";
-//			output1.concat(id, "' autoplay loop='true' src='", src, "'></video>");
-//			$("a-assets").append(output1);
-//			
-//			var output2 = "<a-video src='#";
-//			output2.concat(id, "' width='", itm(width), "' height='", itm(height), "' position='", itm(depth), " 0 " , itm(offcenter),"' rotation='-90 0 0'></a-video>");	
-//			$("a-scene").append(output1);
-//			return;
-			
-			if (!(~id.indexOf("#")) {
-				var tempString = "";
-				tempString.concat("#", id);
-				id = tempString;
-			}
-		
-			var height = width * tvratio;
-		
-			var positionString = "";
-			positionString.concat(itm(depth), " 0 ", (-1 * itm(offcenter));
-		
-			$('a-video').css('width', itm(width)).css('height', itm(height)).css('position', positionString);
-			return;
-		}
-		
-		function logoBillboard (width, height, depth, offcenter) {
-			if (!(~id.indexOf("#")) {
-				var tempString = "";
-				tempString.concat("#", id);
-				id = tempString;
-			}
-		
-			var positionString = "";
-			positionString.concat(itm(depth), " 0 ", (-1 * itm(offcenter));
-		
-			$('a-image').css('width', itm(width)).css('height', itm(height)).css('position', positionString);
-		
-//			var output1 = "<img id='";
-//			output1.concat(id, "' src='", src, "'>");
-//			$("a-assets").append(output1);
-//			
-//			var output2 = "<a-image src='#";
-//			output2.concat(id, "' width='", itm(width), "' height='", itm(height), "' position='", itm(depth), " 0 " , (-1 * itm(offcenter)),"' rotation='-90 0 0'></a-image>");	
-//			$("a-scene").append(output1);
-//			return;
-		}
-		
-		
-		
-		
-		$( document ).ready(function() {
-			console.log( versionNum );
-			
-			logoBillboard(10, 2.5, 1, .25, "logo", "posardi-logo-01.png");
-			videoBillboard(10, 1, .25, "frank", "dearapril.mp4");
-		});
-		
-	</script>
-	
 	<script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
 	<script src="https://raw.githack.com/jeromeetienne/AR.js/2.0.5/aframe/build/aframe-ar.js"></script>
 		
+	
+	
+	
+	
+	
 	<body style='margin : 0px; overflow: hidden;'>
 		<a-scene embedded arjs>
-			<a-assets>
-				<img id="posardi-logo" src="posardi-logo-01.png">
-				<video id="frank-ocean" autoplay loop="true" src="dearapril.mp4"></video>
-			</a-assets>
 			
 			<a-marker-camera type="pattern" url="posardi.patt" smooth="true"></a-marker-camera>
 			
-			<a-image src="#posardi-logo" width="4" height="1" position=".0762 0 -.75" rotation="-90 0 0"></a-image>
-			<a-video src="#frank-ocean" width="4" height="2.25" position=".0762 0 1" rotation="-90 0 0"></a-video>
+			<a-sphere color="black" position="0 1.6 0" animation="property: position; to: 0 0 0; dur: 500; easing: easeInOutQuint; loop: true;"></a-sphere>
 			
 		</a-scene>
 		
