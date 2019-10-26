@@ -4,7 +4,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	
 	<script>
-		var versionNum = "Version 2.3"
+		var versionNum = "Version 2.31"
 		var printedSize = 5.5;	// in inches
 		var ratio = 39.3701;	// in inches, for conversion to meters
 		var tvratio = .5625;	// convert width to height
@@ -78,8 +78,8 @@
 		$( document ).ready(function() {
 			console.log( versionNum );
 			
-			logoBillboard(10, 2.5, 2, .25, "logo", "posardi-logo-01.png");
-			videoBillboard(10, 2, .25, "frank", "dearapril.mp4");
+			logoBillboard(10, 2.5, 1, .25, "logo", "posardi-logo-01.png");
+			videoBillboard(10, 1, .25, "frank", "dearapril.mp4");
 		});
 		
 	</script>
@@ -103,6 +103,6 @@
 		
 		<button style="width: 20vw; height: 10vh; position: fixed; bottom: 5vh; right: 10vw; background-color: #342E37; border-style: none; color: #FA824C; font-size: .5em; z-index: 2004" onclick="document.getElementById('frank-ocean').play();">Start Video</button>
 		
-		<div style="width: 80vw; height: 10vh; position: fixed; top: 5vh; left: 10vw; border-style: none; color: #FA824C; font-size: 1em; font-family='sans-serif'; text-align: center; z-index: 2004">Version 2.3</div>
+		<div style="width: 80vw; height: 10vh; position: fixed; top: 5vh; left: 10vw; border-style: none; color: #FA824C; font-size: 1em; font-family='sans-serif'; text-align: center; z-index: 2004">Version 2.31</div>
 	</body>
 </html>
