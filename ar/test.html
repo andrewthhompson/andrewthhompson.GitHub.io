@@ -7,7 +7,7 @@
 	<script src="https://raw.githack.com/jeromeetienne/AR.js/2.0.5/aframe/build/aframe-ar.js"></script>
 		
 	<body style='margin : 0px; overflow: hidden;'>
-		<a-scene arjs>
+		<a-scene embedded arjs>
 			<a-assets>
 				<img id="posardi-logo" src="posardi-logo-01.png">
 				<video id="video1" autoplay loop="true" src="sardo.mp4"></video>
@@ -15,8 +15,8 @@
 			
 			<a-marker-camera type="pattern" url="posardi.patt" smooth="true"></a-marker-camera>
 			
-			<a-image src="#posardi-logo" width="4" height="1" position=".0762 0 -.75" rotation="-90 0 0"></a-image>
-			<a-video src="#video1" width="4" height="2.25" position=".0762 0 1" rotation="-90 0 0"></a-video>
+			<a-image src="#posardi-logo" width="4" height="1" position=".035 0 -.75" rotation="-90 0 0"></a-image>
+			<a-video src="#video1" width="4" height="2.25" position=".035 0 1" rotation="-90 0 0"></a-video>
 			
 		</a-scene>
 		
