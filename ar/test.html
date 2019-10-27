@@ -7,21 +7,21 @@
 	<script src="https://raw.githack.com/jeromeetienne/AR.js/2.0.5/aframe/build/aframe-ar.js"></script>
 		
 	<body style='margin : 0px; overflow: hidden;'>
-		<a-scene embedded arjs>
+		<a-scene arjs>
 			<a-assets>
 				<img id="posardi-logo" src="posardi-logo-01.png">
-				<video id="frank-ocean" autoplay loop="true" src="dearapril.mp4"></video>
+				<video id="video1" autoplay loop="true" src="sardo.mp4"></video>
 			</a-assets>
 			
 			<a-marker-camera type="pattern" url="posardi.patt" smooth="true"></a-marker-camera>
 			
 			<a-image src="#posardi-logo" width="4" height="1" position=".0762 0 -.75" rotation="-90 0 0"></a-image>
-			<a-video src="#frank-ocean" width="4" height="2.25" position=".0762 0 1" rotation="-90 0 0"></a-video>
+			<a-video src="#video1" width="4" height="2.25" position=".0762 0 1" rotation="-90 0 0"></a-video>
 			
 		</a-scene>
 		
 		<button style="width: 20vw; height: 10vh; position: fixed; bottom: 5vh; right: 10vw; background-color: #342E37; border-style: none; color: #FA824C; font-size: .5em; z-index: 2004" onclick="document.getElementById('frank-ocean').play();">Start Video</button>
 		
-		<div style="width: 80vw; height: 10vh; position: fixed; top: 5vh; left: 10vw; border-style: none; color: #FA824C; font-size: 1em; font-family='sans-serif'; text-align: center; z-index: 2004">Version 2.31</div>
+		<div style="width: 80vw; height: 10vh; position: fixed; top: 5vh; left: 10vw; border-style: none; color: #FA824C; font-size: 1em; font-family='sans-serif'; text-align: center; z-index: 2004">Version 2</div>
 	</body>
 </html>
