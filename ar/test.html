@@ -4,6 +4,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
 	<script src="https://raw.githack.com/jeromeetienne/AR.js/2.0.5/aframe/build/aframe-ar.js"></script>
+	<script src="https://cdn.rawgit.com/elbobo/aframe-multisrc-component/b6d23310/dist/0.3/aframe-multisrc-component.js"></script>
 	
 	<style>
 	
@@ -45,16 +46,34 @@
 <!--			<a-marker type="pattern" url="posardi.patt" smooth="true">-->
 			<a-assets>
 <!--				<img id="posardi-logo" src="posardi-logo-01.png">-->
-				<video id="video1" autoplay="true" loop="true" src="sardosquare.3gp" muted="true"></video>
+				<video
+					id="video1"
+					autoplay="true"
+					loop="true"
+					src="sardosquare.3gp"
+					muted="true"
+				></video>
 			</a-assets>
 			
-			<a-marker-camera type="pattern" url="posardi.patt" smooth="true"></a-marker-camera>
+			<a-marker-camera
+					type="pattern"
+					url="posardi.patt"
+					smooth="true"
+					></a-marker-camera>
 			
 <!--			<a-image src="#posardi-logo" width="4" height="1" position=".035 0 -.75" rotation="-90 0 0"></a-image>-->
 <!--			<a-video allset src="#video1" width="4" height="2.25" position=".035 0 1" rotation="-90 0 0"></a-video>-->
 			
 <!--			<a-video allset src="#video1" width="1" height="1" position=".035 0 0" rotation="-90 0 0"></a-video>-->
-			<a-entity allset geometry="primitive: cylinder" material="src: #video1" radius=".5" height="1" rotation="-90 0 0"></a-entity>
+			<a-entity
+				allset
+				geometry="primitive: cylinder"
+				multisrc="src4: #video1"
+				color="white"
+				radius=".5"
+				height="1"
+				rotation="0 0 0"
+			></a-entity>
 			
 
 <!--			<a-cylinder color="white" radius=".5" height=".1" position="0 0 -.05"></a-cylinder>-->
