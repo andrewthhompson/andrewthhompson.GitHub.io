@@ -2,7 +2,6 @@
 <html>
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	
 	<script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
 	<script src="https://raw.githack.com/jeromeetienne/AR.js/2.0.5/aframe/build/aframe-ar.js"></script>
 	
@@ -32,7 +31,7 @@
 		
 		<script>
 			
-		AFRAME.registerComponent('arjs', {
+		AFRAME.registerComponent('allset', {
 			init: function () {
 				// Code here.
 				console.log(this.el);
@@ -45,14 +44,16 @@
 		<a-scene embedded arjs>
 <!--			<a-marker type="pattern" url="posardi.patt" smooth="true">-->
 			<a-assets>
-				<img id="posardi-logo" src="posardi-logo-01.png">
+<!--				<img id="posardi-logo" src="posardi-logo-01.png">-->
 				<video id="video1" autoplay loop="true" src="sardo.mp4"></video>
 			</a-assets>
 			
 			<a-marker-camera type="pattern" url="posardi.patt" smooth="true"></a-marker-camera>
 			
-			<a-image src="#posardi-logo" width="4" height="1" position=".035 0 -.75" rotation="-90 0 0"></a-image>
-			<a-video src="#video1" width="4" height="2.25" position=".035 0 1" rotation="-90 0 0"></a-video>
+<!--			<a-image src="#posardi-logo" width="4" height="1" position=".035 0 -.75" rotation="-90 0 0"></a-image>-->
+<!--			<a-video allset src="#video1" width="4" height="2.25" position=".035 0 1" rotation="-90 0 0"></a-video>-->
+			
+			<a-video allset src="#video1" width="1" height="1" position=".035 0 1" rotation="-90 0 0"></a-video>
 			
 
 <!--			<a-cylinder color="white" radius=".5" height=".1" position="0 0 -.05"></a-cylinder>-->
