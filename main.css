@@ -143,6 +143,25 @@ body {
 		grid-row-gap: 2.5vw;
 		padding-bottom: 15vh;
 	}
+	
+	.headerContainer {		/*	By Default — height: 13.8VH	*/
+		display: grid;
+		grid-template-columns: 1fr 3fr 1fr;
+		width: 100%;
+		height: 100%;
+	}
+	
+	.headerWork {
+		display: none;
+	}
+	
+	.headerAbout {
+		display: none;
+	}
+	
+	.headerContact {
+		display: none;
+	}
 }
 
 .tile {
