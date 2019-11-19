@@ -80,6 +80,11 @@ body {
 	grid-row-gap: 2.5vw;
 }
 
+.mobileOnlyLink {
+	display: none;
+}
+
+
 @media (max-width: 700px) {
 	#container {
 		grid-template-areas: 
@@ -170,10 +175,6 @@ body {
 		font-weight: 300;
 		color: #1F386D;
 	}
-}
-
-.mobileOnlyLink {
-	display: none;
 }
 
 .tile {
