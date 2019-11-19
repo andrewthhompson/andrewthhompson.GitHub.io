@@ -98,7 +98,8 @@ body {
 			'link';
 		grid-template-rows: 1.5fr 3fr 3fr 3fr 3fr 3fr 3fr 3fr 3fr 3fr 3fr 3fr 3fr;
 		grid-template-columns: 1fr;
-		grid-row-gap: 1vh;
+		grid-row-gap: 2vh;
+		height: 525%;
 	}
 	
 	#secondaryContainer {
