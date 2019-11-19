@@ -18,9 +18,9 @@ body {
 		'first first'
 		'second third'
 		'fourth fifth'
-		'sixth sixth'
-		'seventh eigth'
-		'ninth tenth';
+		'sixth seventh'
+		'eigth ninth'
+		'tenth eleventh';
 	grid-column-gap: 2.5vw;
 	grid-row-gap: 2.5vw;
 	padding-bottom: 15vh;
@@ -84,10 +84,17 @@ body {
 	#container {
 		grid-template-areas: 
 			'head'
-			'first'
 			'third'
+			'first'
 			'second'
 			'fourth'
+			'fifth'
+			'sixth'
+			'seventh'
+			'eigth'
+			'ninth'
+			'tenth'
+			'eleventh'
 			'link';
 		grid-template-rows: 1.5fr 3fr 3fr 3fr 3fr 3fr;
 		grid-template-columns: 1fr;
@@ -112,10 +119,7 @@ body {
 			'third'
 			'fourth'
 			'fifth'
-			'sixth'
-			'seventh'
-			'eighth'
-			'ninth'
+			'gap'
 			'foot-right'
 			'foot';
 		grid-column-gap: 2.5vw;
@@ -292,23 +296,28 @@ body {
 	background-image: url(img/home/ws_cover.png);
 }
 
-#Unicef {
+#Upserve {
 	grid-area: seventh;
+	background-image: url(img/home/upserve_cover.png);
+}
+
+#Unicef {
+	grid-area: eigth;
 	background-image: url(img/home/unicef_cover.jpg);
 }
 
 #OS {
-	grid-area: eigth;
+	grid-area: ninth;
 	background-image: url(img/home/os_cover.png);
 }
 
 #BHDDH {
-	grid-area: ninth;
+	grid-area: tenth;
 	background-image: url(img/home/bhddh_cover.png);
 }
 
 #MoveOut {
-	grid-area: tenth;
+	grid-area: eleventh;
 	background-image: url(img/home/moveout_cover.png);
 }
 
