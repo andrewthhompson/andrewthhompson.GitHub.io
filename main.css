@@ -54,7 +54,7 @@ body {
 	top: 7.5%;
 	width: 85%;
 	grid-template-rows: 14vh 3fr 1fr;
-	grid-template-columns: 1.5fr .5fr 3fr;
+	grid-template-columns: 1.5fr .5fr 4fr;
 	grid-template-areas: 
 		'head head head'
 		'image image bio'
@@ -529,7 +529,7 @@ body {
 /*	height: 100%;*/
 	background-image: url(img/headshot.jpg);
 	background-repeat: no-repeat;
-	background-size: contain;
+	background-size: cover;
 	background-position: left;
 }
 
