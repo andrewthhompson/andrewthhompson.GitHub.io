@@ -527,7 +527,7 @@ body {
 #headshot {
 	grid-area: image;
 	width: 100%;
-	height: 100%;
+/*	height: 100%;*/
 	background-image: url(img/headshot.jpg);
 	background-repeat: no-repeat;
 	background-size: contain;
