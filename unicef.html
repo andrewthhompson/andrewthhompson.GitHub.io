@@ -33,12 +33,12 @@
 
 <script>
 	$(document).ready(function(){
-		$("img").unveil();
+		// $("img").unveil();
 
 		$("body").children().each(function() {
 	      document.body.innerHTML = document.body.innerHTML.replace(/\u2028/g, ' ');
 	  });
-		
+
 		$(".tag").center({against: '#tag'});
 
 		$(".tile").hover(function () {
@@ -156,4 +156,10 @@
 
 		</div>
 	</div>
+
+	<script>
+		$(document).ready(function(){
+			$("img").unveil();
+		});
+	</script>
 </body>
