@@ -23,12 +23,14 @@
 	<script src="js/flowtype.js"></script>
 	<script src="js/jquery.center.min.js"></script>
 	<script src="js/animsition.min.js"></script>
+	<script src="js/jquery.unveil.js"></script>
 
 </head>
 
 
 <script>
 	$(document).ready(function(){
+		$("img").unveil();
 		$(".tag").center({against: '#tag'});
 
 		$(".tile").hover(function () {
