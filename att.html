@@ -35,6 +35,10 @@
 	$(document).ready(function(){
 		$("img").unveil();
 
+		$("body").children().each(function() {
+	      document.body.innerHTML = document.body.innerHTML.replace(/\u2028/g, ' ');
+	  });
+
 		$(".tag").center({against: '#tag'});
 
 		$(".tile").hover(function () {

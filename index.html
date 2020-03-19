@@ -32,6 +32,10 @@
 	$(document).ready(function(){
 		$(".tag").center({against: '#tag'});
 
+		$("body").children().each(function() {
+	      document.body.innerHTML = document.body.innerHTML.replace(/\u2028/g, ' ');
+	  });
+
 		$(".tile").hover(function () {
 			$(this).find(".hoverTitle").css('opacity', 1);
 			$(this).css('box-shadow', 'inset 0 0 0 2000px rgba(0,0,0,0.6)');

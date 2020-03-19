@@ -32,6 +32,11 @@
 
 <script>
 	$(document).ready(function(){
+
+		$("body").children().each(function() {
+				document.body.innerHTML = document.body.innerHTML.replace(/\u2028/g, ' ');
+		});
+
 		$(".animsition").animsition({
 			inClass: 'fade-in-up-sm',
     		outClass: 'fade-out-up-sm',
