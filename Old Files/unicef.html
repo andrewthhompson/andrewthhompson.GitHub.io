@@ -1,0 +1,120 @@
+<head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-117438573-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-117438573-1');
+	</script>
+
+	
+	<title>Andrew Thompson | UNICEF</title>
+	
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<link rel="stylesheet" type="text/css" href="flickity.css"/>
+	<link rel="stylesheet" type="text/css" href="fullscreen.css"/>
+	<link rel="stylesheet" href="animsition.min.css">
+	
+	<link rel="stylesheet" href="https://use.typekit.net/uxg6tuv.css">
+	
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+	<script src="js/barba.min.js"></script>
+	<script src="js/flowtype.js"></script>
+	<script src="js/jquery.center.min.js"></script>
+	
+	<script type="text/javascript" src="js/flickity.pkgd.min.js"></script>
+	<script type="text/javascript" src="js/fullscreen.js"></script>
+	<script src="js/animsition.min.js"></script>
+	
+</script>
+
+</head>
+
+<script>
+	$(document).ready(function(){
+		$(".headerName").find(".headerText").center({against: '.headerName'});
+		$(".headerWork").find(".headerText").center({against: '.headerWork'});
+		$(".headerAbout").find(".headerText").center({against: '.headerAbout'});
+		$(".headerContact").find(".headerText").center({against: '.headerContact'});
+		$(".link").center({against: '#link'}).css('left', '0');
+		
+		$(".link").center({against: '#link'});
+		
+		$('.main-carousel').flickity({
+			cellAlign: 'left',
+			contain: true,
+			fullscreen: true,
+			pageDots: false,
+			lazyLoad: 3,
+			imagesLoaded: true
+		});
+		
+		$(".animsition").animsition({
+			inClass: 'fade-in-up-sm',
+    		outClass: 'fade-out-up-sm',
+			inDuration: 800,
+			outDuration: 800,
+			linkElement: '.animsition-link',
+			// e.g. linkElement: 'a:not([target="_blank"]):not([href^="#"])'
+			loading: true,
+			loadingParentElement: 'body', //animsition wrapper element
+			loadingClass: 'animsition-loading',
+			loadingInner: '', // e.g '<img src="loading.svg" />'
+			timeout: true,
+			timeoutCountdown: 0,
+			onLoadEvent: true,
+			browser: [ 'animation-duration', '-webkit-animation-duration'],
+			// "browser" option allows you to disable the "animsition" in case the css property in the array is not supported by your browser.
+			// The default setting is to disable the "animsition" in a browser that does not support "animation-duration".
+			overlay : false,
+			overlayClass : 'animsition-overlay-slide',
+			overlayParentElement : 'body',
+			transition: function(url){ window.location.href = url; }
+		});
+	});
+</script>
+
+<body>
+	<div id="secondaryContainer" class="animsition">
+		<div id="head">
+			<div class="headerContainer">
+				<a class="headerLogo animsition-link" href="index.html"></a>
+				<div class="headerName"><div class="headerText"><div class="pink">Andrew Thompson</div>Art Director</div></div>
+				<a class="headerWork animsition-link" href="index.html"><div class="headerText">Work</div></a>
+				<a class="headerAbout animsition-link" href="about.html"><div class="headerText">About</div></a>
+				<a class="headerContact animsition-link" href="contact.html"><div class="headerText">Contact</div></a>
+			</div>
+		</div>
+		<div id="name">UNICEF Kid Power Bands</div>
+		<div id="link"><a class="link animsition-link" href="https://www.dropbox.com/s/ftkvcvgoaz1m2up/Unicef%20Final%20Keynote.pdf?dl=0">Slidedeck</a></div>
+		<div id="ask" class="copyBlock">
+			<h3>The Ask</h3>
+			<p>Convince parents to let their kids save the world with a pedometer that turns steps into meals for children world-wide.</p>
+		</div>
+		<div id="answer" class="copyBlock">
+			<h3>The Answer</h3>
+			<p>We show parents the power their children can have. Kids are highlighted as the hero in each ad and we fuse the world of the app with the world around them, showcasing how the product can make the world a better place.</p>
+		</div>
+		<div id="results" class="copyBlock">
+			<h3>The Results</h3>
+			<p>This campaign is now used as an example of exemplary student work for the Johnson & Wales University Advertising major for prospective students. Also, only two points away from that perfect 100 grade.</p>
+		</div>
+		<div id="showcase"> <div class="showcase">
+			<div class="main-carousel">
+				<div class="carousel-cell"><img data-flickity-lazyload-srcset="img/unicef/mag1.png"></div>
+				<div class="carousel-cell"><img data-flickity-lazyload-srcset="img/unicef/3.png"></div>
+				<div class="carousel-cell"><img data-flickity-lazyload-srcset="img/unicef/4.png"></div>
+				<div class="carousel-cell"><img data-flickity-lazyload-srcset="img/unicef/5.png"></div>
+				<div class="carousel-cell"><img data-flickity-lazyload-srcset="img/unicef/6.png"></div>
+			</div>
+		</div> </div>
+		<div id="footContainer">
+			<div id="portfolioLinks"><a class="animsition-link" href="pangea.html">Pangea.app</a> | <a class="animsition-link" href="unplug.html">Unplug</a> | <a class="animsition-link" href="att.html">AT&T</a> | <a class="animsition-link" href="dunkin.html">Dunkin'</a> | <a class="animsition-link" href="ws.html">Wienerschnitzel</a> | <a class="animsition-link" href="upserve.html">Upserve</a> | <b>UNICEF</b> | <a class="animsition-link" href="os.html">Ocean Spray</a> | <a class="animsition-link" href="bhddh.html">BHDDH</a> | <a class="animsition-link" href="moveout.html">Move Out & Donate</a></div>
+			
+			<div id="friends"><b>Manal Jakhar</b>&mdash;Design<br><b>Lindsay Saiia</b>&mdash;Writing<br><b>Erin Weiland</b>&mdash;Strategy<br><b>Taylor Haughton</b>&mdash;Strategy</div>
+		</div>
+	</div>
+</body>

@@ -1,0 +1,123 @@
+<head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-117438573-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-117438573-1');
+	</script>
+
+	<title>Andrew Thompson | Unplug</title>
+	
+	
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<link rel="stylesheet" type="text/css" href="flickity.css"/>
+	<link rel="stylesheet" type="text/css" href="fullscreen.css"/>
+		
+	<link rel="stylesheet" href="https://use.typekit.net/uxg6tuv.css">
+	<link rel="stylesheet" href="animsition.min.css">
+	
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+	<script src="js/barba.min.js"></script>
+	<script src="js/flowtype.js"></script>
+	<script src="js/jquery.center.min.js"></script>
+		
+	<script type="text/javascript" src="js/flickity.pkgd.min.js"></script>
+	<script type="text/javascript" src="js/fullscreen.js"></script>
+	<script src="js/animsition.min.js"></script>
+	
+</script>
+
+</head>
+
+<!--	TODO:		-->
+<!--	Add link	-->
+
+<script>
+	$(document).ready(function(){
+		$(".headerName").find(".headerText").center({against: '.headerName'});
+		$(".headerWork").find(".headerText").center({against: '.headerWork'});
+		$(".headerAbout").find(".headerText").center({against: '.headerAbout'});
+		$(".headerContact").find(".headerText").center({against: '.headerContact'});
+		
+		$(".link").center({against: '#link'});
+		
+		$('.main-carousel').flickity({
+			cellAlign: 'left',
+			contain: true,
+			fullscreen: true,
+			pageDots: false,
+			lazyLoad: 3,
+			imagesLoaded: true
+		});
+		
+		
+		$(".animsition").animsition({
+			inClass: 'fade-in-up-sm',
+    		outClass: 'fade-out-up-sm',
+			inDuration: 800,
+			outDuration: 800,
+			linkElement: '.animsition-link',
+			// e.g. linkElement: 'a:not([target="_blank"]):not([href^="#"])'
+			loading: true,
+			loadingParentElement: 'body', //animsition wrapper element
+			loadingClass: 'animsition-loading',
+			loadingInner: '', // e.g '<img src="loading.svg" />'
+			timeout: true,
+			timeoutCountdown: 0,
+			onLoadEvent: true,
+			browser: [ 'animation-duration', '-webkit-animation-duration'],
+			// "browser" option allows you to disable the "animsition" in case the css property in the array is not supported by your browser.
+			// The default setting is to disable the "animsition" in a browser that does not support "animation-duration".
+			overlay : false,
+			overlayClass : 'animsition-overlay-slide',
+			overlayParentElement : 'body',
+			transition: function(url){ window.location.href = url; }
+		});
+	});
+</script>
+
+<body>
+	<div id="secondaryContainer" class="animsition">
+		<div id="head">
+			<div class="headerContainer">
+				<a class="headerLogo animsition-link" href="index.html"></a>
+				<div class="headerName"><div class="headerText"><div class="pink">Andrew Thompson</div>Art Director</div></div>
+				<a class="headerWork animsition-link" href="index.html"><div class="headerText">Work</div></a>
+				<a class="headerAbout animsition-link" href="about.html"><div class="headerText">About</div></a>
+				<a class="headerContact animsition-link" href="contact.html"><div class="headerText">Contact</div></a>
+			</div>
+		</div>
+		<div id="name">Upserve</div>
+		<div id="link"><a class="link animsition-link" href="https://docs.google.com/presentation/d/19G007GgyNS-ryubgNJHJO5E7yLLcwwbHD5JWLGJzOVY/edit?usp=sharing">Deck</a></div>
+		<div id="ask" class="copyBlock">
+			<h3>Ask</h3>
+			<p>Build awareness of a startup restaurant POS system among high-end restauranteurs.</p>
+		</div>
+		<div id="answer" class="copyBlock">
+			<h3>Answer</h3>
+			<p>Give busy restaurant owners the tools to get to know who their customers are through the magic of social media.</p>
+		</div>
+		<div id="results" class="copyBlock">
+			<h3>Results</h3>
+			<p>A campaign that brings knowledge to the table and the back of the house.</p>
+		</div>
+		<div id="showcase"> <div class="showcase">
+			<div class="main-carousel">
+				<div class="carousel-cell"><img src="img/upserve/1.png"></div>
+				<div class="carousel-cell"><img data-flickity-lazyload-srcset="img/upserve/2.png"></div>
+				<div class="carousel-cell"><img data-flickity-lazyload-srcset="img/upserve/3.png"></div>
+				<div class="carousel-cell"><img data-flickity-lazyload-srcset="img/upserve/5.png"></div>
+				<div class="carousel-cell"><img data-flickity-lazyload-srcset="img/upserve/6.png"></div>
+			</div>
+		</div> </div>
+		<div id="footContainer">
+			<div id="portfolioLinks"><a class="animsition-link" href="pangea.html">Pangea.app</a> | <a class="animsition-link" href="unplug.html">Unplug</a> | <a class="animsition-link" href="att.html">AT&T</a> | <a class="animsition-link" href="dunkin.html">Dunkin'</a> | <a class="animsition-link" href="ws.html">Wienerschnitzel</a> | <b>Upserve</b> | <a class="animsition-link" href="unicef.html">UNICEF</a> | <a class="animsition-link" href="os.html">Ocean Spray</a> | <a class="animsition-link" href="bhddh.html">BHDDH</a> | <a class="animsition-link" href="moveout.html">Move Out & Donate</a></div>
+			
+			<div id="friends"><br><b>Sarah Deflaminio</b>&mdash;Strategy<br><b>Kyra Hospedales</b>&mdash;Research<br><b>Matt Mahoney</b>&mdash;Research<br><b>Mason Johnson</b>&mdash;Assistance<br><b><a href="https://www.humaaans.com/">Humaaans</a></b>&mdash;Illustrations</div>
+		</div>
+	</div>
+</body>
