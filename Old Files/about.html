@@ -1,0 +1,99 @@
+<head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-117438573-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-117438573-1');
+	</script>
+
+	
+	<title>Andrew Thompson | About</title>
+	
+	<link rel="stylesheet" type="text/css" href="main.css">
+	
+	<link rel="stylesheet" href="https://use.typekit.net/uxg6tuv.css">
+	<link rel="stylesheet" href="animsition.min.css">
+
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+	<script src="js/barba.min.js"></script>
+	<script src="js/flowtype.js"></script>
+	<script src="js/jquery.center.min.js"></script>
+	<script src="js/animsition.min.js"></script>
+
+</head>
+
+
+<script>
+	$(document).ready(function(){
+		$(".headerName").find(".headerText").center({against: '.headerName'});
+		$(".headerWork").find(".headerText").center({against: '.headerWork'});
+		$(".headerAbout").find(".headerText").center({against: '.headerAbout'});
+		$(".headerContact").find(".headerText").center({against: '.headerContact'});
+		
+		$('.tag').flowtype({
+			minFont: 32,
+			maxFont: 48
+		});
+		$(".tag").center({against: '#tag'});
+		
+		$(".tile").hover(function () {
+			$(this).find(".hoverTitle").css('opacity', 1);
+			$(this).css('box-shadow', 'inset 0 0 0 2000px rgba(0,0,0,0.6)');
+		}, function () {
+			$(this).find(".hoverTitle").css('opacity', 0);
+			$(this).css('box-shadow', 'none');
+		});
+		
+		$("#Pangea").find(".hoverTitle").center({against: '#Pangea'});
+		$("#Unicef").find(".hoverTitle").center({against: '#Unicef'});
+		$("#OS").find(".hoverTitle").center({against: '#OS'});
+		$("#BHDDH").find(".hoverTitle").center({against: '#BHDDH'});
+		
+		$(".animsition").animsition({
+			inClass: 'fade-in-up-sm',
+    		outClass: 'fade-out-up-sm',
+			inDuration: 800,
+			outDuration: 800,
+			linkElement: '.animsition-link',
+			// e.g. linkElement: 'a:not([target="_blank"]):not([href^="#"])'
+			loading: true,
+			loadingParentElement: 'body', //animsition wrapper element
+			loadingClass: 'animsition-loading',
+			loadingInner: '', // e.g '<img src="loading.svg" />'
+			timeout: true,
+			timeoutCountdown: 0,
+			onLoadEvent: true,
+			browser: [ 'animation-duration', '-webkit-animation-duration'],
+			// "browser" option allows you to disable the "animsition" in case the css property in the array is not supported by your browser.
+			// The default setting is to disable the "animsition" in a browser that does not support "animation-duration".
+			overlay : false,
+			overlayClass : 'animsition-overlay-slide',
+			overlayParentElement : 'body',
+			transition: function(url){ window.location.href = url; }
+		});
+	});
+</script>
+
+<body>
+	<div id="aboutContainer" class="animsition">
+		<div id="head">
+			<div class="headerContainer">
+				<a class="headerLogo animsition-link" href="index.html"></a>
+				<div class="headerName"><div class="headerText"><div class="pink">Andrew Thompson</div>Art Director</div></div>
+				<a class="headerWork animsition-link" href="index.html"><div class="headerText">Work</div></a>
+				<a class="headerAbout animsition-link" href=""><div class="headerText active">About</div></a>
+				<a class="headerContact animsition-link" href="contact.html"><div class="headerText">Contact</div></a>
+			</div>
+		</div>
+		<div id="headshot"></div>
+		<div id="bio">
+			Hi, I'm Andrew, and I like to design stuff. I have an unhealthy love for RGB hex codes, Muji notebooks, and Italian soda from Trader Joe’s. You can usually find me coffee in hand, bbq in stomach, trying to find a place to park that doesn't cost an arm and a leg (without parallel parking).<br><br> 
+			I like to think of myself as a minimalist urbanist&mdash;which is just a fancy way of saying that I don't care how big or small the city I live in is. So I'm happy anywhere from NYC to Providence. But what I like to geek out over the most, is history. Finding out where things come from and how they got there is my jam. 
+		</div>
+		<!--<div id="caption">This headshot was taken at 6 in the morning at a diner in the ever-gritty Port of Providence after an all nighter. Ignore the look of despair.</div>-->
+	</div>
+</body>
