@@ -37,9 +37,52 @@ a {
 }
 
 #page_container {
+	width: 75vw;
 	padding: 8vw 12.5vw 5vw 12.5vw;
 	position: absolute;
 	overflow: hidden;
+}
+
+#intro_container {
+	transition: .6s background-image;
+	width: 75vw;
+	height: 30vw;
+	/* height: ; */
+	position: relative;
+	overflow: hidden;
+	background-color: #20386D;
+	background-image: url("img/hovers/1.png");
+	background-position: center;
+	background-size: cover;
+}
+
+.hovered {
+	text-decoration: underline;
+	background-color: white;
+	color: #20386D;
+	padding: 2px 6px 2px 6px;
+}
+
+.not_hovered {
+	text-decoration: underline;
+	padding: 2px 6px 2px 6px;
+}
+
+#intro_text {
+	/* padding: 15vh 10vw 15vh 10vw; */
+	width: 55vw;
+	margin: 0 auto;
+	left: 0;
+	right: 0;
+	top: 25%;
+	position: relative;
+	text-align: center;
+	color: white;
+	font-family: campaign, sans-serif;
+	font-weight: 300;
+	font-size: 2em;
+	line-height: 1.8;
+	vertical-align: middle;
 }
 
 #portfolio_container {
@@ -98,6 +141,7 @@ a {
 		'logo space work about';
 	grid-template-columns: 15vw 25vw 10vw 10vw;
 	grid-column-gap: 5vw;
+	overflow: hidden;
 }
 
 #logo {
@@ -429,10 +473,25 @@ a {
 	overflow: hidden;
 }
 
+@media (max-width:1200px) and (min-width:900px) {
+	#intro_text {
+		font-size: 1.5em;
+	}
+}
+
+@media (max-width:900px) and (min-width:700px) {
+	#intro_text {
+		font-size: 1.25em;
+	}
+}
 
 @media (max-width: 700px) {
 	#post_container {
 		grid-template-columns: 1fr 1fr 0fr 0fr;
+	}
+
+	#intro_text {
+		font-size: 1em;
 	}
 
 	.large_image {

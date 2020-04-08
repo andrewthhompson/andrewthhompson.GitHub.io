@@ -94,6 +94,19 @@
 	</div>
 
 	<div id="page_container">
+		<div class="gap"></div>
+		<div id="intro_container"> 
+			<!-- <div style="display:flex;justify-content:center;align-items:center;width:100%;height:100%;"> -->
+			<div id="intro_text">
+				I'm <span id="hover_1" class="hovered">Andrew,</span> an aspiring Art
+				Director based in <span id="hover_2" class="not_hovered">Providence.</span>
+				I have experience in <span id="hover_3" class="not_hovered">branding,</span>
+				<span id="hover_4" class="not_hovered">web design,</span>and
+				<span id="hover_5" class="not_hovered">meeting deadlines,</span> along with
+				all the work <span id="hover_6" class="not_hovered"> below here.</span>
+			</div>
+		</div>
+		<div class="gap"></div>
 		<div class="label">Work</div>
 		<div id="portfolio_container">
 			<a id="just" class="portfolio animistion-ink" href="just.html">
@@ -136,6 +149,34 @@
 
 		</div>
 	</div>
+
+	<script>
+		$(document).ready(function(){
+			var hoverObjects = ["#hover_1", "#hover_2", "#hover_3", "#hover_4", "#hover_5", "#hover_6"];
+			var hoverImages = ["img/hovers/1.png", "img/hovers/2.png", "img/hovers/3.png", "img/hovers/4.png", "img/hovers/5.png", "img/hovers/6.png"];
+			var hoveredString = hoverObjects[0];
+			var lastHovered = null;
+
+			function onStringHover(index) {
+				lastHovered = hoveredString;
+				hoveredString = hoverObjects[index];
+				$(hoveredString).toggleClass("hovered not_hovered");
+				$(lastHovered).toggleClass("hovered not_hovered");
+				var imageSet = "url("+hoverImages[index]+")";
+
+				$("#intro_container").css("background-image", imageSet);
+				console.log("String with index of " + index + " hovered.\nId:           " + hoveredString + "\nLast Id:   " + lastHovered);
+			}
+
+			$(hoverObjects[0]).on('mouseover click', function(){onStringHover(0);});
+			$(hoverObjects[1]).on('mouseover click', function(){onStringHover(1);});
+			$(hoverObjects[2]).on('mouseover click', function(){onStringHover(2);});
+			$(hoverObjects[3]).on('mouseover click', function(){onStringHover(3);});
+			$(hoverObjects[4]).on('mouseover click', function(){onStringHover(4);});
+			$(hoverObjects[5]).on('mouseover click', function(){onStringHover(5);});
+
+		});
+	</script>
 
 	<script>
 		$(document).ready(function(){
