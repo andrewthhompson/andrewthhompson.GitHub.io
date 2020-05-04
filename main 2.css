@@ -91,7 +91,7 @@ a {
 	left: 0;
 	top: 5vh;
 	width: 100%;
-	grid-template-rows: 18.66vw 18.66vw 18.66vw 18.66vw 3vw 18.66vw;
+	grid-template-rows: 18.66vw 18.66vw 18.66vw 18.66vw 5vw 18.66vw;
 	grid-template-columns: 35vw 35vw;
 	grid-template-areas:
 		'first second'
