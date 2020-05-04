@@ -1,0 +1,98 @@
+
+var pword = "fuck";
+
+function setCookie(cname, cvalue, exdays) {
+  var d = new Date();
+  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+  var expires = "expires="+ d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie (cname) {
+  var name = cname + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');
+  for (var i = 0; i <ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+function checkCookie (cname) {
+  var cookieVal = getCookie(cname);
+  if (cookieVal != "") {
+   return true;
+  } else {
+    return false;
+  }
+}
+
+function setAuthState (newState) {
+  // document.cookie = "authState=" + newState + ";";
+  setCookie ("authState", newState, 3);
+}
+
+function toggleAuthState () {
+  if (!checkCookie ("authState")) return false;
+  var temp = getCookie ("authState");
+  if (temp = "false") {
+    // document.cookie = "authState=true;";
+    setAuthState (true);
+  } else {
+    // document.cookie = "authState=false;";
+    setAuthState (false);
+  }
+}
+
+function getAuthState () {
+  if (!checkCookie ("authState")) return false;
+  var temp = getCookie ("authState");
+  if (temp = "true") {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function checkPWord (userEntry) {
+  if (userEntry.localeCompare(pword)) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+// run on password page
+
+function authCheck (destURL, userEntry) {
+  if (checkCookie("authState")) {
+      if (checkPWord (userEntry)) {
+        // redirect to destURL
+        window.location.href = destURL;
+      }
+  } else {
+    return false;
+    // on page, clear form entry and display text "Password Incorrect"
+  }
+}
+
+// run on gate page
+
+function authGate (destURL) {
+  if (checkCookie("authState")) {
+      if (checkPWord (userEntry)) {
+        window.location.href = destURL;
+        // format: "http://www.andrewthompson.me/" + page
+      }
+  } else {
+    // redirect to password page
+    setCookie ("destURL", destURL, .125);
+    window.location.href = "http://www.andrewthompson.me/password";
+  }
+}

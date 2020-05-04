@@ -142,6 +142,17 @@
 			</a>
 
 			<div class="gap"></div>
+
+			<div class="label" style="grid-area: label; width: 100%; padding-top: 1vw;">NSAC Campaigns</div>
+
+			<a id="adobe" class="portfolio animistion-ink" href="index.html">
+				<div class="portfolioName">Adobe</div>
+			</a>
+
+			<a id="ws" class="portfolio animistion-ink" href="index.html">
+				<div class="portfolioName">Wienerschnitzel</div>
+			</a>
+
 			<div class="gap"></div>
 			<div class="gap"></div>
 			<div class="gap"></div>
@@ -167,6 +178,11 @@
 				$("#intro_container").css("background-image", imageSet);
 				console.log("String with index of " + index + " hovered.\nId:           " + hoveredString + "\nLast Id:   " + lastHovered);
 			}
+
+			// var i;
+			// for(i = 0; i < hoverObjects.length; i++) {
+			// 	$(hoverObjects[i]).on('mouseover click', function(){onStringHover(i);});
+			// }
 
 			$(hoverObjects[0]).on('mouseover click', function(){onStringHover(0);});
 			$(hoverObjects[1]).on('mouseover click', function(){onStringHover(1);});

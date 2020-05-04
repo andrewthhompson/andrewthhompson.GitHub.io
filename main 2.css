@@ -91,13 +91,15 @@ a {
 	left: 0;
 	top: 5vh;
 	width: 100%;
-	grid-template-rows: 18.66vw 18.66vw 18.66vw 18.66vw;
+	grid-template-rows: 18.66vw 18.66vw 18.66vw 18.66vw 3vw 18.66vw;
 	grid-template-columns: 35vw 35vw;
 	grid-template-areas:
 		'first second'
 		'third fourth'
 		'fifth sixth'
-		'seventh eigth';
+		'seventh eigth'
+		'label label'
+		'ninth tenth';
 	grid-column-gap: 5vw;
 	grid-row-gap: 5vw;
 	/* overflow: hidden; */
@@ -292,6 +294,27 @@ a {
 	background-image: url(img/new_bg/upserve_work.png);
 }
 
+#adobe {
+	transition: .4s background-image;
+	grid-area: ninth;
+	background-image: url(img/new_bg/adobe_logo.png);
+}
+
+#adobe:hover {
+	transition: .4s background-image;
+	background-image: url(img/new_bg/adobe_work.png);
+}
+
+#ws {
+	transition: .4s background-image;
+	grid-area: tenth;
+	background-image: url(img/new_bg/ws_logo.png);
+}
+
+#ws:hover {
+	transition: .4s background-image;
+	background-image: url(img/new_bg/ws_work.png);
+}
 
 
 
