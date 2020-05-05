@@ -95,10 +95,8 @@ function authCheck (destURL, userEntry) {
 function authGate (destURL) {
   if (!destURL) destURL = "index.html";
   if (checkCookie("authState")) {
-      if (checkPWord (userEntry)) {
-        window.location.href = destURL;
-        // format: "http://www.andrewthompson.me/" + page
-      }
+      console.log("redirecting");
+      window.location.href = destURL;
   } else {
     // redirect to password page
     setCookie ("authState", "false", 1);
