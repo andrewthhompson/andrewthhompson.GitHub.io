@@ -10,7 +10,7 @@
 	</script>
 
 
-	<title>About — Andrew Thompson</title>
+	<title>Adobe &mdash; Andrew Thompson</title>
 
 	<link rel="stylesheet" type="text/css" href="main 2.css">
 
@@ -28,7 +28,6 @@
 	<script src="js/animsition.min.js"></script>
 	<script src="js/jquery.unveil.js"></script>
 
-
 	<link rel="icon" media="(prefers-color-scheme:dark)" href="img/favicon-dark.png" type="image/png" />
   <link rel="icon" media="(prefers-color-scheme:light)" href="img/favicon-light.png" type="image/png" />
 	<script src="https://unpkg.com/favicon-switcher@1.2.2/dist/index.js" crossorigin="anonymous" type="application/javascript"></script>
@@ -38,38 +37,50 @@
 
 <script>
 	$(document).ready(function(){
+		// $("img").unveil();
 
 		$("body").children().each(function() {
-				document.body.innerHTML = document.body.innerHTML.replace(/\u2028/g, ' ');
+	      document.body.innerHTML = document.body.innerHTML.replace(/\u2028/g, ' ');
+	  });
+
+		$(".tag").center({against: '#tag'});
+
+		$(".tile").hover(function () {
+			$(this).find(".hoverTitle").css('opacity', 1);
+			$(this).css('box-shadow', 'inset 0 0 0 2000px rgba(0,0,0,0.6)');
+		}, function () {
+			$(this).find(".hoverTitle").css('opacity', 0);
+			$(this).css('box-shadow', 'none');
 		});
 
-	// 	$(".animsition").animsition({
-	// 		inClass: 'fade-in-up-sm',
-  //   		outClass: 'fade-out-up-sm',
-	// 		inDuration: 800,
-	// 		outDuration: 800,
-	// 		linkElement: '.animsition-link',
-	// 		// e.g. linkElement: 'a:not([target="_blank"]):not([href^="#"])'
-	// 		loading: true,
-	// 		loadingParentElement: 'body', //animsition wrapper element
-	// 		loadingClass: 'animsition-loading',
-	// 		loadingInner: '', // e.g '<img src="loading.svg" />'
-	// 		timeout: true,
-	// 		timeoutCountdown: 0,
-	// 		onLoadEvent: true,
-	// 		browser: [ 'animation-duration', '-webkit-animation-duration'],
-	// 		// "browser" option allows you to disable the "animsition" in case the css property in the array is not supported by your browser.
-	// 		// The default setting is to disable the "animsition" in a browser that does not support "animation-duration".
-	// 		overlay : false,
-	// 		overlayClass : 'animsition-overlay-slide',
-	// 		overlayParentElement : 'body',
-	// 		transition: function(url){ window.location.href = url; }
-	// 	});
-	// });
+		// $(".animsition").animsition({
+		// 	inClass: 'fade-in-up-sm',
+    // 		outClass: 'fade-out-up-sm',
+		// 	inDuration: 800,
+		// 	outDuration: 800,
+		// 	linkElement: '.animsition-link',
+		// 	// e.g. linkElement: 'a:not([target="_blank"]):not([href^="#"])'
+		// 	loading: true,
+		// 	loadingParentElement: 'body', //animsition wrapper element
+		// 	loadingClass: 'animsition-loading',
+		// 	loadingInner: '', // e.g '<img src="loading.svg" />'
+		// 	timeout: true,
+		// 	timeoutCountdown: 0,
+		// 	onLoadEvent: true,
+		// 	browser: [ 'animation-duration', '-webkit-animation-duration'],
+		// 	// "browser" option allows you to disable the "animsition" in case the css property in the array is not supported by your browser.
+		// 	// The default setting is to disable the "animsition" in a browser that does not support "animation-duration".
+		// 	overlay : false,
+		// 	overlayClass : 'animsition-overlay-slide',
+		// 	overlayParentElement : 'body',
+		// 	transition: function(url){ window.location.href = url; }
+		// });
+	});
 </script>
 
 <body>
 	<div class="animistion">
+
 	<div id="nav_bar">
 		<a id="logo" class="animsition-link" href="index.html">
 			<svg height="100%" viewBox="0 0 208 70" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -88,75 +99,170 @@
 	</div>
 
 	<div id="page_container">
+		<div class="label">Adobe Experience Cloud for Advertising</div>
 		<div id="post_container">
-			<img class="medium_image" style="grid-column: 1/3" src="img/bg.png" data-src="img/headshot.jpg">
-			<div class="medium_image_caption" style="grid-column: 3/6; font-size: 1.25em; font-weight: 300;"><p>
+			<!-- <div class="gap"></div> -->
 
-				My first experience in advertising was getting stuck on the side of a
-				toy box, without my knowledge. Seven years later and it's still there.
-				Now, I'm looking for opportunities to stick photos of people onto boxes,
-				billboards, and small little rectangles in websites. It's like the circle
-				of life, but with time sheets and blue light glasses.
-					</p>
-					<!-- <p>
-				Hi, I'm Andrew, and I like to design stuff. I have an unhealthy love for
-				RGB hex codes, Muji notebooks, and Italian soda from Trader Joe’s. You
-				can usually find me coffee in hand, bbq in stomach, trying to find a
-				place to park that doesn't cost an arm and a leg (without parallel parking).
-					</p> -->
+			<div class="info_header"><h2>Problem</h2></div>
+			<div class="info_p"><p>Adobe's adtech stack is relatively unkown compared
+			to their competition, despite it's strong market position.</p></div>
 
-					<!-- Hi, I'm Andrew, and I like to design stuff. I have an unhealthy love for
-					RGB hex codes, Muji notebooks, and Italian soda from Trader Joe’s. You
-					can usually find me coffee in hand, bbq in stomach, trying to find a place
-					to park that doesn't cost an arm and a leg (without parallel parking).</p>
+			<div class="info_header"><h2>Insight</h2></div>
+			<div class="info_p"><p>AECA lets advertisers see every channel on one platform
+				instead of making do with a solution stack that doesn't play nicely together.</p></div>
 
-					<p>I like to think of myself as a minimalist urbanist&mdash;which is just
-					a fancy way of saying that I don't care how big or small the city I live
-					in is. So I'm happy anywhere from NYC to Providence. But what I like to
-					geek out over the most, is history. Finding out where things come from
-					and how they got there is my jam.</p> -->
+			<div class="info_header"><h2>Solution</h2></div>
+			<div class="info_p"><p>Show advertisers the bigger picture of advertertising
+				through a fully integrated campaign.</p></div>
 
-					<div class="gap" style="height: 1vh;"></div>
+			<div class="gap"></div>
 
-					<h3>Get in touch</h3>
-					<p><a class="animsition-link" style="text-decoration: underline;" href="https://www.linkedin.com/in/andrew-l-thompson/">Linkedin</a></p>
-					<p><a class="animsition-link" style="text-decoration: underline;" href="mailto:me@andrewthompson.me?Subject=Hey!">Email</a></p>
-					<p><a class="animsition-link" style="text-decoration: underline;" href="https://www.instagram.com/andrew_thhompson/">Instagram</a></p>
+			<img class="large_image" src="img/bg.png" data-src="img/adobe/1.gif">
 
-					<div class="gap" style="height: 1vh;"></div>
+			<div class="gap"></div>
 
-					<h3>My life in a pdf</h3>
-					<p><a class="animsition-link" style="text-decoration: underline;" href="https://www.dropbox.com/s/2z1os37tprg1m54/Andrew%20Thompson%20Resume%20%E2%80%94%20April%202020.pdf?dl=0">View my Resume</a></p>
-			 </div>
+			<div class="medium_video">
+			<div class="plyr__video-embed" id="player">
+		    <iframe
+					src="https://player.vimeo.com/video/415014203?loop=false&mdash;byline=false&mdash;portrait=false&mdash;title=false&mdash;speed=true&mdash;transparent=0&mdash;gesture=media"
+					allowfullscreen
+					allowtransparency
+					allow="autoplay"></iframe>
+			</div> </div>
+			<div class="medium_image_caption"><h3>Transit Station Takeovers</h3>
+				<p>Placed at high transfer volume stations in NYC, Boston, & Chicago,
+				digital boards convey the bigger picture of subway advertising while also
+				transforming the entire platform into a gigantic ad for Adobe.</p>
+			</div>
+
+			<div class="gap"></div>
+
+			<div class="dunkin_phone_container">
+				<img class="dunkin_1" src="img/bg.png" data-src="img/adobe/2.png">
+				<img class="dunkin_2" src="img/bg.png" data-src="img/adobe/3.png">
+				<img class="dunkin_3" src="img/bg.png" data-src="img/adobe/6.png">
+			</div>
+			<div class="medium_image_caption" style="margin-top: 7%;"><h3>Social Ads</h3>
+				<p>Static social ads simply reinforce the branding of the campaign while
+				delivering relevant messages.</p>
+				<h3 style="padding-top: 3vh;">Podcast</h3>
+				<p>Adobe owned content across podcasts, blogs, newsletters, and white papers
+				work to build on Adobe's position as a market leader.</p>
+			</div>
+
+
+			<div class="gap"></div>
+
+			<div class="medium_video">
+			<div class="plyr__video-embed" id="player2">
+		    <iframe
+					src="https://player.vimeo.com/video/415013341?loop=false&mdash;byline=false&mdash;portrait=false&mdash;title=false&mdash;speed=true&mdash;transparent=0&mdash;gesture=media"
+					allowfullscreen
+					allowtransparency
+					allow="autoplay"></iframe>
+			</div> </div>
+			<div class="medium_image_caption"><h3>Adobe Vision</h3>
+				<p>Adobe Vision is an open source tool designed to live on the cloud that
+				can create and modify campaigns to be accessible to groups of people with
+				disabilities, such as those who are blind, deaf, or colorblind.</p>
+			</div>
+
+			<div class="gap"></div>
+
+			<img class="medium_image" src="img/bg.png" data-src="img/adobe/4.png">
+			<div class="medium_image_caption"><h3>Display buys</h3>
+				<p>Direct display buys accompany content relevent to specific industries,
+					and link to personalized landing pages that reflect the creative and messaging
+					of the banner ads.</p>
+			</div>
+
+			<div class="gap"></div>
+
+			<div class="medium_image">
+				<iframe src="https://cdn.flipsnack.com/widget/v2/widget.html?hash=ftp8bll3x"
+				 width="100%" height="380" seamless="seamless" scrolling="no" frameBorder="0"
+				 allowFullScreen></iframe>
+			</div>
+			<div class="medium_image_caption"><h3>Plansbook</h3>
+				<p>As the head art director, I lead the direction of our 20 page plansbook.</p>
+			</div>
+
+
+			<div class="gap"></div>
+
+			<div class="info_header"><h2>Credits</h2></div>
+			<div class="info_p" style="margin-top: 1.5%;">
+				<p><b>Myself</b> &mdash; Head Art Director</p>
+
+				<p><b>Lindsay Saiia</b> &mdash; Head Copywriter</p>
+
+				<p><b>Sarah DeFlaminio</b> &mdash; Head Media Planner</p>
+
+				<p><b>Julia Johnson</b> &mdash; Art Direction</p>
+
+				<p><b>Taylor Haughton</b> &mdash; Art Direction</p>
+
+				<p><b>Alexxus Garvey</b> &mdash; Copywriting</p>
+
+				<p><b>Shane Sukhlal</b> &mdash; Production &amp; Strategy</p>
+
+				<p><b>Madelyn Geisinger</b> &mdash; Research &amp; Strategy</p>
+
+				<p><b>Andrew Badway</b> &mdash; Project Management</p>
+
+				<p><b>Mariana Sosa</b> &mdash; Media Planning</p>
+
+				<p><b>Shaylyn McCarthy</b> &mdash; Project Management</p>
+
+				<p><b>Rebecca Stillman</b> &mdash; Events &amp; Research</p>
+
+				<p><b>Oscar Chilabato & Christine Ure</b> &mdash; Faculty Advisers</p>
+			</div>
+
+			<div class="gap"></div>
+			<div class="gap"></div>
+
+
+
+
+			<!-- <img class="small_image_right" src="img/bhddh/1.png"> -->
+			<!-- <div class="small_image_caption">
+				<h3>Wild Postings</h3>
+				<p>Hinging off of Jaden Smith's connection to the "hype" generation, teaser
+				concert posters will be wheatpasted throughout NYC, bringing attention both
+				Glen's Falls, NY and JUST Water.</p>
+			</div> -->
 		</div>
 	</div>
 
 	<script>
 		$(document).ready(function(){
+			const player = new Plyr('#player');
+			const player2 = new Plyr('#player2');
 			$("img").unveil();
-			$(".animsition").animsition({
-				inClass: 'fade-in-up-sm',
-	    		outClass: 'fade-out-up-sm',
-				inDuration: 800,
-				outDuration: 800,
-				linkElement: '.animsition-link',
-				// e.g. linkElement: 'a:not([target="_blank"]):not([href^="#"])'
-				loading: true,
-				loadingParentElement: 'body', //animsition wrapper element
-				loadingClass: 'animsition-loading',
-				loadingInner: '', // e.g '<img src="loading.svg" />'
-				timeout: true,
-				timeoutCountdown: 2000,
-				onLoadEvent: true,
-				browser: [ 'animation-duration', '-webkit-animation-duration'],
-				// "browser" option allows you to disable the "animsition" in case the css property in the array is not supported by your browser.
-				// The default setting is to disable the "animsition" in a browser that does not support "animation-duration".
-				overlay : false,
-				overlayClass : 'animsition-overlay-slide',
-				overlayParentElement : 'body',
-				transition: function(url){ window.location.href = url; }
-			// });
-		});
+				$(".animsition").animsition({
+					inClass: 'fade-in-up-sm',
+		    		outClass: 'fade-out-up-sm',
+					inDuration: 800,
+					outDuration: 800,
+					linkElement: '.animsition-link',
+					// e.g. linkElement: 'a:not([target="_blank"]):not([href^="#"])'
+					loading: true,
+					loadingParentElement: 'body', //animsition wrapper element
+					loadingClass: 'animsition-loading',
+					loadingInner: '', // e.g '<img src="loading.svg" />'
+					timeout: true,
+					timeoutCountdown: 200,
+					onLoadEvent: true,
+					browser: [ 'animation-duration', '-webkit-animation-duration'],
+					// "browser" option allows you to disable the "animsition" in case the css property in the array is not supported by your browser.
+					// The default setting is to disable the "animsition" in a browser that does not support "animation-duration".
+					overlay : false,
+					overlayClass : 'animsition-overlay-slide',
+					overlayParentElement : 'body',
+					transition: function(url){ window.location.href = url; }
+				// });
+			});
 		});
 	</script>
 	</div>

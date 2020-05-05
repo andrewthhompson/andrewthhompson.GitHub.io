@@ -1,7 +1,8 @@
-
+console.log("auth.js loaded");
 var pword = "fuck";
 
 function setCookie(cname, cvalue, exdays) {
+  console.log("Setting cookie " + cname + " to " + cvalue + " for " + exdays + " days.");
   var d = new Date();
   d.setTime(d.getTime() + (exdays*24*60*60*1000));
   var expires = "expires="+ d.toUTCString();
@@ -61,6 +62,7 @@ function getAuthState () {
 }
 
 function checkPWord (userEntry) {
+  console.log("checking " + userEntry + " against " + pword);
   if (userEntry.localeCompare(pword)) {
     return true;
   } else {
@@ -71,12 +73,18 @@ function checkPWord (userEntry) {
 // run on password page
 
 function authCheck (destURL, userEntry) {
+  if (!destURL) destURL = "index.html";
+  console.log(destURL + " " + userEntry);
   if (checkCookie("authState")) {
       if (checkPWord (userEntry)) {
         // redirect to destURL
+        console.log("password correct");
         window.location.href = destURL;
+      } else {
+        console.log("password false");
       }
   } else {
+    console.log("cookie missing");
     return false;
     // on page, clear form entry and display text "Password Incorrect"
   }
@@ -85,6 +93,7 @@ function authCheck (destURL, userEntry) {
 // run on gate page
 
 function authGate (destURL) {
+  if (!destURL) destURL = "index.html";
   if (checkCookie("authState")) {
       if (checkPWord (userEntry)) {
         window.location.href = destURL;
@@ -92,7 +101,8 @@ function authGate (destURL) {
       }
   } else {
     // redirect to password page
-    setCookie ("destURL", destURL, .125);
-    window.location.href = "http://www.andrewthompson.me/password";
+    setCookie ("authState", "false", 1);
+    setCookie ("destURL", destURL, 1);
+    window.location.href = "password.html";
   }
 }
