@@ -29,9 +29,9 @@ function getCookie (cname) {
 function checkCookie (cname) {
   var cookieVal = getCookie(cname);
   if (cookieVal != "") {
-   return true;
+    return 0;
   } else {
-    return false;
+    return 1;
   }
 }
 
@@ -92,6 +92,10 @@ function authCheck (destURL, userEntry) {
         console.log("password false");
         return 1;
       }
+    } else {
+      console.log("password blank");
+      return 1;
+    }
   } else if (checkCookie("authState") == 1) {
     window.location.href = destURL;
     // return true;
