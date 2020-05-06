@@ -1,8 +1,8 @@
-console.log("auth.js loaded");
-var pword = "fuck";
+// console.log("auth.js loaded");
+var pword = "coffee";
 
 function setCookie(cname, cvalue, exdays) {
-  console.log("Setting cookie " + cname + " to " + cvalue + " for " + exdays + " days.");
+  // console.log("Setting cookie " + cname + " to " + cvalue + " for " + exdays + " days.");
   var d = new Date();
   d.setTime(d.getTime() + (exdays*24*60*60*1000));
   var expires = "expires="+ d.toUTCString();
@@ -62,7 +62,7 @@ function getAuthState () {
 }
 
 function checkPWord (userEntry) {
-  console.log("checking " + userEntry + " against " + pword);
+  // console.log("checking " + userEntry + " against " + pword);
   if (userEntry.localeCompare(pword)==0) {
     return true;
   } else {
@@ -74,17 +74,17 @@ function checkPWord (userEntry) {
 
 function authCheck (destURL, userEntry) {
   if (!destURL) destURL = "index.html";
-  console.log(destURL + " " + userEntry);
+  // console.log(destURL + " " + userEntry);
   if (checkCookie("authState")) {
       if (checkPWord (userEntry)) {
         // redirect to destURL
-        console.log("password correct");
+        // console.log("password correct");
         window.location.href = destURL;
       } else {
-        console.log("password false");
+        // console.log("password false");
       }
   } else {
-    console.log("cookie missing");
+    // console.log("cookie missing");
     return false;
     // on page, clear form entry and display text "Password Incorrect"
   }
@@ -95,7 +95,7 @@ function authCheck (destURL, userEntry) {
 function authGate (destURL) {
   if (!destURL) destURL = "index.html";
   if (checkCookie("authState")) {
-      console.log("redirecting");
+      // console.log("redirecting");
       window.location.href = destURL;
   } else {
     // redirect to password page
