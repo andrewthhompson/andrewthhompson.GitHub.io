@@ -72,6 +72,10 @@ function checkPWord (userEntry) {
 
 // run on password page
 
+// BUG
+// Submitting the correct password does not change page
+// Regardless of authState cookie state, user can enter gated page after returning to home and trying again
+
 function authCheck (destURL, userEntry) {
   if (!destURL) destURL = "index.html";
   // console.log(destURL + " " + userEntry);
@@ -82,9 +86,13 @@ function authCheck (destURL, userEntry) {
         // console.log("password correct");
         setCookie ("authState", 1, 1);
         window.location.href = destURL;
+        return true;
       } else {
         // console.log("password false");
       }
+  } else if (checkCookie("authState") == 1) {
+    window.location.href = destURL;
+    return true;
   } else {
     // console.log("cookie missing");
     return false;
@@ -96,7 +104,7 @@ function authCheck (destURL, userEntry) {
 
 function authGate (destURL) {
   if (!destURL) destURL = "index.html";
-  if (checkCookie("authState")) {
+  if (checkCookie("authState") == 1) {
       // console.log("redirecting");
       window.location.href = destURL;
   } else {
