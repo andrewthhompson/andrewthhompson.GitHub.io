@@ -81,7 +81,7 @@ function authCheck (destURL, userEntry) {
   if (!destURL) destURL = "index.html";
   // console.log(destURL + " " + userEntry);
   if (checkCookie("authState") == 0) {
-    if (userEntry) {
+    if (userEntry != "") {
       if (checkPWord (userEntry)) {
         // redirect to destURL
         // console.log("password correct");
@@ -112,7 +112,7 @@ function authCheck (destURL, userEntry) {
 function authGate (destURL) {
   if (!destURL) destURL = "index.html";
   if (checkCookie("authState") == 1) {
-      // console.log("redirecting");
+      console.log("redirecting");
       window.location.href = destURL;
   } else {
     // redirect to password page
