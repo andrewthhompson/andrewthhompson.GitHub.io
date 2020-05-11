@@ -103,7 +103,7 @@ function authCheck (destURL, userEntry) {
     // return true;
     return true;
   } else {
-    // console.log("cookie missing");
+    console.log("something went wrong");
     return false;
     // on page, clear form entry and display text "Password Incorrect"
   }
