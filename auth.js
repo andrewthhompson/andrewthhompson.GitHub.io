@@ -84,7 +84,7 @@ function authCheck (destURL, userEntry) {
     if (userEntry != "") {
       if (checkPWord (userEntry)) {
         // redirect to destURL
-        // console.log("password correct");
+        console.log("password correct");
         setCookie ("authState", 0, 1);
         window.location.href = destURL;
         return 0;
