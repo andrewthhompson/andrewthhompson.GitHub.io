@@ -65,6 +65,7 @@ function getAuthState () {
 function checkPWord (userEntry) {
   // console.log("checking " + userEntry + " against " + pword);
   if (userEntry.localeCompare(pword)==0) {
+    console.log("password correct");
     return true;
   } else {
     return false;
