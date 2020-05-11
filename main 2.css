@@ -208,7 +208,7 @@ a {
 
 #just {
 	transition: .4s background-image;
-	grid-area: first;
+	grid-area: third;
 	background-image: url(img/new_bg/just_logo.png);
 }
 
@@ -219,7 +219,7 @@ a {
 
 #inkedin {
 	transition: .4s background-image;
-	grid-area: second;
+	grid-area: sixth;
 	background-image: url(img/new_bg/inkedin_logo.png);
 }
 
@@ -230,7 +230,7 @@ a {
 
 #dunkin {
 	transition: .4s background-image;
-	grid-area: third;
+	grid-area: fifth;
 	background-image: url(img/new_bg/dunkin_logo.png);
 }
 
@@ -241,7 +241,7 @@ a {
 
 #unplug {
 	transition: .4s background-image;
-	grid-area: fourth;
+	grid-area: seventh;
 	background-image: url(img/new_bg/unplug_logo.png);
 }
 
@@ -252,7 +252,7 @@ a {
 
 #att {
 	transition: .4s background-image;
-	grid-area: fifth;
+	grid-area: eigth;
 	background-image: url(img/new_bg/att_logo.png);
 }
 
@@ -263,7 +263,7 @@ a {
 
 #pangea {
 	transition: .4s background-image;
-	grid-area: sixth;
+	grid-area: second;
 	background-image: url(img/new_bg/pangea_logo.png);
 }
 
@@ -296,7 +296,7 @@ a {
 
 #adobe {
 	transition: .4s background-image;
-	grid-area: ninth;
+	grid-area: first;
 	background-image: url(img/new_bg/adobe_logo.png);
 }
 
@@ -316,6 +316,16 @@ a {
 	background-image: url(img/new_bg/ws_work.png);
 }
 
+#hello {
+	transition: .4s background-image;
+	grid-area: fourth;
+	background-image: url(img/new_bg/hello_logo.png);
+}
+
+#hello:hover {
+	transition: .4s background-image;
+	background-image: url(img/new_bg/hello_work.png);
+}
 
 
 
@@ -549,6 +559,28 @@ a {
 }
 
 .inkedin_2 {
+	grid-column: 2 / 2;
+	width: 100%;
+	position: relative;
+	overflow: hidden;
+}
+
+.magazine_container {
+	grid-column: 1 / 6;
+	position: relative;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-column-gap: 5%;
+}
+
+.mag_1 {
+	grid-column: 1 / 1;
+	width: 100%;
+	position: relative;
+	overflow: hidden;
+}
+
+.mag_2 {
 	grid-column: 2 / 2;
 	width: 100%;
 	position: relative;

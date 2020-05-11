@@ -10,7 +10,7 @@
 	</script>
 
 
-	<title>About — Andrew Thompson</title>
+	<title>Hello &mdash; Andrew Thompson</title>
 
 	<link rel="stylesheet" type="text/css" href="main 2.css">
 
@@ -19,15 +19,11 @@
 
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
-	<link rel="stylesheet" href="https://cdn.plyr.io/3.5.10/plyr.css" />
-	<script src="https://cdn.plyr.io/3.5.10/plyr.js"></script>
-
 	<script src="js/barba.min.js"></script>
 	<script src="js/flowtype.js"></script>
 	<script src="js/jquery.center.min.js"></script>
 	<script src="js/animsition.min.js"></script>
 	<script src="js/jquery.unveil.js"></script>
-
 
 	<link rel="icon" media="(prefers-color-scheme:dark)" href="img/favicon-dark.png" type="image/png" />
   <link rel="icon" media="(prefers-color-scheme:light)" href="img/favicon-light.png" type="image/png" />
@@ -38,38 +34,50 @@
 
 <script>
 	$(document).ready(function(){
+		// $("img").unveil();
 
 		$("body").children().each(function() {
-				document.body.innerHTML = document.body.innerHTML.replace(/\u2028/g, ' ');
+	      document.body.innerHTML = document.body.innerHTML.replace(/\u2028/g, ' ');
+	  });
+
+		$(".tag").center({against: '#tag'});
+
+		$(".tile").hover(function () {
+			$(this).find(".hoverTitle").css('opacity', 1);
+			$(this).css('box-shadow', 'inset 0 0 0 2000px rgba(0,0,0,0.6)');
+		}, function () {
+			$(this).find(".hoverTitle").css('opacity', 0);
+			$(this).css('box-shadow', 'none');
 		});
 
-	// 	$(".animsition").animsition({
-	// 		inClass: 'fade-in-up-sm',
-  //   		outClass: 'fade-out-up-sm',
-	// 		inDuration: 800,
-	// 		outDuration: 800,
-	// 		linkElement: '.animsition-link',
-	// 		// e.g. linkElement: 'a:not([target="_blank"]):not([href^="#"])'
-	// 		loading: true,
-	// 		loadingParentElement: 'body', //animsition wrapper element
-	// 		loadingClass: 'animsition-loading',
-	// 		loadingInner: '', // e.g '<img src="loading.svg" />'
-	// 		timeout: true,
-	// 		timeoutCountdown: 0,
-	// 		onLoadEvent: true,
-	// 		browser: [ 'animation-duration', '-webkit-animation-duration'],
-	// 		// "browser" option allows you to disable the "animsition" in case the css property in the array is not supported by your browser.
-	// 		// The default setting is to disable the "animsition" in a browser that does not support "animation-duration".
-	// 		overlay : false,
-	// 		overlayClass : 'animsition-overlay-slide',
-	// 		overlayParentElement : 'body',
-	// 		transition: function(url){ window.location.href = url; }
-	// 	});
-	// });
+		// $(".animsition").animsition({
+		// 	inClass: 'fade-in-up-sm',
+    // 		outClass: 'fade-out-up-sm',
+		// 	inDuration: 800,
+		// 	outDuration: 800,
+		// 	linkElement: '.animsition-link',
+		// 	// e.g. linkElement: 'a:not([target="_blank"]):not([href^="#"])'
+		// 	loading: true,
+		// 	loadingParentElement: 'body', //animsition wrapper element
+		// 	loadingClass: 'animsition-loading',
+		// 	loadingInner: '', // e.g '<img src="loading.svg" />'
+		// 	timeout: true,
+		// 	timeoutCountdown: 0,
+		// 	onLoadEvent: true,
+		// 	browser: [ 'animation-duration', '-webkit-animation-duration'],
+		// 	// "browser" option allows you to disable the "animsition" in case the css property in the array is not supported by your browser.
+		// 	// The default setting is to disable the "animsition" in a browser that does not support "animation-duration".
+		// 	overlay : false,
+		// 	overlayClass : 'animsition-overlay-slide',
+		// 	overlayParentElement : 'body',
+		// 	transition: function(url){ window.location.href = url; }
+		// });
+	});
 </script>
 
 <body>
 	<div class="animistion">
+
 	<div id="nav_bar">
 		<a id="logo" class="animsition-link" href="index.html">
 			<svg height="100%" viewBox="0 0 208 70" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -88,76 +96,86 @@
 	</div>
 
 	<div id="page_container">
+		<div class="label">Hello</div>
 		<div id="post_container">
-			<img class="medium_image" style="grid-column: 1/3" src="img/bg.png" data-src="img/headshot.jpg">
-			<div class="medium_image_caption" style="grid-column: 3/6; font-size: 1.25em; font-weight: 300;"><p>
+			<!-- <div class="gap"></div> -->
 
-				My first experience in advertising was getting stuck on the side of a
-				toy box without my knowledge. Seven years later and it's still there.
-				Now, I'm looking for opportunities to stick photos of people onto boxes,
-				billboards, and small little rectangles in websites. It's like the circle
-				of life, but with time sheets and blue light glasses.
-					</p>
-					<!-- <p>
-				Hi, I'm Andrew, and I like to design stuff. I have an unhealthy love for
-				RGB hex codes, Muji notebooks, and Italian soda from Trader Joe’s. You
-				can usually find me coffee in hand, bbq in stomach, trying to find a
-				place to park that doesn't cost an arm and a leg (without parallel parking).
-					</p> -->
+			<div class="info_header"><h2>Problem</h2></div>
+			<div class="info_p"><p>Hello's strangely likeable toothpaste isn't well known,
+			despite checking many boxes for consumers.</p></div>
 
-					<!-- Hi, I'm Andrew, and I like to design stuff. I have an unhealthy love for
-					RGB hex codes, Muji notebooks, and Italian soda from Trader Joe’s. You
-					can usually find me coffee in hand, bbq in stomach, trying to find a place
-					to park that doesn't cost an arm and a leg (without parallel parking).</p>
+			<div class="info_header"><h2>Insight</h2></div>
+			<div class="info_p"><p>As a newcomer to the healthy toothpaste category, Hello
+			needs to find consumers that are in the same boat.</p></div>
 
-					<p>I like to think of myself as a minimalist urbanist&mdash;which is just
-					a fancy way of saying that I don't care how big or small the city I live
-					in is. So I'm happy anywhere from NYC to Providence. But what I like to
-					geek out over the most, is history. Finding out where things come from
-					and how they got there is my jam.</p> -->
+			<div class="info_header"><h2>Solution</h2></div>
+			<div class="info_p"><p>Target new vegans that haven't gone all-in on the vegan
+			lifestyle yet with a series of print ads.</p></div>
 
-					<div class="gap" style="height: 1vh;"></div>
+			<div class="gap"></div>
 
-					<h3>Get in touch</h3>
-					<p><a class="animsition-link" style="text-decoration: underline;" href="https://www.linkedin.com/in/andrew-l-thompson/">Linkedin</a></p>
-					<p><a class="animsition-link" style="text-decoration: underline;" href="mailto:me@andrewthompson.me?Subject=Hey!">Email</a></p>
-					<p><a class="animsition-link" style="text-decoration: underline;" href="https://www.instagram.com/andrew_thhompson/">Instagram</a></p>
+			<div class="magazine_container">
+				<img class="mag_1" src="img/bg.png" data-src="img/hello/1.jpg">
+				<img class="mag_2" src="img/bg.png" data-src="img/hello/2.jpg">
+			</div>
 
-					<div class="gap" style="height: 1vh;"></div>
+			<div class="gap"></div>
 
-					<h3>My life in a pdf</h3>
-					<p><a class="animsition-link" style="text-decoration: underline;" href="https://www.dropbox.com/s/2z1os37tprg1m54/Andrew%20Thompson%20Resume%20%E2%80%94%20April%202020.pdf?dl=0">View my Resume</a></p>
-			 </div>
+			<div class="magazine_container">
+				<img class="mag_1" src="img/bg.png" data-src="img/hello/3.jpg">
+				<img class="mag_2" src="img/bg.png" data-src="img/hello/4.jpg">
+			</div>
+
+			<div class="gap"></div>
+
+			<div class="info_header"><h2>Credits</h2></div>
+			<div class="info_p">
+				<p style="padding-top: 1.5%;"><b>Myself</b> &mdash; Art Direction & Copywriting</p>
+			</div>
+
+			<div class="gap"></div>
+			<div class="gap"></div>
+
+
+			<!-- <img class="small_image_right" src="img/bhddh/1.png"> -->
+			<!-- <div class="small_image_caption">
+				<h3>Wild Postings</h3>
+				<p>Hinging off of Jaden Smith's connection to the "hype" generation, teaser
+				concert posters will be wheatpasted throughout NYC, bringing attention both
+				Glen's Falls, NY and JUST Water.</p>
+			</div> -->
+
+			<script>
+				$(document).ready(function(){
+					$("img").unveil();
+						$(".animsition").animsition({
+							inClass: 'fade-in-up-sm',
+				    		outClass: 'fade-out-up-sm',
+							inDuration: 800,
+							outDuration: 800,
+							linkElement: '.animsition-link',
+							// e.g. linkElement: 'a:not([target="_blank"]):not([href^="#"])'
+							loading: true,
+							loadingParentElement: 'body', //animsition wrapper element
+							loadingClass: 'animsition-loading',
+							loadingInner: '', // e.g '<img src="loading.svg" />'
+							timeout: true,
+							timeoutCountdown: 200,
+							onLoadEvent: true,
+							browser: [ 'animation-duration', '-webkit-animation-duration'],
+							// "browser" option allows you to disable the "animsition" in case the css property in the array is not supported by your browser.
+							// The default setting is to disable the "animsition" in a browser that does not support "animation-duration".
+							overlay : false,
+							overlayClass : 'animsition-overlay-slide',
+							overlayParentElement : 'body',
+							transition: function(url){ window.location.href = url; }
+						// });
+					});
+				});
+			</script>
+
+
 		</div>
 	</div>
-
-	<script>
-		$(document).ready(function(){
-			$("img").unveil();
-			$(".animsition").animsition({
-				inClass: 'fade-in-up-sm',
-	    		outClass: 'fade-out-up-sm',
-				inDuration: 800,
-				outDuration: 800,
-				linkElement: '.animsition-link',
-				// e.g. linkElement: 'a:not([target="_blank"]):not([href^="#"])'
-				loading: true,
-				loadingParentElement: 'body', //animsition wrapper element
-				loadingClass: 'animsition-loading',
-				loadingInner: '', // e.g '<img src="loading.svg" />'
-				timeout: true,
-				timeoutCountdown: 2000,
-				onLoadEvent: true,
-				browser: [ 'animation-duration', '-webkit-animation-duration'],
-				// "browser" option allows you to disable the "animsition" in case the css property in the array is not supported by your browser.
-				// The default setting is to disable the "animsition" in a browser that does not support "animation-duration".
-				overlay : false,
-				overlayClass : 'animsition-overlay-slide',
-				overlayParentElement : 'body',
-				transition: function(url){ window.location.href = url; }
-			// });
-		});
-		});
-	</script>
 	</div>
 </body>
