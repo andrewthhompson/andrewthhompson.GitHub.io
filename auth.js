@@ -98,7 +98,7 @@ function authCheck (destURL, userEntry) {
       console.log("password blank");
       return false;
     }
-  } else if (checkCookie("authState") == "true") {
+  } else if (checkCookie("authState") == "true" || checkCookie("authState") == 1) {
     window.location.href = destURL;
     // return true;
     return true;
@@ -114,7 +114,7 @@ function authCheck (destURL, userEntry) {
 function authGate (destURL) {
   console.log("Auth state="+getCookie("authState")+"; Dest URL=" + destURL);
   if (!destURL) destURL = "index.html";
-  if (checkCookie("authState") == "true") {
+  if (checkCookie("authState") == "true" || checkCookie("authState") == 1) {
       console.log("redirecting");
       window.location.href = destURL;
   } else {
