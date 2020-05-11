@@ -80,29 +80,29 @@ function checkPWord (userEntry) {
 function authCheck (destURL, userEntry) {
   if (!destURL) destURL = "index.html";
   // console.log(destURL + " " + userEntry);
-  if (checkCookie("authState") == 1) {
+  if (checkCookie("authState") == false) {
     if (userEntry != "") {
       if (checkPWord (userEntry)) {
         // redirect to destURL
         console.log("password correct");
-        setCookie ("authState", 0, 1);
+        setCookie ("authState", true, 1);
         window.location.href = destURL;
         return 0;
       } else {
         console.log("password false");
-        return 1;
+        return false;
       }
     } else {
       console.log("password blank");
-      return 1;
+      return false;
     }
-  } else if (checkCookie("authState") == 0) {
+  } else if (checkCookie("authState") == true) {
     window.location.href = destURL;
     // return true;
-    return 0;
+    return true;
   } else {
     // console.log("cookie missing");
-    return 1;
+    return false;
     // on page, clear form entry and display text "Password Incorrect"
   }
 }
@@ -111,12 +111,12 @@ function authCheck (destURL, userEntry) {
 
 function authGate (destURL) {
   if (!destURL) destURL = "index.html";
-  if (checkCookie("authState") == 0) {
+  if (checkCookie("authState") == true) {
       console.log("redirecting");
       window.location.href = destURL;
   } else {
     // redirect to password page
-    setCookie ("authState", 1, 1);
+    setCookie ("authState", false, 1);
     setCookie ("destURL", destURL, 1);
     window.location.href = "password.html";
   }
