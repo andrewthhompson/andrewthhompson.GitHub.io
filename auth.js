@@ -82,7 +82,7 @@ function checkPWord (userEntry) {
 function authCheck (destURL, userEntry) {
   if (!destURL) destURL = "index.html";
   // console.log(destURL + " " + userEntry);
-  if (checkCookie("authState") == "false") {
+  if (checkCookie("authState") == "false" || checkCookie("authState") == 0) {
     if (userEntry != "") {
       if (checkPWord (userEntry)) {
         // redirect to destURL
