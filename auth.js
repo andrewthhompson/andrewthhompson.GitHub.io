@@ -68,6 +68,7 @@ function checkPWord (userEntry) {
     console.log("password correct");
     return true;
   } else {
+    console.log("password incorrect");
     return false;
   }
 }
