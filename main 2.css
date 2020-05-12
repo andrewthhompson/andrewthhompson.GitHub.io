@@ -604,6 +604,28 @@ a {
 }
 
 @media (max-width: 700px) {
+	#nav_bar {
+		width: 90vw;
+		padding-left: 5vw;
+		padding-right: 5vw;
+		padding-bottom: 3vw;
+		padding-top: 3vw;
+
+		display: grid;
+		grid-template-areas:
+			'logo space about';
+		grid-template-columns: 40vw 0 40vw;
+		grid-column-gap: 5vw;
+	}
+
+	#work {
+		display: none;
+	}
+
+	#about {
+		right: 0;
+	}
+
 	#post_container {
 		grid-template-columns: 1fr 1fr 0fr 0fr;
 		width: 90vw;
@@ -618,6 +640,7 @@ a {
 	#intro_container {
 		height: 40vw;
 		width: 90vw;
+		top: 2.5vh;
 	}
 
 	#page_container {
