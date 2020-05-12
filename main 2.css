@@ -645,6 +645,7 @@ a {
 
 	#page_container {
 		width: 90vw;
+		top: 5vh;
 		padding: 12vw 5vw 10vw 5vw;
 		position: absolute;
 		overflow: hidden;
