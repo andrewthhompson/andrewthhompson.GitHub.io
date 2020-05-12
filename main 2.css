@@ -172,8 +172,12 @@ a {
 
 @media (max-width: 700px) {
 	.label {
-		font-size: 3em;
+		font-size: 2em;
 		margin-top: 8vh;
+	}
+
+	.label_home {
+		margin-top: 0 !important;
 	}
 
 	#portfolio_container {
@@ -181,8 +185,8 @@ a {
 		position: relative;
 		left: 0;
 		width: 100%;
-		grid-template-rows: 40vw 40vw 40vw 40vw 40vw 40vw 40vw 40vw;
-		grid-template-columns: 75vw;
+		grid-template-rows: 50vw 50vw 50vw 50vw 50vw 50vw 50vw 50vw;
+		grid-template-columns: 90vw;
 		grid-template-areas:
 			'first'
 			'second'
@@ -602,10 +606,29 @@ a {
 @media (max-width: 700px) {
 	#post_container {
 		grid-template-columns: 1fr 1fr 0fr 0fr;
+		width: 90vw;
 	}
 
 	#intro_text {
-		font-size: 1em;
+		top: 20%;
+		/* width: 80%; */
+		font-size: .75em;
+	}
+
+	#intro_container {
+		height: 40vw;
+		width: 90vw;
+	}
+
+	#page_container {
+		width: 90vw;
+		padding: 12vw 5vw 10vw 5vw;
+		position: absolute;
+		overflow: hidden;
+	}
+
+	.portfolio {
+
 	}
 
 	.large_image {
